@@ -1,0 +1,6 @@
+Severity,Title,File,Line,Code,Details,CWE ID
+MEDIUM,Cleartext Transmission of Sensitive Information,ldapinjection.java,60,,Reading from an unencrypted socket is insecure - a man-in-the-middle attacker can tamper the messages. Consider using SSL sockets.,319
+MEDIUM,LDAP Injection,ldapinjection.java,129,,"Unsanitized input from data from a remote resource flows into search, where it is used as an LDAP query. This may result in an LDAP Injection vulnerability.",N/A
+MEDIUM,Use of a Broken or Risky Cryptographic Algorithm,embeddedmaliciouscode.java,37,,The ECB mode used in javax.crypto.Cipher.getInstance does not provide integrity. Consided using Galois/Counter Mode.,327
+MEDIUM,Use of a Broken or Risky Cryptographic Algorithm,embeddedmaliciouscode.java,37,,"Default AES/ECB algorithm (AES) used in javax.crypto.Cipher.getInstance may be insecure, because equal messages get encrypted to equal data. Consider using Galois/Counter Mode (algorithm AES/GCM/NoPadding).",327
+HIGH,Hardcoded Secret,embeddedmaliciouscode.java,39,,Hardcoded value string is used as a cipher key. Generate the value with a cryptographically strong random number generator such as java.security.SecureRandom instead.,N/A

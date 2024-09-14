@@ -1,0 +1,36 @@
+
+Testing C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Mapping_Conversion_V2\VulnerabilityScannerv4\CodeSample3 ...
+
+ ✗ [Medium] Cleartext Transmission of Sensitive Information 
+   Path: LDAPInjection.java, line 60 
+   Info: Reading from an unencrypted socket is insecure - a man-in-the-middle attacker can tamper the messages. Consider using SSL sockets.
+
+ ✗ [Medium] LDAP Injection 
+   Path: LDAPInjection.java, line 129 
+   Info: Unsanitized input from data from a remote resource flows into search, where it is used as an LDAP query. This may result in an LDAP Injection vulnerability.
+
+ ✗ [Medium] Use of a Broken or Risky Cryptographic Algorithm 
+   Path: EmbeddedMaliciousCode.java, line 37 
+   Info: The ECB mode used in javax.crypto.Cipher.getInstance does not provide integrity. Consided using Galois/Counter Mode.
+
+ ✗ [Medium] Use of a Broken or Risky Cryptographic Algorithm 
+   Path: EmbeddedMaliciousCode.java, line 37 
+   Info: Default AES/ECB algorithm (AES) used in javax.crypto.Cipher.getInstance may be insecure, because equal messages get encrypted to equal data. Consider using Galois/Counter Mode (algorithm AES/GCM/NoPadding).
+
+ ✗ [High] Hardcoded Secret 
+   Path: EmbeddedMaliciousCode.java, line 39 
+   Info: Hardcoded value string is used as a cipher key. Generate the value with a cryptographically strong random number generator such as java.security.SecureRandom instead.
+
+
+✔ Test completed
+
+Organization:      nikitataneja007
+Test type:         Static code analysis
+Project path:      C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Mapping_Conversion_V2\VulnerabilityScannerv4\CodeSample3
+
+Summary:
+
+  5 Code issues found
+  1 [High]   4 [Medium] 
+
+

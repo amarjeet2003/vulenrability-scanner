@@ -1,0 +1,82 @@
+An error occurred while running the scan
+Return code: 1
+Output:
+
+Testing D:\Tools\vulnado-master4\vulnado-master\src\main\java\com\scalesec\vulnado ...
+
+ ✗ [Low] Use of Password Hash With Insufficient Computational Effort 
+   Path: Postgres.java, line 67 
+   Info: The MD5 hash (used in java.security.MessageDigest.getInstance) is insecure. Consider changing it to a secure hash algorithm
+
+ ✗ [Medium] Origin Validation Error 
+   Path: LoginController.java, line 17 
+   Info: CORS policy "*" might be too permissive. This allows malicious code on other domains to communicate with the application, which is a security risk
+
+ ✗ [Medium] Origin Validation Error 
+   Path: CommentsController.java, line 16 
+   Info: CORS policy "*" might be too permissive. This allows malicious code on other domains to communicate with the application, which is a security risk
+
+ ✗ [Medium] Origin Validation Error 
+   Path: CommentsController.java, line 23 
+   Info: CORS policy "*" might be too permissive. This allows malicious code on other domains to communicate with the application, which is a security risk
+
+ ✗ [Medium] Origin Validation Error 
+   Path: CommentsController.java, line 29 
+   Info: CORS policy "*" might be too permissive. This allows malicious code on other domains to communicate with the application, which is a security risk
+
+ ✗ [Medium] Use of Hardcoded Credentials 
+   Path: Postgres.java, line 46 
+   Info: Do not hardcode passwords in code. Found hardcoded password used in here.
+
+ ✗ [Medium] Use of Hardcoded Credentials 
+   Path: Postgres.java, line 47 
+   Info: Do not hardcode passwords in code. Found hardcoded password used in here.
+
+ ✗ [Medium] Use of Hardcoded Credentials 
+   Path: Postgres.java, line 48 
+   Info: Do not hardcode passwords in code. Found hardcoded password used in here.
+
+ ✗ [Medium] Use of Hardcoded Credentials 
+   Path: Postgres.java, line 49 
+   Info: Do not hardcode passwords in code. Found hardcoded password used in here.
+
+ ✗ [Medium] Use of Hardcoded Credentials 
+   Path: Postgres.java, line 50 
+   Info: Do not hardcode passwords in code. Found hardcoded password used in here.
+
+ ✗ [High] Cross-site Scripting (XSS) 
+   Path: CowController.java, line 13 
+   Info: Unsanitized input from an HTTP parameter flows into here, where it is used to render an HTML page returned to the user. This may result in a Cross-Site Scripting attack (XSS).
+
+ ✗ [High] Server-Side Request Forgery (SSRF) 
+   Path: LinksController.java, line 17 
+   Info: Unsanitized input from an HTTP parameter flows into org.jsoup.Jsoup.connect, where it is used as an URL to perform a request. This may result in a Server-Side Request Forgery vulnerability.
+
+ ✗ [High] Server-Side Request Forgery (SSRF) 
+   Path: LinksController.java, line 21 
+   Info: Unsanitized input from an HTTP parameter flows into org.jsoup.Jsoup.connect, where it is used as an URL to perform a request. This may result in a Server-Side Request Forgery vulnerability.
+
+ ✗ [High] Command Injection 
+   Path: CowController.java, line 13 
+   Info: Unsanitized input from an HTTP parameter flows into command, where it is used as a shell command. This may result in a Command Injection vulnerability.
+
+ ✗ [High] SQL Injection 
+   Path: LoginController.java, line 20 
+   Info: Unsanitized input from an HTTP parameter flows into executeQuery, where it is used in an SQL query. This may result in an SQL Injection vulnerability.
+
+
+✔ Test completed
+
+Organization:      ashachinu920
+Test type:         Static code analysis
+Project path:      D:\Tools\vulnado-master4\vulnado-master\src\main\java\com\scalesec\vulnado
+
+Summary:
+
+  15 Code issues found
+  5 [High]   9 [Medium]   1 [Low] 
+
+
+
+Error:
+

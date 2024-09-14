@@ -1,0 +1,191 @@
+Language: Leaks
+Severity: CRITICAL
+Line: 17
+Column: 35
+SecurityTool: HorusecEngine
+Confidence: MEDIUM
+File: C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Snyk\vulnado-master\src\main\java\com\scalesec\vulnado\UnsafeQueryServlet.java
+Code: private static final String DB_PASSWORD = "password";
+RuleID: HS-LEAKS-26
+Type: Vulnerability
+ReferenceHash: 53ad41e1ce6442a27c9e5290c37418632ba6b8dd0e055e417f0d45e37e6df0e5
+Details: (1/1) * Possible vulnerability detected: Hard-coded password
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory.
+
+==================================================================================
+
+Language: Java
+Severity: HIGH
+Line: 23
+Column: 6
+SecurityTool: HorusecEngine
+Confidence: LOW
+File: C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Snyk\vulnado-master\src\main\java\com\scalesec\vulnado\Cowsay.java
+Code: } catch (Exception e) {
+RuleID: HS-JAVA-63
+Type: Vulnerability
+ReferenceHash: 3df8cea2f59b41a5faf3fa6b1b3c28691b7e122d30abda554bedf4c1d6528a1d
+Details: (1/1) * Possible vulnerability detected: Information Exposure Through An Error Message
+The sensitive information may be valuable information on its own (such as a password), or it may be useful for launching other, more deadly attacks. For more information checkout the CWE-209 (https://cwe.mitre.org/data/definitions/209.html) advisory.
+
+==================================================================================
+
+Language: Java
+Severity: HIGH
+Line: 57
+Column: 6
+SecurityTool: HorusecEngine
+Confidence: LOW
+File: C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Snyk\vulnado-master\src\main\java\com\scalesec\vulnado\User.java
+Code: } catch (Exception e) {
+RuleID: HS-JAVA-63
+Type: Vulnerability
+ReferenceHash: 20e51c74ff7248d03c3f305ba207fc5f49d99a2a15a89d67db4b0e6681b3d26d
+Details: (1/1) * Possible vulnerability detected: Information Exposure Through An Error Message
+The sensitive information may be valuable information on its own (such as a password), or it may be useful for launching other, more deadly attacks. For more information checkout the CWE-209 (https://cwe.mitre.org/data/definitions/209.html) advisory.
+
+==================================================================================
+
+Language: Java
+Severity: HIGH
+Line: 10
+Column: 7
+SecurityTool: HorusecEngine
+Confidence: LOW
+File: C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Snyk\vulnado-master\src\main\java\com\scalesec\vulnado\User.java
+Code: import javax.crypto.SecretKey;
+RuleID: HS-JAVA-123
+Type: Vulnerability
+ReferenceHash: 2d337a6186589fc0e197d73246fd58c6fa37593357d90aed28ddf0c788836ada
+Details: (1/1) * Possible vulnerability detected:  Crypto import
+ Crypto import
+
+==================================================================================
+
+Language: Java
+Severity: HIGH
+Line: 47
+Column: 22
+SecurityTool: HorusecEngine
+Confidence: LOW
+File: C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Snyk\vulnado-master\src\main\java\com\scalesec\vulnado\User.java
+Code: String query = "select * from users where username = '" + un + "' limit 1";
+RuleID: HS-JAVA-134
+Type: Vulnerability
+ReferenceHash: f93aeafd9866584e8de8d195173f28231f0243dc40a1836cb2a7c15403a184ec
+Details: (1/1) * Possible vulnerability detected: SQL Injection
+The input values included in SQL queries need to be passed in safely. Bind variables in prepared statements can be used to easily mitigate the risk of SQL injection. Alternatively to prepare statements, each parameter can be escaped manually. For more information checkout the CWE-89 (https://cwe.mitre.org/data/definitions/89.html) advisory.
+
+==================================================================================
+
+Language: Java
+Severity: HIGH
+Line: 21
+Column: 36
+SecurityTool: HorusecEngine
+Confidence: LOW
+File: C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Snyk\vulnado-master\src\main\java\com\scalesec\vulnado\LoginController.java
+Code: if (Postgres.md5(input.password).equals(user.hashedPassword)) {
+RuleID: HS-JAVA-145
+Type: Vulnerability
+ReferenceHash: 3b59914bd6098479bd5ec2963705f658f6ec332e7ca92671a058d1b2a1ae5cf4
+Details: (1/1) * Possible vulnerability detected: Unsafe hash equals
+An attacker might be able to detect the value of the secret hash due to the exposure of comparison timing. When the functions Arrays.equals() or String.equals() are called, they will exit earlier if fewer bytes are matched. For more information checkout the CWE-704 (https://cwe.mitre.org/data/definitions/704.html) advisory.
+
+==================================================================================
+
+Language: Java
+Severity: HIGH
+Line: 48
+Column: 10
+SecurityTool: HorusecEngine
+Confidence: LOW
+File: C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Snyk\vulnado-master\src\main\java\com\scalesec\vulnado\UnsafeQueryServlet.java
+Code: } catch (Exception e) {
+RuleID: HS-JAVA-63
+Type: Vulnerability
+ReferenceHash: ffb693e03f156426ade8bf928f1ce5f1722fdcc0c543ee7eada27d06b61ae39e
+Details: (1/1) * Possible vulnerability detected: Information Exposure Through An Error Message
+The sensitive information may be valuable information on its own (such as a password), or it may be useful for launching other, more deadly attacks. For more information checkout the CWE-209 (https://cwe.mitre.org/data/definitions/209.html) advisory.
+
+==================================================================================
+
+Language: Java
+Severity: HIGH
+Line: 35
+Column: 28
+SecurityTool: HorusecEngine
+Confidence: LOW
+File: C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Snyk\vulnado-master\src\main\java\com\scalesec\vulnado\UnsafeQueryServlet.java
+Code: t FROM Users WHERE (username = '" + username + "' AND NOT role = 'admin')";
+RuleID: HS-JAVA-134
+Type: Vulnerability
+ReferenceHash: 05a953767d4f29c979ef5144bd55a5d6614daa99e3e4146e684a292129344500
+Details: (1/1) * Possible vulnerability detected: SQL Injection
+The input values included in SQL queries need to be passed in safely. Bind variables in prepared statements can be used to easily mitigate the risk of SQL injection. Alternatively to prepare statements, each parameter can be escaped manually. For more information checkout the CWE-89 (https://cwe.mitre.org/data/definitions/89.html) advisory.
+
+==================================================================================
+
+Language: Java
+Severity: HIGH
+Line: 24
+Column: 10
+SecurityTool: HorusecEngine
+Confidence: LOW
+File: C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Snyk\vulnado-master\src\main\java\com\scalesec\vulnado\Postgres.java
+Code: } catch (Exception e) {
+RuleID: HS-JAVA-63
+Type: Vulnerability
+ReferenceHash: 634f4eee91ac837010f46eb7224f72db4a1be25a454be328a7bc3a9945c6977f
+Details: (1/1) * Possible vulnerability detected: Information Exposure Through An Error Message
+The sensitive information may be valuable information on its own (such as a password), or it may be useful for launching other, more deadly attacks. For more information checkout the CWE-209 (https://cwe.mitre.org/data/definitions/209.html) advisory.
+
+==================================================================================
+
+Language: Java
+Severity: HIGH
+Line: 67
+Column: 31
+SecurityTool: HorusecEngine
+Confidence: LOW
+File: C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Snyk\vulnado-master\src\main\java\com\scalesec\vulnado\Postgres.java
+Code: MessageDigest md = MessageDigest.getInstance("MD5");
+RuleID: HS-JAVA-111
+Type: Vulnerability
+ReferenceHash: f081e76d1fc5e446c580e053f2d6f2f02d8eebedcedf926d90e50aeaba2f976d
+Details: (1/1) * Possible vulnerability detected: Weak Cryptographic Hash Function used
+Using a weak CHF pose a threat to your application security since it can be vulnerable to a number of attacks that could lead to data leaking, improper access of features and resources of your infrastructure and even rogue sessions. For more information checkout the CWE-327 (https://cwe.mitre.org/data/definitions/327.html) advisory.
+
+==================================================================================
+
+Language: Java
+Severity: HIGH
+Line: 31
+Column: 6
+SecurityTool: HorusecEngine
+Confidence: LOW
+File: C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Snyk\vulnado-master\src\main\java\com\scalesec\vulnado\Comment.java
+Code: } catch (Exception e) {
+RuleID: HS-JAVA-63
+Type: Vulnerability
+ReferenceHash: c52215559b49bb29b7356518b8e533b6f45718691827139a17606e11e86e8ea3
+Details: (1/1) * Possible vulnerability detected: Information Exposure Through An Error Message
+The sensitive information may be valuable information on its own (such as a password), or it may be useful for launching other, more deadly attacks. For more information checkout the CWE-209 (https://cwe.mitre.org/data/definitions/209.html) advisory.
+
+==================================================================================
+
+In this analysis, a total of 11 possible vulnerabilities were found and we classified them into:
+Total of Vulnerability CRITICAL is: 1
+Total of Vulnerability HIGH is: 10
+
+==================================================================================
+
+
+time="2024-08-09T12:39:56+05:30" level=warning msg="{HORUSEC_CLI} No authorization token was found, your code it is not going to be sent to horusec. Please enter a token with the -a flag to configure and save your analysis"
+
+time="2024-08-09T12:39:56+05:30" level=warning msg="{HORUSEC_CLI} 11 VULNERABILITIES WERE FOUND IN YOUR CODE SENT TO HORUSEC, TO SEE MORE DETAILS USE THE LOG LEVEL AS DEBUG AND TRY AGAIN"
+
+time="2024-08-09T12:39:56+05:30" level=warning msg="{HORUSEC_CLI} Horusec not show info vulnerabilities in this analysis, to see info vulnerabilities add option \"--information-severity=true\". For more details use (horusec start --help) command."
+
+STDERR:
+time="2024-08-09T12:39:56+05:30" level=warning msg="{HORUSEC_CLI} Config file not found"

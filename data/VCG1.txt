@@ -1,0 +1,69 @@
+POTENTIAL ISSUE: Potentially Unsafe Code - Public Class Not Declared as Final
+Line: 4 - C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Mapping_Conversion_V2\CodeSample\CommandInjection.java
+The class is not declared as final as per OWASP recommendations. It is considered best practice to make classes final where possible and practical (i.e. It has no classes which inherit from it). Non-Final classes can allow an attacker to extend a class in a malicious manner. Manually inspect the code to determine whether or not it is practical to make this class final.
+public class CommandInjection {
+
+HIGH: Potentially Unsafe Code - java.lang.Runtime.exec Gets Path from Variable
+Line: 10 - C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Mapping_Conversion_V2\CodeSample\CommandInjection.java
+The pathname used in the call appears to be loaded from a variable. Check the code manually to ensure that malicious filenames cannot be submitted by an attacker.
+            Process process = Runtime.getRuntime().exec(command);
+
+POTENTIAL ISSUE: Potentially Unsafe Code - Public Class Not Declared as Final
+Line: 1 - C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Mapping_Conversion_V2\CodeSample\HardcodedCredentials.java
+The class is not declared as final as per OWASP recommendations. It is considered best practice to make classes final where possible and practical (i.e. It has no classes which inherit from it). Non-Final classes can allow an attacker to extend a class in a malicious manner. Manually inspect the code to determine whether or not it is practical to make this class final.
+public class HardcodedCredentials {
+
+SUSPICIOUS COMMENT: Comment Indicates Potentially Unfinished Code - 
+ Line: 2 - C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Mapping_Conversion_V2\CodeSample\HardcodedCredentials.java
+Hardcoded username
+
+SUSPICIOUS COMMENT: Comment Indicates Potentially Unfinished Code - 
+ Line: 3 - C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Mapping_Conversion_V2\CodeSample\HardcodedCredentials.java
+Hardcoded password
+
+MEDIUM: Potentially Unsafe Code - Code Appears to Contain Hard-Coded Password
+Line: 3 - C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Mapping_Conversion_V2\CodeSample\HardcodedCredentials.java
+The code may contain a hard-coded password which an attacker could obtain from the source or by dis-assembling the executable. Please manually review the code:
+private static final String PASSWORD = "password123";
+
+POTENTIAL ISSUE: Potentially Unsafe Code - Public Class Not Declared as Final
+Line: 3 - C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Mapping_Conversion_V2\CodeSample\SensitiveDataExposure.java
+The class is not declared as final as per OWASP recommendations. It is considered best practice to make classes final where possible and practical (i.e. It has no classes which inherit from it). Non-Final classes can allow an attacker to extend a class in a malicious manner. Manually inspect the code to determine whether or not it is practical to make this class final.
+public class SensitiveDataExposure {
+
+POTENTIAL ISSUE: Potentially Unsafe Code - Public Class Not Declared as Final
+Line: 6 - C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Mapping_Conversion_V2\CodeSample\SQLInjection.java
+The class is not declared as final as per OWASP recommendations. It is considered best practice to make classes final where possible and practical (i.e. It has no classes which inherit from it). Non-Final classes can allow an attacker to extend a class in a malicious manner. Manually inspect the code to determine whether or not it is practical to make this class final.
+public class SQLInjection {
+
+MEDIUM: Potentially Unsafe Code - Code Appears to Contain Hard-Coded Password
+Line: 9 - C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Mapping_Conversion_V2\CodeSample\SQLInjection.java
+The code may contain a hard-coded password which an attacker could obtain from the source or by dis-assembling the executable. Please manually review the code:
+String password = "password123";
+
+CRITICAL: Potentially Unsafe Code - Potential SQL Injection
+Line: 15 - C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Mapping_Conversion_V2\CodeSample\SQLInjection.java
+The application appears to allow SQL injection via a pre-prepared dynamic SQL statement. No validator plug-ins were located in the application's XML files.
+            ResultSet rs = stmt.executeQuery(query);
+
+POTENTIAL ISSUE: Potentially Unsafe Code - Public Class Not Declared as Final
+Line: 4 - C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Mapping_Conversion_V2\CodeSample\UnvalidatedRedirect.java
+The class is not declared as final as per OWASP recommendations. It is considered best practice to make classes final where possible and practical (i.e. It has no classes which inherit from it). Non-Final classes can allow an attacker to extend a class in a malicious manner. Manually inspect the code to determine whether or not it is practical to make this class final.
+public class UnvalidatedRedirect {
+
+HIGH: Potentially Unsafe Code - Poor Input Validation
+Line: 6 - C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Mapping_Conversion_V2\CodeSample\UnvalidatedRedirect.java
+The application appears to use data contained in the HttpServletRequest without validation or sanitisation. No validator plug-ins were located in the application's XML files.
+String redirectUrl = request.getParameter("redirectUrl");
+
+POTENTIAL ISSUE: Potentially Unsafe Code - Public Class Not Declared as Final
+Line: 4 - C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Mapping_Conversion_V2\CodeSample\WeakHashing.java
+The class is not declared as final as per OWASP recommendations. It is considered best practice to make classes final where possible and practical (i.e. It has no classes which inherit from it). Non-Final classes can allow an attacker to extend a class in a malicious manner. Manually inspect the code to determine whether or not it is practical to make this class final.
+public class WeakHashing {
+
+MEDIUM: Potentially Unsafe Code - Code Appears to Contain Hard-Coded Password
+Line: 6 - C:\Users\Z004H61R\Downloads\Mapping_Conversion_V2\Mapping_Conversion_V2\CodeSample\WeakHashing.java
+The code may contain a hard-coded password which an attacker could obtain from the source or by dis-assembling the executable. Please manually review the code:
+        String password = "password123";
+
+

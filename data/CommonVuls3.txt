@@ -1,0 +1,88 @@
+For EmbeddedMaliciousCode.java File:
+Snyk :
+   	✗ [Medium] Use of a Broken or Risky Cryptographic Algorithm 
+   	Path: EmbeddedMaliciousCode.java, line 37 
+   	Info: The ECB mode used in javax.crypto.Cipher.getInstance does not provide integrity. Consided using Galois/Counter Mode.
+ 
+Horusec : 
+	Language: Java
+	Severity: [HIGH]
+	Line: 37
+	Column: 31
+	SecurityTool: HorusecEngine
+	Confidence: LOW
+	File: D:\Tools\MoreJavaSamples\First5\EmbeddedMaliciousCode.java
+	Code: Cipher aesCipher = Cipher.getInstance("AES");
+	RuleID: HS-JAVA-110
+	Type: Vulnerability
+	ReferenceHash: 7ab1f78af300c66f247eaecadd21fd0369c69e4c4cbe0bfbf5e261352642cdba
+	Details: (1/1) * Possible vulnerability detected: Weak block mode for Cryptographic Hash Function
+	A weak ECB, (a.k.a 'block mode') was found in one of your Ciphers. Always use a strong, high entropy hash, for example the SHA-512 with salt options. For more information check CWE-327 (https://cwe.mitre.org/data/definitions/327.html), CWE-719 (https://cwe.mitre.org/data/definitions/719.html), CWE-326 (https://cwe.mitre.org/data/definitions/326.html) and CWE-780 (https://cwe.mitre.org/data/definitions/780.html) for deeper details on how to fix it.
+ 
+ 
+For EmbeddedMaliciousCode.java File:
+ 
+Snyk : 
+	 ✗ [High] Hardcoded Secret 
+   	Path: EmbeddedMaliciousCode.java, line 39 
+   	Info: Hardcoded value string is used as a cipher key. Generate the value with a cryptographically strong random number generator such as java.security.SecureRandom instead.
+
+ 
+Horusec : 
+	Language: Leaks
+	Severity: [CRITICAL]
+	Line: 39
+	Column: 46
+	SecurityTool: HorusecEngine
+	Confidence: MEDIUM
+	File: D:\Tools\MoreJavaSamples\First5\EmbeddedMaliciousCode.java
+	Code: SecretKeySpec secretKeySpec = new SecretKeySpec("ABCDEFGHABCDEFGH".getBytes("UTF-8"), "AES");
+	RuleID: HS-LEAKS-25
+	Type: Vulnerability
+	ReferenceHash: 3287328d37ff2b5386c61a61c5c7c8de9928fc3eb4ac655045c3de9e32e05819
+	Details: (1/1) * Possible vulnerability detected: Potential Hard-coded credential
+	The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory.
+
+For LDAPInjection.javaFile:
+Snyk :
+   	✗ [Medium] Cleartext Transmission of Sensitive Information 
+   	Path: LDAPInjection.java, line 60 
+   	Info: Reading from an unencrypted socket is insecure - a man-in-the-middle attacker can tamper the messages. Consider using SSL sockets.
+ 
+Horusec : 
+	Language: Java
+	Severity: LOW
+	Line: 58
+	Column: 29
+	SecurityTool: HorusecEngine
+	Confidence: LOW
+	File: D:\Tools\MoreJavaSamples\Third5\LDAPInjection.java
+	Code: socket = new Socket("host.example.org", 39544);
+	RuleID: HS-JAVA-41
+	Type: Vulnerability
+	ReferenceHash: 0cdc6066b73bc411259df7dd38293219bfadd1a722a34e9ccd17944f8c179cc9
+	Details: (1/1) * Possible vulnerability detected: TCP Socket
+	TCP Socket
+
+For LDAPInjection.javaFile:
+Snyk : 
+	✗ [Medium] LDAP Injection 
+   	Path: LDAPInjection.java, line 129 
+   	Info: Unsanitized input from data from a remote resource flows into search, where it is used as an LDAP query. This may result in an LDAP Injection vulnerability.
+ 
+Horusec : 
+	Language: Java
+	Severity: HIGH
+	Line: 129
+	Column: 70
+	SecurityTool: HorusecEngine
+	Confidence: LOW
+	File: D:\Tools\MoreJavaSamples\Third5\LDAPInjection.java
+	Code: NamingEnumeration<SearchResult> answer = directoryContext.search("", search, null);
+	RuleID: HS-JAVA-141
+	Type: Vulnerability
+	ReferenceHash: cf130c3e326367d8cbeb53259a61087d46ff2a8a528b21dad1040ec76f868b1d
+	Details: (1/1) * Possible vulnerability detected: Potential LDAP Injection
+	Just like SQL, all inputs passed to an LDAP query need to be passed in safely. Unfortunately, LDAP doesn't have prepared statement interfaces like SQL. Therefore, the primary defense against LDAP injection is strong input validation of any untrusted data before including it in an LDAP query. For more information checkout the CWE-90 (https://cwe.mitre.org/data/definitions/90.html) advisory.
+
+
