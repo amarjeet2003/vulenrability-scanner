@@ -1,0 +1,27 @@
+Severity,Title,File,Line,Code,Details,CWE ID
+CRITICAL,Unsanitized external input in SQL query,user.java,49,ResultSet rs = stmt.executeQuery(query);,,N/A
+MEDIUM,Observable Timing Discrepancy,logincontroller.java,21,if (Postgres.md5(input.password).equals(user.hashedPassword)) {,,208
+LOW,Leakage of sensitive information in exception message,comment.java,55,e.printStackTrace();,,N/A
+LOW,Leakage of sensitive information in exception message,comment.java,70,e.printStackTrace();,,N/A
+LOW,Leakage of sensitive information in exception message,cowsay.java,24,e.printStackTrace();,,N/A
+LOW,Leakage of sensitive information in exception message,postgres.java,25,e.printStackTrace();,,N/A
+LOW,Leakage of sensitive information in exception message,postgres.java,100,e.printStackTrace();,,N/A
+LOW,Leakage of sensitive information in exception message,postgres.java,114,e.printStackTrace();,,N/A
+LOW,Leakage of sensitive information in exception message,user.java,34,e.printStackTrace();,,N/A
+LOW,Leakage of sensitive information in exception message,user.java,58,e.printStackTrace();,,N/A
+CRITICAL,Usage of hard-coded database password,unsafequeryservlet.java,29,"connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);",,N/A
+CRITICAL,Unsanitized external input in SQL query,unsafequeryservlet.java,41,result = statement.executeQuery(query);,,N/A
+CRITICAL,Unsanitized external input in SQL query,user.java,49,ResultSet rs = stmt.executeQuery(query);,,N/A
+MEDIUM,Observable Timing Discrepancy,logincontroller.java,21,if (Postgres.md5(input.password).equals(user.hashedPassword)) {,,208
+LOW,Leakage of sensitive information in exception message,comment.java,55,e.printStackTrace();,,N/A
+LOW,Leakage of sensitive information in exception message,comment.java,70,e.printStackTrace();,,N/A
+LOW,Leakage of sensitive information in exception message,cowsay.java,24,e.printStackTrace();,,N/A
+LOW,Leakage of sensitive information in exception message,postgres.java,25,e.printStackTrace();,,N/A
+LOW,Leakage of sensitive information in exception message,postgres.java,100,e.printStackTrace();,,N/A
+LOW,Leakage of sensitive information in exception message,postgres.java,114,e.printStackTrace();,,N/A
+LOW,Leakage of sensitive information in exception message,unsafequeryservlet.java,49,e.printStackTrace();,,N/A
+LOW,Leakage of sensitive information in exception message,unsafequeryservlet.java,52,try { if (result != null) result.close(); } catch (Exception e) { e.printStackTrace(); },,N/A
+LOW,Leakage of sensitive information in exception message,unsafequeryservlet.java,53,try { if (statement != null) statement.close(); } catch (Exception e) { e.printStackTrace(); },,N/A
+LOW,Leakage of sensitive information in exception message,unsafequeryservlet.java,54,try { if (connection != null) connection.close(); } catch (Exception e) { e.printStackTrace(); },,N/A
+LOW,Leakage of sensitive information in exception message,user.java,34,e.printStackTrace();,,N/A
+LOW,Leakage of sensitive information in exception message,user.java,58,e.printStackTrace();,,N/A
