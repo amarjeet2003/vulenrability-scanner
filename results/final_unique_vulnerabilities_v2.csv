@@ -22,7 +22,7 @@ POTENTIAL ISSUE,Public Class Not Declared as Final,missingpasswordmasking.java,2
 POTENTIAL ISSUE,Public Class Not Declared as Final,nonserializableinsession.java,28,public class CWE579_Non_Serializable_in_Session__Servlet_01 extends AbstractTestCaseServlet,The class is not declared as final as per OWASP recommendations. It is considered best practice to make classes final where possible and practical (i.e. It has no classes which inherit from it). Non-Final classes can allow an attacker to extend a class in a malicious manner. Manually inspect the code to determine whether or not it is practical to make this class final.,,VCG
 STANDARD,Class Contains Public Variable: badString,nonserializableinsession.java,34,"public String badString = ""Bad"";","The class variable may be accessed and modified by other classes without the use of getter/setter methods. It is considered unsafe to have public fields or methods in a class unless required as any method, field, or class that is not private is a potential avenue of attack. It is safer to provide accessor methods to variables in order to limit their accessibility.",,VCG
 STANDARD,Class Contains Public Variable: goodString,nonserializableinsession.java,40,"public String goodString = ""Good"";","The class variable may be accessed and modified by other classes without the use of getter/setter methods. It is considered unsafe to have public fields or methods in a class unless required as any method, field, or class that is not private is a potential avenue of attack. It is safer to provide accessor methods to variables in order to limit their accessibility.",,VCG
-MEDIUM,Cleartext Transmission of Sensitive Information,ldapinjection.java,60,,Reading from an unencrypted socket is insecure - a man-in-the-middle attacker can tamper the messages. Consider using SSL sockets.,319.0,Snyk
+MEDIUM,Cleartext Transmission of Sensitive Information,ldapinjection.java,60,,Reading from an unencrypted socket is insecure - a man-in-the-middle attacker can tamper the messages. Consider using SSL sockets.,CWE-319,Snyk
 ,,cowcontroller.java,11,"@[1m[24mRequestMapping[0m(value = ""/cowsay"")",Detected a method annotated with 'RequestMapping' that does not specify the HTTP method.,,Semgrep
 ,,cowsay.java,11,"[1m[24mprocessBuilder.command(""bash"", ""-c"", cmd)[0m;",A formatted or concatenated string was detected as input to a ProcessBuilder call. This is,,Semgrep
 ,,linkscontroller.java,19,"@[1m[24mRequestMapping[0m(value = ""/links-v2"", produces = ""application/json"")",Detected a method annotated with 'RequestMapping' that does not specify the HTTP method.,,Semgrep
@@ -30,7 +30,7 @@ MEDIUM,Cleartext Transmission of Sensitive Information,ldapinjection.java,60,,Re
 ,,unsafequeryservlet.java,46,"[1m[24mresponse.getWriter().println(""Secret: "" + secret)[0m;",Detected a request with potential user-input going into a OutputStream or Writer object.,,Semgrep
 ,,user.java,49,ResultSet rs = [1m[24mstmt.executeQuery(query)[0m;,Detected a formatted string in a SQL statement. This could lead to SQL injection if,,Semgrep
 CRITICAL,Unsanitized external input in SQL query,user.java,49,ResultSet rs = stmt.executeQuery(query);,,,Bearer
-MEDIUM,Observable Timing Discrepancy,logincontroller.java,21,if (Postgres.md5(input.password).equals(user.hashedPassword)) {,,208.0,Bearer
+MEDIUM,Observable Timing Discrepancy,logincontroller.java,21,if (Postgres.md5(input.password).equals(user.hashedPassword)) {,,CWE-208,Bearer
 LOW,Leakage of sensitive information in exception message,comment.java,55,e.printStackTrace();,,,Bearer
 LOW,Leakage of sensitive information in exception message,comment.java,70,e.printStackTrace();,,,Bearer
 LOW,Leakage of sensitive information in exception message,cowsay.java,24,e.printStackTrace();,,,Bearer
@@ -42,7 +42,7 @@ LOW,Leakage of sensitive information in exception message,user.java,58,e.printSt
 CRITICAL,Usage of hard-coded database password,unsafequeryservlet.java,29,"connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);",,,Bearer
 CRITICAL,Unsanitized external input in SQL query,unsafequeryservlet.java,41,result = statement.executeQuery(query);,,,Bearer
 CRITICAL,Unsanitized external input in SQL query,user.java,49,ResultSet rs = stmt.executeQuery(query);,,,Bearer
-MEDIUM,Observable Timing Discrepancy,logincontroller.java,21,if (Postgres.md5(input.password).equals(user.hashedPassword)) {,,208.0,Bearer
+MEDIUM,Observable Timing Discrepancy,logincontroller.java,21,if (Postgres.md5(input.password).equals(user.hashedPassword)) {,,CWE-208,Bearer
 LOW,Leakage of sensitive information in exception message,comment.java,55,e.printStackTrace();,,,Bearer
 LOW,Leakage of sensitive information in exception message,comment.java,70,e.printStackTrace();,,,Bearer
 LOW,Leakage of sensitive information in exception message,cowsay.java,24,e.printStackTrace();,,,Bearer

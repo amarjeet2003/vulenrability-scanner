@@ -230,8 +230,8 @@ def map_cwe_ids(excel_path):
     sheet = wb.active
 
     for row in sheet.iter_rows(min_row=2, values_only=True):
-        cwe_id, name, description = row
-        cwe_map[name.strip().lower()] = cwe_id  # Store as lowercase for easier matching
+        rule_name, cwe_id = row
+        cwe_map[rule_name.strip().lower()] = cwe_id  # Store as lowercase for easier matching
 
     return cwe_map
 

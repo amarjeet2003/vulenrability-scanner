@@ -17,7 +17,7 @@ def main():
     horusec_report_path = 'data/Horusec_new.txt'
     vcg_report_path = 'data/VCG_new.txt'
     snyk_report_path = 'data/snyk_new.txt'
-    excel_cwe_path = 'data/desired_CWE.xlsx'
+    excel_cwe_path = 'data/snyk_code_security_rules.xlsx'
     semgrep_report_path = 'data/Semgrep_output.txt'
     bearer_report_path = 'data/Bearer_result.txt'
 

@@ -71,6 +71,7 @@ def find_common_entries(sources):
                         matched_entry[f'Code_{other_source_name}'] = other_row['Code']
                         matched_entry[f'Title_{other_source_name}'] = other_row['Title']
                         matched_entry[f'Details_{other_source_name}'] = other_row['Details']
+                        matched_entry[f'CWE ID_{other_source_name}'] = other_row['CWE ID']
                         is_common = True
                         break
             else:
@@ -79,6 +80,7 @@ def find_common_entries(sources):
                 matched_entry[f'Code_{other_source_name}'] = None
                 matched_entry[f'Title_{other_source_name}'] = None
                 matched_entry[f'Details_{other_source_name}'] = None
+                matched_entry[f'CWE ID_{other_source_name}'] = None
 
         if is_common:
             common_entries.append(matched_entry)

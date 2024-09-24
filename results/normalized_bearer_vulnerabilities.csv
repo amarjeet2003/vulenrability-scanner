@@ -1,6 +1,6 @@
 Severity,Title,File,Line,Code,Details,CWE ID
 CRITICAL,Unsanitized external input in SQL query,user.java,49,ResultSet rs = stmt.executeQuery(query);,,N/A
-MEDIUM,Observable Timing Discrepancy,logincontroller.java,21,if (Postgres.md5(input.password).equals(user.hashedPassword)) {,,208
+MEDIUM,Observable Timing Discrepancy,logincontroller.java,21,if (Postgres.md5(input.password).equals(user.hashedPassword)) {,,CWE-208
 LOW,Leakage of sensitive information in exception message,comment.java,55,e.printStackTrace();,,N/A
 LOW,Leakage of sensitive information in exception message,comment.java,70,e.printStackTrace();,,N/A
 LOW,Leakage of sensitive information in exception message,cowsay.java,24,e.printStackTrace();,,N/A
@@ -12,7 +12,7 @@ LOW,Leakage of sensitive information in exception message,user.java,58,e.printSt
 CRITICAL,Usage of hard-coded database password,unsafequeryservlet.java,29,"connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);",,N/A
 CRITICAL,Unsanitized external input in SQL query,unsafequeryservlet.java,41,result = statement.executeQuery(query);,,N/A
 CRITICAL,Unsanitized external input in SQL query,user.java,49,ResultSet rs = stmt.executeQuery(query);,,N/A
-MEDIUM,Observable Timing Discrepancy,logincontroller.java,21,if (Postgres.md5(input.password).equals(user.hashedPassword)) {,,208
+MEDIUM,Observable Timing Discrepancy,logincontroller.java,21,if (Postgres.md5(input.password).equals(user.hashedPassword)) {,,CWE-208
 LOW,Leakage of sensitive information in exception message,comment.java,55,e.printStackTrace();,,N/A
 LOW,Leakage of sensitive information in exception message,comment.java,70,e.printStackTrace();,,N/A
 LOW,Leakage of sensitive information in exception message,cowsay.java,24,e.printStackTrace();,,N/A
