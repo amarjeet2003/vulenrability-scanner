@@ -208,7 +208,7 @@ def parse_bearer_report(report_path):
 
         if vulnerability:
             vulnerabilities.append(vulnerability)  # Append the last vulnerability if it exists
-
+    print("Bearer Report:", vulnerabilities)
     return vulnerabilities
 
 

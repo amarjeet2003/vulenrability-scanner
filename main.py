@@ -14,12 +14,12 @@ from scripts.common_parsing import find_common_entries, find_unique_entries
 
 def main():
     # Paths to the reports
-    horusec_report_path = 'data/Horusec_new.txt'
-    vcg_report_path = 'data/VCG_new.txt'
-    snyk_report_path = 'data/snyk_new.txt'
+    horusec_report_path = 'data/Horusec-260924.txt'
+    vcg_report_path = 'data/VCG-260924.txt'
+    snyk_report_path = 'data/snyk-260924.txt'
     excel_cwe_path = 'data/snyk_code_security_rules.xlsx'
-    semgrep_report_path = 'data/Semgrep_output.txt'
-    bearer_report_path = 'data/Bearer_result.txt'
+    semgrep_report_path = 'data/Semgrep-260924.txt'
+    bearer_report_path = 'data/Bearer-260924.txt'
 
     # Parse and normalize the reports
     horusec_vulnerabilities = parse_horusec_report(horusec_report_path)
