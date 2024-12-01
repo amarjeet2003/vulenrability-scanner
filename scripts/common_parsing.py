@@ -97,11 +97,25 @@ def find_unique_entries(sources, common_entries):
         for _, row in df.iterrows():
             file_name = row['File']
             is_common = False
-            # Check if the entry is common
+
+            # Check if the entry is common by comparing with common_entries
             for _, common_row in common_entries.iterrows():
-                if (file_name == common_row['File']) and is_similar(row['Details'], common_row[f'Details_{source_name}']):
-                    is_common = True
-                    break
+                if file_name == common_row['File']:
+                    # Check if the Details columns exist for the source in common_entries
+                    common_details_column = f'Details_{source_name}'
+                    if common_details_column in common_row:
+                        # Handle NaN/empty values in Details before checking similarity
+                        if pd.notna(row['Details']) and pd.notna(common_row[common_details_column]):
+                            if is_similar(row['Details'], common_row[common_details_column]):
+                                is_common = True
+                                break
+                        else:
+                            # Handle missing or NaN Details, consider these entries as common
+                            if pd.isna(row['Details']) and pd.isna(common_row[common_details_column]):
+                                is_common = True
+                                break
+
+            # If not a common entry, add it as unique to the source
             if not is_common:
                 row['Source'] = source_name
                 unique_entries.append(row)

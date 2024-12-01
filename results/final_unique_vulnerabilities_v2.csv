@@ -1,61 +1,198 @@
 Severity,Title,File,Line,Code,Details,CWE ID,Source
-HIGH,Information Exposure Through An Error Message,cowsay.java,23,} catch (Exception e) {,"Information Exposure Through An Error Message The sensitive information may be valuable information on its own (such as a password), or it may be useful for launching other, more deadly attacks. For more information checkout the CWE-209 (https://cwe.mitre.org/data/definitions/209.html) advisory.",,Horusec
-HIGH,Information Exposure Through An Error Message,user.java,57,} catch (Exception e) {,"Information Exposure Through An Error Message The sensitive information may be valuable information on its own (such as a password), or it may be useful for launching other, more deadly attacks. For more information checkout the CWE-209 (https://cwe.mitre.org/data/definitions/209.html) advisory.",,Horusec
-HIGH,Crypto import,user.java,10,import javax.crypto.SecretKey;,Crypto import Crypto import,,Horusec
-HIGH,Information Exposure Through An Error Message,comment.java,31,} catch (Exception e) {,"Information Exposure Through An Error Message The sensitive information may be valuable information on its own (such as a password), or it may be useful for launching other, more deadly attacks. For more information checkout the CWE-209 (https://cwe.mitre.org/data/definitions/209.html) advisory.",,Horusec
-POTENTIAL ISSUE,Public Class Not Declared as Final,comment.java,10,public class Comment {,The class is not declared as final as per OWASP recommendations. It is considered best practice to make classes final where possible and practical (i.e. It has no classes which inherit from it). Non-Final classes can allow an attacker to extend a class in a malicious manner. Manually inspect the code to determine whether or not it is practical to make this class final.,,VCG
-STANDARD,Class Contains Public Variable: body,comment.java,11,"public String id, username, body;","The class variable may be accessed and modified by other classes without the use of getter/setter methods. It is considered unsafe to have public fields or methods in a class unless required as any method, field, or class that is not private is a potential avenue of attack. It is safer to provide accessor methods to variables in order to limit their accessibility.",,VCG
-STANDARD,Class Contains Public Variable: created_on,comment.java,12,public Timestamp created_on;,"The class variable may be accessed and modified by other classes without the use of getter/setter methods. It is considered unsafe to have public fields or methods in a class unless required as any method, field, or class that is not private is a potential avenue of attack. It is safer to provide accessor methods to variables in order to limit their accessibility.",,VCG
-POTENTIAL ISSUE,Public Class Not Declared as Final,commentscontroller.java,12,public class CommentsController {,The class is not declared as final as per OWASP recommendations. It is considered best practice to make classes final where possible and practical (i.e. It has no classes which inherit from it). Non-Final classes can allow an attacker to extend a class in a malicious manner. Manually inspect the code to determine whether or not it is practical to make this class final.,,VCG
-STANDARD,Class Contains Public Variable: username,commentscontroller.java,37,public String username;,"The class variable may be accessed and modified by other classes without the use of getter/setter methods. It is considered unsafe to have public fields or methods in a class unless required as any method, field, or class that is not private is a potential avenue of attack. It is safer to provide accessor methods to variables in order to limit their accessibility.",,VCG
-STANDARD,Class Contains Public Variable: body,commentscontroller.java,38,public String body;,"The class variable may be accessed and modified by other classes without the use of getter/setter methods. It is considered unsafe to have public fields or methods in a class unless required as any method, field, or class that is not private is a potential avenue of attack. It is safer to provide accessor methods to variables in order to limit their accessibility.",,VCG
-POTENTIAL ISSUE,Public Class Not Declared as Final,cowcontroller.java,10,public class CowController {,The class is not declared as final as per OWASP recommendations. It is considered best practice to make classes final where possible and practical (i.e. It has no classes which inherit from it). Non-Final classes can allow an attacker to extend a class in a malicious manner. Manually inspect the code to determine whether or not it is practical to make this class final.,,VCG
-POTENTIAL ISSUE,Public Class Not Declared as Final,cowsay.java,6,public class Cowsay {,The class is not declared as final as per OWASP recommendations. It is considered best practice to make classes final where possible and practical (i.e. It has no classes which inherit from it). Non-Final classes can allow an attacker to extend a class in a malicious manner. Manually inspect the code to determine whether or not it is practical to make this class final.,,VCG
-POTENTIAL ISSUE,Public Class Not Declared as Final,linklister.java,13,public class LinkLister {,The class is not declared as final as per OWASP recommendations. It is considered best practice to make classes final where possible and practical (i.e. It has no classes which inherit from it). Non-Final classes can allow an attacker to extend a class in a malicious manner. Manually inspect the code to determine whether or not it is practical to make this class final.,,VCG
-POTENTIAL ISSUE,Public Class Not Declared as Final,linkscontroller.java,14,public class LinksController {,The class is not declared as final as per OWASP recommendations. It is considered best practice to make classes final where possible and practical (i.e. It has no classes which inherit from it). Non-Final classes can allow an attacker to extend a class in a malicious manner. Manually inspect the code to determine whether or not it is practical to make this class final.,,VCG
-POTENTIAL ISSUE,Public Class Not Declared as Final,logincontroller.java,13,public class LoginController {,The class is not declared as final as per OWASP recommendations. It is considered best practice to make classes final where possible and practical (i.e. It has no classes which inherit from it). Non-Final classes can allow an attacker to extend a class in a malicious manner. Manually inspect the code to determine whether or not it is practical to make this class final.,,VCG
-POTENTIAL ISSUE,Public Class Not Declared as Final,postgres.java,12,public class Postgres {,The class is not declared as final as per OWASP recommendations. It is considered best practice to make classes final where possible and practical (i.e. It has no classes which inherit from it). Non-Final classes can allow an attacker to extend a class in a malicious manner. Manually inspect the code to determine whether or not it is practical to make this class final.,,VCG
-POTENTIAL ISSUE,Public Class Not Declared as Final,unsafequeryservlet.java,13,public class UnsafeQueryServlet extends HttpServlet {,The class is not declared as final as per OWASP recommendations. It is considered best practice to make classes final where possible and practical (i.e. It has no classes which inherit from it). Non-Final classes can allow an attacker to extend a class in a malicious manner. Manually inspect the code to determine whether or not it is practical to make this class final.,,VCG
-HIGH,Poor Input Validation,unsafequeryservlet.java,26,"String username = request.getParameter(""username"");",The application appears to use data contained in the HttpServletRequest without validation or sanitisation. No validator plug-ins were located in the application's XML files.,,VCG
-POTENTIAL ISSUE,Public Class Not Declared as Final,user.java,12,public class User {,The class is not declared as final as per OWASP recommendations. It is considered best practice to make classes final where possible and practical (i.e. It has no classes which inherit from it). Non-Final classes can allow an attacker to extend a class in a malicious manner. Manually inspect the code to determine whether or not it is practical to make this class final.,,VCG
-STANDARD,Class Contains Public Variable: hashedPassword,user.java,13,"public String id, username, hashedPassword;","The class variable may be accessed and modified by other classes without the use of getter/setter methods. It is considered unsafe to have public fields or methods in a class unless required as any method, field, or class that is not private is a potential avenue of attack. It is safer to provide accessor methods to variables in order to limit their accessibility.",,VCG
-POTENTIAL ISSUE,Public Class Not Declared as Final,vulnadoapplication.java,9,public class VulnadoApplication {,The class is not declared as final as per OWASP recommendations. It is considered best practice to make classes final where possible and practical (i.e. It has no classes which inherit from it). Non-Final classes can allow an attacker to extend a class in a malicious manner. Manually inspect the code to determine whether or not it is practical to make this class final.,,VCG
-MEDIUM,Origin Validation Error,logincontroller.java,17,,"CORS policy ""*"" might be too permissive. This allows malicious code on other domains to communicate with the application, which is a security risk","CWE-346, CWE-942",Snyk
-MEDIUM,Origin Validation Error,commentscontroller.java,16,,"CORS policy ""*"" might be too permissive. This allows malicious code on other domains to communicate with the application, which is a security risk","CWE-346, CWE-942",Snyk
-MEDIUM,Origin Validation Error,commentscontroller.java,23,,"CORS policy ""*"" might be too permissive. This allows malicious code on other domains to communicate with the application, which is a security risk","CWE-346, CWE-942",Snyk
-MEDIUM,Origin Validation Error,commentscontroller.java,29,,"CORS policy ""*"" might be too permissive. This allows malicious code on other domains to communicate with the application, which is a security risk","CWE-346, CWE-942",Snyk
-HIGH,Cross-site Scripting (XSS),cowcontroller.java,13,,"Unsanitized input from an HTTP parameter flows into here, where it is used to render an HTML page returned to the user. This may result in a Cross-Site Scripting attack (XSS).",CWE-79,Snyk
-HIGH,Server-Side Request Forgery (SSRF),linkscontroller.java,17,,"Unsanitized input from an HTTP parameter flows into org.jsoup.Jsoup.connect, where it is used as an URL to perform a request. This may result in a Server-Side Request Forgery vulnerability.",CWE-918,Snyk
-HIGH,Server-Side Request Forgery (SSRF),linkscontroller.java,21,,"Unsanitized input from an HTTP parameter flows into org.jsoup.Jsoup.connect, where it is used as an URL to perform a request. This may result in a Server-Side Request Forgery vulnerability.",CWE-918,Snyk
-HIGH,Command Injection,cowcontroller.java,13,,"Unsanitized input from an HTTP parameter flows into command, where it is used as a shell command. This may result in a Command Injection vulnerability.",CWE-78,Snyk
-HIGH,SQL Injection,logincontroller.java,20,,"Unsanitized input from an HTTP parameter flows into executeQuery, where it is used in an SQL query. This may result in an SQL Injection vulnerability.",CWE-89,Snyk
-,,cowcontroller.java,11,"@[1m[24mRequestMapping[0m(value = ""/cowsay"")",Detected a method annotated with 'RequestMapping' that does not specify the HTTP method.,,Semgrep
-,,cowsay.java,11,"[1m[24mprocessBuilder.command(""bash"", ""-c"", cmd)[0m;",A formatted or concatenated string was detected as input to a ProcessBuilder call. This is,,Semgrep
-,,linkscontroller.java,19,"@[1m[24mRequestMapping[0m(value = ""/links-v2"", produces = ""application/json"")",Detected a method annotated with 'RequestMapping' that does not specify the HTTP method.,,Semgrep
-,,unsafequeryservlet.java,46,"[1m[24mresponse.getWriter().println(""Secret: "" + secret)[0m;",Detected a request with potential user-input going into a OutputStream or Writer object.,,Semgrep
-CRITICAL,Unsanitized external input in SQL query,user.java,49,ResultSet rs = stmt.executeQuery(query);,,,Bearer
-MEDIUM,Observable Timing Discrepancy,logincontroller.java,21,if (Postgres.md5(input.password).equals(user.hashedPassword)) {,,CWE-208,Bearer
-LOW,Leakage of sensitive information in exception message,comment.java,55,e.printStackTrace();,,,Bearer
-LOW,Leakage of sensitive information in exception message,comment.java,70,e.printStackTrace();,,,Bearer
-LOW,Leakage of sensitive information in exception message,cowsay.java,24,e.printStackTrace();,,,Bearer
-LOW,Leakage of sensitive information in exception message,postgres.java,25,e.printStackTrace();,,,Bearer
-LOW,Leakage of sensitive information in exception message,postgres.java,100,e.printStackTrace();,,,Bearer
-LOW,Leakage of sensitive information in exception message,postgres.java,114,e.printStackTrace();,,,Bearer
-LOW,Leakage of sensitive information in exception message,user.java,34,e.printStackTrace();,,,Bearer
-LOW,Leakage of sensitive information in exception message,user.java,58,e.printStackTrace();,,,Bearer
-CRITICAL,Usage of hard-coded database password,unsafequeryservlet.java,29,"connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);",,,Bearer
-CRITICAL,Unsanitized external input in SQL query,unsafequeryservlet.java,41,result = statement.executeQuery(query);,,,Bearer
-CRITICAL,Unsanitized external input in SQL query,user.java,49,ResultSet rs = stmt.executeQuery(query);,,,Bearer
-MEDIUM,Observable Timing Discrepancy,logincontroller.java,21,if (Postgres.md5(input.password).equals(user.hashedPassword)) {,,CWE-208,Bearer
-LOW,Leakage of sensitive information in exception message,comment.java,55,e.printStackTrace();,,,Bearer
-LOW,Leakage of sensitive information in exception message,comment.java,70,e.printStackTrace();,,,Bearer
-LOW,Leakage of sensitive information in exception message,cowsay.java,24,e.printStackTrace();,,,Bearer
-LOW,Leakage of sensitive information in exception message,postgres.java,25,e.printStackTrace();,,,Bearer
-LOW,Leakage of sensitive information in exception message,postgres.java,100,e.printStackTrace();,,,Bearer
-LOW,Leakage of sensitive information in exception message,postgres.java,114,e.printStackTrace();,,,Bearer
-LOW,Leakage of sensitive information in exception message,unsafequeryservlet.java,49,e.printStackTrace();,,,Bearer
-LOW,Leakage of sensitive information in exception message,unsafequeryservlet.java,52,try { if (result != null) result.close(); } catch (Exception e) { e.printStackTrace(); },,,Bearer
-LOW,Leakage of sensitive information in exception message,unsafequeryservlet.java,53,try { if (statement != null) statement.close(); } catch (Exception e) { e.printStackTrace(); },,,Bearer
-LOW,Leakage of sensitive information in exception message,unsafequeryservlet.java,54,try { if (connection != null) connection.close(); } catch (Exception e) { e.printStackTrace(); },,,Bearer
-LOW,Leakage of sensitive information in exception message,user.java,34,e.printStackTrace();,,,Bearer
-LOW,Leakage of sensitive information in exception message,user.java,58,e.printStackTrace();,,,Bearer
+CRITICAL,Potential Hard-coded credential,dataexposure.py,4,"api_key = ""1234567890abcdef""  # Hardcoded API key","Potential Hard-coded credential The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory.",,Horusec
+,,dataexposure.py,4,,Do not hardcode credentials in code. Found hardcoded credential used in here.,,Snyk
+,,skey.py,16,,sha1 used in hashlib.new is insecure. Consider changing it to a secure hashing algorithm.,,Snyk
+,,hash.py,15,,hashlib.md5 is insecure. Consider changing it to a secure hashing algorithm.,,Snyk
+,,weakcrypto.py,4,,hashlib.md5 is insecure. Consider changing it to a secure hashing algorithm.,,Snyk
+,,17-deserialization-classic.py,51,,Cookie's Secure flag is set to False by default. Set it to true to protect the cookie from man-in-the-middle attacks.,,Snyk
+,,17-deserialization-classic.py,51,,Cookie's HttpOnly flag is set to False by default. Set it to true to protect the cookie from possible malicious code on client side.,,Snyk
+,,commandinjection.py,4,,"Unsanitized input from user input flows into os.system, where it is used as a shell command. This may result in a Command Injection vulnerability.",,Snyk
+,,sqlinjection.py,7,,"Unsanitized input from user input flows into execute, where it is used in an SQL query. This may result in an SQL Injection vulnerability.",,Snyk
+,,42-command-injection-classic.py,38,,Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.,,Snyk
+,,13-fileupload_codeinjection.py,41,,Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.,,Snyk
+,,vulpy.py,55,,Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.,,Snyk
+,,34-dos-regex.py,35,,Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.,,Snyk
+,,17-deserialization-classic.py,56,,Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.,,Snyk
+,,32-format-injection-classic.py,33,,Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.,,Snyk
+,,2-ssrf-regex-bypass.py,43,,Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.,,Snyk
+,,xss.py,12,,Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.,,Snyk
+,,27-cache-poisoning-classic.py,33,,Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.,,Snyk
+,,xxe.py,12,,xml.dom.pulldom.parseString is considered insecure. Use an analog from the defusedxml package.,,Snyk
+,,xxe.py,16,,xml.sax.parseString is considered insecure. Use an analog from the defusedxml package.,,Snyk
+,,code_inj.py,33,,"Unsanitized input from a command line argument flows into post, where it is used as an URL to perform a request. This may result in a Server Side Request Forgery vulnerability.",,Snyk
+,,code_inj.py,42,,"Unsanitized input from a command line argument flows into post, where it is used as an URL to perform a request. This may result in a Server Side Request Forgery vulnerability.",,Snyk
+,,2-ssrf-regex-bypass.py,26,,"Unsanitized input from an HTTP parameter flows into requests.get, where it is used as an URL to perform a request. This may result in a Server Side Request Forgery vulnerability.",,Snyk
+,,42-command-injection-classic.py,21,,"Unsanitized input from a web form flows into os.popen, where it is used as a shell command. This may result in a Command Injection vulnerability.",,Snyk
+,,13-fileupload_codeinjection.py,21,,"Unsanitized input from an HTTP parameter flows into the return value of sharedFiles, where it is used to render an HTML page returned to the user. This may result in a Cross-Site Scripting attack (XSS).",,Snyk
+,,vulpy.py,16,,Avoid hardcoding values that are meant to be secret. Found a hardcoded string used in here.,,Snyk
+,,dataexposure.py,4,,Avoid hardcoding values that are meant to be secret. Found a hardcoded string used in here.,,Snyk
+,,dynamic-code-injection.py,8,,"Unsanitized input from an HTTP parameter flows into eval, where it is executed as Python code. This may result in a Code Injection vulnerability.",,Snyk
+,,17-deserialization-classic.py,41,,"Unsanitized input from cookies flows into pickle.loads, where it is used to deserialize an object. This may result in an Unsafe Deserialization vulnerability.",,Snyk
+,,pyca.py,15,,The triple DES cipher is insecure. Consider using AES instead.,,Snyk
+,,pycrypto.py,11,,The triple DES cipher is insecure. Consider using AES instead.,,Snyk
+,,pyca.py,16,,The Blowfish cipher is insecure. Consider using AES instead.,,Snyk
+,,pycrypto.py,12,,The Blowfish cipher is insecure. Consider using AES instead.,,Snyk
+,,pyca.py,17,,The ARC4 cipher is insecure. Consider using AES instead.,,Snyk
+,,pycrypto.py,14,,The ARC4 cipher is insecure. Consider using AES instead.,,Snyk
+,,pycrypto.py,10,,The DES cipher is insecure. Consider using AES instead.,,Snyk
+,,13-fileupload_codeinjection.py,31,,"Unsanitized input from the HTTP request body flows into save, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write arbitrary files.",,Snyk
+,,13-fileupload_codeinjection.py,41,"[1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m",Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it,,Semgrep
+,,17-deserialization-classic.py,56,"[1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m",Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it,,Semgrep
+,,2-ssrf-regex-bypass.py,43,"[1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m",Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it,,Semgrep
+,,27-cache-poisoning-classic.py,33,"[1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m",Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it,,Semgrep
+,,32-format-injection-classic.py,33,"[1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m",Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it,,Semgrep
+,,34-dos-regex.py,35,"[1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m",Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it,,Semgrep
+,,42-command-injection-classic.py,38,"[1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m",Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it,,Semgrep
+,,sqlinjection.py,7,[1m[24mcursor.execute(query)[0m,Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can,,Semgrep
+,,vulpy.py,55,"[1m[24mapp.run(debug=True, host='127.0.1.1', port=5000, extra_files='csp.txt')[0m",Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it,,Semgrep
+,,weakcrypto.py,4,return [1m[24mhashlib.md5(password.encode()).hexdigest()[0m,,,Semgrep
+,,xss.py,12,[1m[24mapp.run(debug=True)[0m,Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it,,Semgrep
+,,code_inj.py,42,"s.post([1m[24m'http://%s/editor'%target[0m,data=d,headers=h)",Detected a request using 'http://'. This request will be unencrypted. Use 'https://',,Semgrep
+,,db.py,19,"[1m[24mc.execute(""INSERT INTO users (user, password, failures) VALUES ('%s', '%s', '%d')"" %(u, p, 0))[0m",Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can,,Semgrep
+,,dynamic-code-injection.py,8,"[1m[24meval(f""product_{operation}()"")[0m # Noncompliant",Detected the use of eval(). eval() can be dangerous if used to evaluate dynamic content. If,,Semgrep
+,,hash.py,24,h = [1m[24mhashlib.sha1()[0m,Detected SHA1 hash algorithm which is considered insecure. SHA1 is not collision resistant,,Semgrep
+,,pyca.py,17,"... [1m[24mARC4[0m(key), mode=None, backend=default_backend()) # Noncompliant: vulnerable to several","Alternatively, keep using the `Cipher` class from the hazmat primitives but use the AES",,Semgrep
+,,pycrypto.py,0,,,,Semgrep
+,,[1m[24mpython.py,11,tdes3 = [1m[24mDES3.new('ChangeItChangeIt')[0m # Noncompliant: Triple DES is vulnerable to,Detected DES cipher or Triple DES algorithm which is considered insecure. This algorithm is,,Semgrep
+,,[1m[24mpython.py,12,"bf2 = [1m[24mBlowfish.new('ChangeItWithYourKey', Blowfish.MODE_CBC, 'ChangeIt')[0m # Noncompliant:",Detected Blowfish cipher algorithm which is considered insecure. This algorithm is not,,Semgrep
+,,[1m[24mpython.py,13,"rc21 = [1m[24mARC2.new('ChangeItWithYourKey', ARC2.MODE_CFB, 'ChangeIt')[0m # Noncompliant: RC2 is",Detected RC2 cipher algorithm which is considered insecure. This algorithm is not,,Semgrep
+,,[1m[24mpython.py,14,rc41 = [1m[24mARC4.new('ChangeItWithYourKey')[0m # Noncompliant: vulnerable to several attacks (see,Detected ARC4 cipher algorithm which is considered insecure. This algorithm is not,,Semgrep
+,,pycryptodomex.py,0,,,,Semgrep
+,,[1m[24mpython.py,15,"cipher = [1m[24mDES3.new(key, DES3.MODE_CFB)[0m # Noncompliant: Triple DES is vulnerable to",Detected DES cipher or Triple DES algorithm which is considered insecure. This algorithm is,,Semgrep
+,,[1m[24mpython.py,18,"cipher = [1m[24mARC2.new(key, ARC2.MODE_CFB)[0m # Noncompliant: RC2 is vulnerable to a related-key attack",Detected RC2 cipher algorithm which is considered insecure. This algorithm is not,,Semgrep
+,,[1m[24mpython.py,21,cipher = [1m[24mARC4.new(key)[0m # Noncompliant: vulnerable to several attacks (see,Detected ARC4 cipher algorithm which is considered insecure. This algorithm is not,,Semgrep
+,,[1m[24mpython.py,24,"cipher = [1m[24mBlowfish.new(key, Blowfish.MODE_CBC)[0m # Noncompliant: Blowfish use a 64-bit block size",Detected Blowfish cipher algorithm which is considered insecure. This algorithm is not,,Semgrep
+,,sqli.py,37,[1m[24mcursor.execute(sql)[0m,Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can,,Semgrep
+HIGH,"[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",13-fileupload_codeinjection.py,41,"40	if __name__ == '__main__':
+41	    app.run(host='0.0.0.0', port=1337, debug=True)","[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",,Bandit
+MEDIUM,[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,13-fileupload_codeinjection.py,41,"40	if __name__ == '__main__':
+41	    app.run(host='0.0.0.0', port=1337, debug=True)",[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,,Bandit
+LOW,[B403:blacklist] Consider possible security implications associated with pickle module.,17-deserialization-classic.py,5,"4	import base64 as b64
+5	import pickle
+6",[B403:blacklist] Consider possible security implications associated with pickle module.,,Bandit
+MEDIUM,"[B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",17-deserialization-classic.py,41,"40	            data = b64.b64decode(bytes(dataCookie, 'UTF-8'))
+41	            data = pickle.loads(data)
+42	            return User_RedirectTo(data)","[B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",,Bandit
+HIGH,"[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",17-deserialization-classic.py,56,"55	if __name__ == '__main__':
+56	    app.run(host='0.0.0.0', port=1337, debug=True)","[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",,Bandit
+MEDIUM,[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,17-deserialization-classic.py,56,"55	if __name__ == '__main__':
+56	    app.run(host='0.0.0.0', port=1337, debug=True)",[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,,Bandit
+MEDIUM,[B113:request_without_timeout] Call to requests without timeout,2-ssrf-regex-bypass.py,26,"25
+26	    res = requests.get(url)
+27",[B113:request_without_timeout] Call to requests without timeout,,Bandit
+HIGH,"[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",2-ssrf-regex-bypass.py,43,"42	if __name__ == '__main__':
+43	    app.run(host='0.0.0.0', port=1337, debug=True)","[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",,Bandit
+MEDIUM,[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,2-ssrf-regex-bypass.py,43,"42	if __name__ == '__main__':
+43	    app.run(host='0.0.0.0', port=1337, debug=True)",[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,,Bandit
+HIGH,"[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",27-cache-poisoning-classic.py,33,"32	if __name__ == '__main__':
+33	    app.run(host='0.0.0.0', port=1337, debug=True)","[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",,Bandit
+MEDIUM,[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,27-cache-poisoning-classic.py,33,"32	if __name__ == '__main__':
+33	    app.run(host='0.0.0.0', port=1337, debug=True)",[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,,Bandit
+HIGH,"[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",32-format-injection-classic.py,33,"32	if __name__ == '__main__':
+33	    app.run(host='0.0.0.0', port=1337, debug=True)","[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",,Bandit
+MEDIUM,[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,32-format-injection-classic.py,33,"32	if __name__ == '__main__':
+33	    app.run(host='0.0.0.0', port=1337, debug=True)",[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,,Bandit
+HIGH,"[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",34-dos-regex.py,35,"34	if __name__=='__main__':
+35	    app.run(host='0.0.0.0', port=1337, debug=True)
+36","[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",,Bandit
+MEDIUM,[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,34-dos-regex.py,35,"34	if __name__=='__main__':
+35	    app.run(host='0.0.0.0', port=1337, debug=True)
+36",[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,,Bandit
+HIGH,"[B605:start_process_with_a_shell] Starting a process with a shell, possible injection detected, security issue.",42-command-injection-classic.py,21,"20
+21	        return render_template('index.html', result=os.popen(f""curl 'http://localhost:1337/{method}'"").read())
+22","[B605:start_process_with_a_shell] Starting a process with a shell, possible injection detected, security issue.",,Bandit
+LOW,"[B110:try_except_pass] Try, Except, Pass detected.",42-command-injection-classic.py,32,"31	            return ""The health of the system is quite good!""
+32	    except:
+33	        pass
+34	    return ""Unauthorized""","[B110:try_except_pass] Try, Except, Pass detected.",,Bandit
+HIGH,"[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",42-command-injection-classic.py,38,"37	if __name__ == '__main__':
+38	    app.run(host='0.0.0.0', port=1337, debug=True)","[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",,Bandit
+MEDIUM,[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,42-command-injection-classic.py,38,"37	if __name__ == '__main__':
+38	    app.run(host='0.0.0.0', port=1337, debug=True)",[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,,Bandit
+HIGH,"[B605:start_process_with_a_shell] Starting a process with a shell, possible injection detected, security issue.",commandinjection.py,4,"3	def vulnerable_command_execution(command):
+4	   os.system(""ping "" + command)
+5","[B605:start_process_with_a_shell] Starting a process with a shell, possible injection detected, security issue.",,Bandit
+MEDIUM,[B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.,sqlinjection.py,6,"5	   cursor = conn.cursor()
+6	   query = ""SELECT * FROM users WHERE username = '"" + username + ""'""
+7	   cursor.execute(query)",[B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.,,Bandit
+MEDIUM,[B113:request_without_timeout] Call to requests without timeout,dataexposure.py,6,"5	    url = ""https://api.example.com/data?key="" + api_key
+6	    response = requests.post(url, json=data)
+7	    return response.status_code",[B113:request_without_timeout] Call to requests without timeout,,Bandit
+HIGH,"[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",vulpy.py,55,"54
+55	app.run(debug=True, host='127.0.1.1', port=5000, extra_files='csp.txt')","[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",,Bandit
+HIGH,[B324:hashlib] Use of weak MD5 hash for security. Consider usedforsecurity=False,weakcrypto.py,4,"3	def hash_password(password):
+4	   return hashlib.md5(password.encode()).hexdigest()
+5",[B324:hashlib] Use of weak MD5 hash for security. Consider usedforsecurity=False,,Bandit
+HIGH,"[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",xss.py,12,"11	if __name__ == '__main__':
+12	   app.run(debug=True)","[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",,Bandit
+LOW,[B404:blacklist] Consider possible security implications associated with the subprocess module.,code_inj.py,9,"8	import sys
+9	import subprocess
+10	import urllib.parse",[B404:blacklist] Consider possible security implications associated with the subprocess module.,,Bandit
+LOW,[B607:start_process_with_partial_path] Starting a process with a partial executable path,code_inj.py,37,"36	print(""[+] Opening listener..."")
+37	subprocess.Popen([""nc"",""-nvlp"",lport])
+38",[B607:start_process_with_partial_path] Starting a process with a partial executable path,,Bandit
+LOW,[B603:subprocess_without_shell_equals_true] subprocess call - check for execution of untrusted input.,code_inj.py,37,"36	print(""[+] Opening listener..."")
+37	subprocess.Popen([""nc"",""-nvlp"",lport])
+38",[B603:subprocess_without_shell_equals_true] subprocess call - check for execution of untrusted input.,,Bandit
+MEDIUM,[B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.,db.py,19,"18	    for u,p in users:
+19	        c.execute(""INSERT INTO users (user, password, failures) VALUES ('%s', '%s', '%d')"" %(u, p, 0))
+20",[B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.,,Bandit
+MEDIUM,[B307:blacklist] Use of possibly insecure function - consider using safer ast.literal_eval.,dynamic-code-injection.py,8,"7	    operation = request.args.get(""operation"")
+8	    eval(f""product_{operation}()"") # Noncompliant
+9	    return ""OK""",[B307:blacklist] Use of possibly insecure function - consider using safer ast.literal_eval.,,Bandit
+HIGH,[B324:hashlib] Use of weak MD5 hash for security. Consider usedforsecurity=False,hash.py,19,"18	def do_hashlib_md5(user_input):
+19	    h = hashlib.md5()
+20	    return _hash(h, user_input)",[B324:hashlib] Use of weak MD5 hash for security. Consider usedforsecurity=False,,Bandit
+HIGH,[B324:hashlib] Use of weak SHA1 hash for security. Consider usedforsecurity=False,hash.py,24,"23	def do_hashlib_sha1(user_input):
+24	    h = hashlib.sha1()
+25	    return _hash(h, user_input)",[B324:hashlib] Use of weak SHA1 hash for security. Consider usedforsecurity=False,,Bandit
+HIGH,[B324:hashlib] Use of weak SHA1 hash for security. Consider usedforsecurity=False,hash.py,29,"28	def do_hashlib_new(user_input):
+29	    h = hashlib.new(""SHA1"")
+30	    return _hash(h, user_input)",[B324:hashlib] Use of weak SHA1 hash for security. Consider usedforsecurity=False,,Bandit
+HIGH,"[B605:start_process_with_a_shell] Starting a process with a shell, possible injection detected, security issue.",os-command-injection.py,8,"7	    cmd = ""ping -c 1 %s"" % request.args.get(""host"", ""www.google.com"")
+8	    status = os.system(cmd) # Noncompliant
+9	    return str(status == 0)","[B605:start_process_with_a_shell] Starting a process with a shell, possible injection detected, security issue.",,Bandit
+HIGH,[B304:blacklist] Use of insecure cipher cryptography.hazmat.primitives.ciphers.algorithms.Blowfish. Replace with a known secure cipher such as AES.,pyca.py,16,"15	tdes4 = Cipher(algorithms.TripleDES(key), mode=None, backend=default_backend()) # Noncompliant: Triple DES is vulnerable to meet-in-the-middle attack
+16	bf3 = Cipher(algorithms.Blowfish(key), mode=None, backend=default_backend()) # Noncompliant: Blowfish use a 64-bit block size makes it vulnerable to birthday attacks
+17	rc42 = Cipher(algorithms.ARC4(key), mode=None, backend=default_backend()) # Noncompliant: vulnerable to several attacks (see https://en.wikipedia.org/wiki/RC4#Security",[B304:blacklist] Use of insecure cipher cryptography.hazmat.primitives.ciphers.algorithms.Blowfish. Replace with a known secure cipher such as AES.,,Bandit
+HIGH,[B304:blacklist] Use of insecure cipher cryptography.hazmat.primitives.ciphers.algorithms.ARC4. Replace with a known secure cipher such as AES.,pyca.py,17,"16	bf3 = Cipher(algorithms.Blowfish(key), mode=None, backend=default_backend()) # Noncompliant: Blowfish use a 64-bit block size makes it vulnerable to birthday attacks
+17	rc42 = Cipher(algorithms.ARC4(key), mode=None, backend=default_backend()) # Noncompliant: vulnerable to several attacks (see https://en.wikipedia.org/wiki/RC4#Security
+18",[B304:blacklist] Use of insecure cipher cryptography.hazmat.primitives.ciphers.algorithms.ARC4. Replace with a known secure cipher such as AES.,,Bandit
+HIGH,[B413:blacklist] The pyCrypto library and its module * are no longer actively maintained and have been deprecated. Consider using pyca/cryptography library.,pycrypto.py,8,"7
+8	from Crypto.Cipher import *
+9",[B413:blacklist] The pyCrypto library and its module * are no longer actively maintained and have been deprecated. Consider using pyca/cryptography library.,,Bandit
+HIGH,[B304:blacklist] Use of insecure cipher Cryptodome.Cipher.DES.new. Replace with a known secure cipher such as AES.,pycryptodomex.py,12,"11	key = b'-8B key-'
+12	DES.new(key, DES.MODE_OFB) # Noncompliant: DES works with 56-bit keys allow attacks via exhaustive search
+13",[B304:blacklist] Use of insecure cipher Cryptodome.Cipher.DES.new. Replace with a known secure cipher such as AES.,,Bandit
+HIGH,[B304:blacklist] Use of insecure cipher Cryptodome.Cipher.ARC2.new. Replace with a known secure cipher such as AES.,pycryptodomex.py,18,"17	key = b'Sixteen byte key'
+18	cipher = ARC2.new(key, ARC2.MODE_CFB) # Noncompliant: RC2 is vulnerable to a related-key attack
+19",[B304:blacklist] Use of insecure cipher Cryptodome.Cipher.ARC2.new. Replace with a known secure cipher such as AES.,,Bandit
+HIGH,[B304:blacklist] Use of insecure cipher Cryptodome.Cipher.ARC4.new. Replace with a known secure cipher such as AES.,pycryptodomex.py,21,"20	key = b'Very long and confidential key'
+21	cipher = ARC4.new(key) # Noncompliant: vulnerable to several attacks (see https://en.wikipedia.org/wiki/RC4#Security)
+22",[B304:blacklist] Use of insecure cipher Cryptodome.Cipher.ARC4.new. Replace with a known secure cipher such as AES.,,Bandit
+HIGH,[B304:blacklist] Use of insecure cipher Cryptodome.Cipher.Blowfish.new. Replace with a known secure cipher such as AES.,pycryptodomex.py,24,"23	key = b'An arbitrarily long key'
+24	cipher = Blowfish.new(key, Blowfish.MODE_CBC) # Noncompliant: Blowfish use a 64-bit block size makes it vulnerable to birthday attacks
+25",[B304:blacklist] Use of insecure cipher Cryptodome.Cipher.Blowfish.new. Replace with a known secure cipher such as AES.,,Bandit
+LOW,[B410:blacklist] Using etree to parse untrusted XML data is known to be vulnerable to XML attacks. Replace etree with the equivalent defusedxml package.,xxe.py,1,"1	from lxml import etree
+2	from xml.dom import pulldom
+3	from xml import sax",[B410:blacklist] Using etree to parse untrusted XML data is known to be vulnerable to XML attacks. Replace etree with the equivalent defusedxml package.,,Bandit
+LOW,is called.,xxe.py,2,"1	from lxml import etree
+2	from xml.dom import pulldom
+3	from xml import sax",is called.,,Bandit
+LOW,is called.,xxe.py,3,"2	from xml.dom import pulldom
+3	from xml import sax
+4	from xml.sax.handler import ContentHandler",is called.,,Bandit
+LOW,is called.,xxe.py,4,"3	from xml import sax
+4	from xml.sax.handler import ContentHandler
+5",is called.,,Bandit
+MEDIUM,[B320:blacklist] Using lxml.etree.fromstring to parse untrusted XML data is known to be vulnerable to XML attacks. Replace lxml.etree.fromstring with its defusedxml equivalent function.,xxe.py,8,"7	def do_lxml_etree_fromstring(user_input):
+8	    return etree.fromstring(user_input)
+9",[B320:blacklist] Using lxml.etree.fromstring to parse untrusted XML data is known to be vulnerable to XML attacks. Replace lxml.etree.fromstring with its defusedxml equivalent function.,,Bandit
+MEDIUM,is called,xxe.py,12,"11	def do_xml_dom_pulldom_parsestring(user_input):
+12	    return pulldom.parseString(user_input)
+13",is called,,Bandit
+MEDIUM,is called,xxe.py,16,"15	def do_xml_sax_parsestring(user_input):
+16	    return sax.parseString(user_input, ContentHandler())",is called,,Bandit
+,Vulnerability 1:,2-ssrf-regex-bypass.py,2,,,,Pyreport
+,Vulnerability 2:,32-format-injection-classic.py,38,,,,Pyreport
+,Vulnerability 3:,34-dos-regex.py,52,,,,Pyreport

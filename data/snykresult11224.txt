@@ -1,0 +1,160 @@
+
+Testing D:\Tools\Pythoncodes ...
+
+ ✗ [Low] Use of Hardcoded Credentials 
+   Path: VulDB1/DataExposure.py, line 4 
+   Info: Do not hardcode credentials in code. Found hardcoded credential used in here.
+
+ ✗ [Low] Use of Password Hash With Insufficient Computational Effort 
+   Path: skey.py, line 16 
+   Info: sha1 used in hashlib.new is insecure. Consider changing it to a secure hashing algorithm.
+
+ ✗ [Low] Use of Password Hash With Insufficient Computational Effort 
+   Path: hash.py, line 15 
+   Info: hashlib.md5 is insecure. Consider changing it to a secure hashing algorithm.
+
+ ✗ [Low] Use of Password Hash With Insufficient Computational Effort 
+   Path: WeakCrypto.py, line 4 
+   Info: hashlib.md5 is insecure. Consider changing it to a secure hashing algorithm.
+
+ ✗ [Low] Sensitive Cookie in HTTPS Session Without 'Secure' Attribute 
+   Path: 17-deserialization-classic.py, line 51 
+   Info: Cookie's Secure flag is set to False by default. Set it to true to protect the cookie from man-in-the-middle attacks.
+
+ ✗ [Low] Sensitive Cookie Without 'HttpOnly' Flag 
+   Path: 17-deserialization-classic.py, line 51 
+   Info: Cookie's HttpOnly flag is set to False by default. Set it to true to protect the cookie from possible malicious code on client side.
+
+ ✗ [Medium] Command Injection 
+   Path: CommandInjection.py, line 4 
+   Info: Unsanitized input from user input flows into os.system, where it is used as a shell command. This may result in a Command Injection vulnerability.
+
+ ✗ [Medium] SQL Injection 
+   Path: SQLInjection.py, line 7 
+   Info: Unsanitized input from user input flows into execute, where it is used in an SQL query. This may result in an SQL Injection vulnerability.
+
+ ✗ [Medium] Debug Mode Enabled 
+   Path: 42-command-injection-classic.py, line 38 
+   Info: Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.
+
+ ✗ [Medium] Debug Mode Enabled 
+   Path: 13-FileUpload_CodeInjection.py, line 41 
+   Info: Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.
+
+ ✗ [Medium] Debug Mode Enabled 
+   Path: VulDB1/vulpy.py, line 55 
+   Info: Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.
+
+ ✗ [Medium] Debug Mode Enabled 
+   Path: 34-DoS-regex.py, line 35 
+   Info: Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.
+
+ ✗ [Medium] Debug Mode Enabled 
+   Path: 17-deserialization-classic.py, line 56 
+   Info: Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.
+
+ ✗ [Medium] Debug Mode Enabled 
+   Path: 32-format-injection-classic.py, line 33 
+   Info: Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.
+
+ ✗ [Medium] Debug Mode Enabled 
+   Path: 2-ssrf-regex-bypass.py, line 43 
+   Info: Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.
+
+ ✗ [Medium] Debug Mode Enabled 
+   Path: XSS.py, line 12 
+   Info: Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.
+
+ ✗ [Medium] Debug Mode Enabled 
+   Path: 27-cache-poisoning-classic.py, line 33 
+   Info: Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.
+
+ ✗ [Medium] Insecure Xml Parser 
+   Path: xxe.py, line 12 
+   Info: xml.dom.pulldom.parseString is considered insecure. Use an analog from the defusedxml package.
+
+ ✗ [Medium] Insecure Xml Parser 
+   Path: xxe.py, line 16 
+   Info: xml.sax.parseString is considered insecure. Use an analog from the defusedxml package.
+
+ ✗ [Medium] Server-Side Request Forgery (SSRF) 
+   Path: code_inj.py, line 33 
+   Info: Unsanitized input from a command line argument flows into post, where it is used as an URL to perform a request. This may result in a Server Side Request Forgery vulnerability.
+
+ ✗ [Medium] Server-Side Request Forgery (SSRF) 
+   Path: code_inj.py, line 42 
+   Info: Unsanitized input from a command line argument flows into post, where it is used as an URL to perform a request. This may result in a Server Side Request Forgery vulnerability.
+
+ ✗ [Medium] Server-Side Request Forgery (SSRF) 
+   Path: 2-ssrf-regex-bypass.py, line 26 
+   Info: Unsanitized input from an HTTP parameter flows into requests.get, where it is used as an URL to perform a request. This may result in a Server Side Request Forgery vulnerability.
+
+ ✗ [High] Command Injection 
+   Path: 42-command-injection-classic.py, line 21 
+   Info: Unsanitized input from a web form flows into os.popen, where it is used as a shell command. This may result in a Command Injection vulnerability.
+
+ ✗ [High] Cross-site Scripting (XSS) 
+   Path: 13-FileUpload_CodeInjection.py, line 21 
+   Info: Unsanitized input from an HTTP parameter flows into the return value of sharedFiles, where it is used to render an HTML page returned to the user. This may result in a Cross-Site Scripting attack (XSS).
+
+ ✗ [High] Hardcoded Secret 
+   Path: VulDB1/vulpy.py, line 16 
+   Info: Avoid hardcoding values that are meant to be secret. Found a hardcoded string used in here.
+
+ ✗ [High] Hardcoded Secret 
+   Path: VulDB1/DataExposure.py, line 4 
+   Info: Avoid hardcoding values that are meant to be secret. Found a hardcoded string used in here.
+
+ ✗ [High] Code Injection 
+   Path: dynamic-code-injection.py, line 8 
+   Info: Unsanitized input from an HTTP parameter flows into eval, where it is executed as Python code. This may result in a Code Injection vulnerability.
+
+ ✗ [High] Deserialization of Untrusted Data 
+   Path: 17-deserialization-classic.py, line 41 
+   Info: Unsanitized input from cookies flows into pickle.loads, where it is used to deserialize an object. This may result in an Unsafe Deserialization vulnerability.
+
+ ✗ [High] Use of a Broken or Risky Cryptographic Algorithm 
+   Path: pyca.py, line 15 
+   Info: The triple DES cipher is insecure. Consider using AES instead.
+
+ ✗ [High] Use of a Broken or Risky Cryptographic Algorithm 
+   Path: pycrypto.py, line 11 
+   Info: The triple DES cipher is insecure. Consider using AES instead.
+
+ ✗ [High] Use of a Broken or Risky Cryptographic Algorithm 
+   Path: pyca.py, line 16 
+   Info: The Blowfish cipher is insecure. Consider using AES instead.
+
+ ✗ [High] Use of a Broken or Risky Cryptographic Algorithm 
+   Path: pycrypto.py, line 12 
+   Info: The Blowfish cipher is insecure. Consider using AES instead.
+
+ ✗ [High] Use of a Broken or Risky Cryptographic Algorithm 
+   Path: pyca.py, line 17 
+   Info: The ARC4 cipher is insecure. Consider using AES instead.
+
+ ✗ [High] Use of a Broken or Risky Cryptographic Algorithm 
+   Path: pycrypto.py, line 14 
+   Info: The ARC4 cipher is insecure. Consider using AES instead.
+
+ ✗ [High] Use of a Broken or Risky Cryptographic Algorithm 
+   Path: pycrypto.py, line 10 
+   Info: The DES cipher is insecure. Consider using AES instead.
+
+ ✗ [High] Path Traversal 
+   Path: 13-FileUpload_CodeInjection.py, line 31 
+   Info: Unsanitized input from the HTTP request body flows into save, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write arbitrary files.
+
+
+✔ Test completed
+
+Organization:      ashachinu920
+Test type:         Static code analysis
+Project path:      D:\Tools\Pythoncodes
+
+Summary:
+
+  36 Code issues found
+  14 [High]   16 [Medium]   6 [Low] 
+
+

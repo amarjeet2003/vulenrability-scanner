@@ -1,0 +1,506 @@
+                    
+                    
+┌──────────────────┐
+│ 55 Code Findings │
+└──────────────────┘
+                                                                         
+  [36m[22m[24m  /home/asha/Pythoncodes/13-FileUpload_CodeInjection.py [0m
+       [1m[24mpython.flask.security.injection.path-traversal-open.path-traversal-open[0m            
+          Found request data in a call to 'open'. Ensure the request data is validated or sanitized,
+          otherwise it could result in path traversal attacks.                                      
+          Details: https://sg.run/PJRW                                                              
+                                                                                                    
+           19┆ file = [1m[24mopen(app.config['UPLOAD_FOLDER'] + getFile, "r")[0m
+            ⋮┆----------------------------------------
+       [1m[24mpython.flask.security.audit.directly-returned-format-string.directly-returned-format-string[0m
+          Detected Flask route directly returning a formatted string. This is subject to cross-site         
+          scripting if user input can reach the string. Consider using the template engine instead and      
+          rendering pages with 'render_template()'.                                                         
+          Details: https://sg.run/Zv6o                                                                      
+                                                                                                            
+           33┆ [1m[24mreturn ('''<h2>File: succeeded!</h2><br>[0m
+           34┆ [1m[24m<a href="/">..Back</a><br>[0m
+           35┆ [1m[24m<a href="./share?filename=%s">See my file</a>''' % html.escape(f.filename))[0m
+            ⋮┆----------------------------------------
+       [1m[24mpython.django.security.injection.raw-html-format.raw-html-format[0m                     
+          Detected user input flowing into a manually constructed HTML string. You may be accidentally
+          bypassing secure methods of rendering HTML by manually constructing HTML and this could     
+          create a cross-site scripting vulnerability, which could let attackers steal sensitive user 
+          data. To be sure this is safe, check that the HTML is rendered safely. Otherwise, use       
+          templates (`django.shortcuts.render`) which will safely render HTML instead.                
+          Details: https://sg.run/oYj1                                                                
+                                                                                                      
+           33┆ return [1m[24m('''<h2>File: succeeded!</h2><br>[0m
+           34┆ [1m[24m<a href="/">..Back</a><br>[0m
+           35┆ [1m[24m<a href="./share?filename=%s">See my file</a>''' % html.escape(f.filename))[0m
+            ⋮┆----------------------------------------
+       [1m[24mpython.flask.security.injection.raw-html-concat.raw-html-format[0m                      
+          Detected user input flowing into a manually constructed HTML string. You may be accidentally
+          bypassing secure methods of rendering HTML by manually constructing HTML and this could     
+          create a cross-site scripting vulnerability, which could let attackers steal sensitive user 
+          data. To be sure this is safe, check that the HTML is rendered safely. Otherwise, use       
+          templates (`flask.render_template`) which will safely render HTML instead.                  
+          Details: https://sg.run/Pb7e                                                                
+                                                                                                      
+           33┆ return [1m[24m('''<h2>File: succeeded!</h2><br>[0m
+           34┆ [1m[24m<a href="/">..Back</a><br>[0m
+           35┆ [1m[24m<a href="./share?filename=%s">See my file</a>''' % html.escape(f.filename))[0m
+            ⋮┆----------------------------------------
+       [1m[24mpython.flask.security.audit.app-run-param-config.avoid_app_run_with_bad_host[0m
+          Running flask app with host 0.0.0.0 could expose the server publicly.              
+          Details: https://sg.run/eLby                                                       
+                                                                                             
+           41┆ [1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m
+            ⋮┆----------------------------------------
+       [1m[24mpython.flask.security.audit.debug-enabled.debug-enabled[0m                              
+          Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it
+          will leak sensitive information. Instead, consider using Flask configuration variables or   
+          setting 'debug' using system environment variables.                                         
+          Details: https://sg.run/dKrd                                                                
+                                                                                                      
+           41┆ [1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m
+                                                                        
+  [36m[22m[24m  /home/asha/Pythoncodes/17-deserialization-classic.py [0m
+       [1m[24mpython.flask.security.insecure-deserialization.insecure-deserialization[0m             
+          Detected the use of an insecure deserialization library in a Flask route. These libraries  
+          are prone to code execution vulnerabilities. Ensure user data does not enter this function.
+          To fix this, try to avoid serializing whole objects. Consider instead using a serializer   
+          such as JSON.                                                                              
+          Details: https://sg.run/N45z                                                               
+                                                                                                     
+           41┆ data = [1m[24mpickle.loads(data)[0m
+            ⋮┆----------------------------------------
+       [1m[24mpython.lang.security.deserialization.pickle.avoid-pickle[0m                             
+          Avoid using `pickle`, which is known to lead to code execution vulnerabilities. When        
+          unpickling, the serialized data could be manipulated to run arbitrary code. Instead,        
+          consider serializing the relevant data as JSON or a similar text-based serialization format.
+          Details: https://sg.run/OPwB                                                                
+                                                                                                      
+           41┆ data = [1m[24mpickle.loads(data)[0m
+            ⋮┆----------------------------------------
+       [1m[24mpython.flask.security.audit.secure-set-cookie.secure-set-cookie[0m                      
+          Found a Flask cookie with insecurely configured properties.  By default the secure, httponly
+          and samesite ar configured insecurely. cookies should be handled securely by setting        
+          `secure=True`, `httponly=True`, and `samesite='Lax'` in response.set_cookie(...). If these  
+          parameters are not properly set, your cookies are not properly protected and are at risk of 
+          being stolen by an attacker. Include the `secure=True`, `httponly=True`, `samesite='Lax'`   
+          arguments or set these to be true in the Flask configuration.                               
+          Details: https://sg.run/gLkZ                                                                
+                                                                                                      
+           51┆ [1m[24mresp.set_cookie('userData', b64.b64encode(newData))[0m
+            ⋮┆----------------------------------------
+       [1m[24mpython.flask.security.audit.app-run-param-config.avoid_app_run_with_bad_host[0m
+          Running flask app with host 0.0.0.0 could expose the server publicly.              
+          Details: https://sg.run/eLby                                                       
+                                                                                             
+           56┆ [1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m
+            ⋮┆----------------------------------------
+       [1m[24mpython.flask.security.audit.debug-enabled.debug-enabled[0m                              
+          Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it
+          will leak sensitive information. Instead, consider using Flask configuration variables or   
+          setting 'debug' using system environment variables.                                         
+          Details: https://sg.run/dKrd                                                                
+                                                                                                      
+           56┆ [1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m
+                                                                 
+  [36m[22m[24m  /home/asha/Pythoncodes/2-ssrf-regex-bypass.py [0m
+       [1m[24mpython.django.security.injection.raw-html-format.raw-html-format[0m                     
+          Detected user input flowing into a manually constructed HTML string. You may be accidentally
+          bypassing secure methods of rendering HTML by manually constructing HTML and this could     
+          create a cross-site scripting vulnerability, which could let attackers steal sensitive user 
+          data. To be sure this is safe, check that the HTML is rendered safely. Otherwise, use       
+          templates (`django.shortcuts.render`) which will safely render HTML instead.                
+          Details: https://sg.run/oYj1                                                                
+                                                                                                      
+           36┆ image = [1m[24m('''[0m
+           37┆ [1m[24m<h1>Here is your image!!</h1>[0m
+           38┆ [1m[24m<img src="data:image/jpg;base64,%s">''' % imageB64)[0m
+            ⋮┆----------------------------------------
+       [1m[24mpython.flask.security.injection.raw-html-concat.raw-html-format[0m                      
+          Detected user input flowing into a manually constructed HTML string. You may be accidentally
+          bypassing secure methods of rendering HTML by manually constructing HTML and this could     
+          create a cross-site scripting vulnerability, which could let attackers steal sensitive user 
+          data. To be sure this is safe, check that the HTML is rendered safely. Otherwise, use       
+          templates (`flask.render_template`) which will safely render HTML instead.                  
+          Details: https://sg.run/Pb7e                                                                
+                                                                                                      
+           36┆ image = [1m[24m('''[0m
+           37┆ [1m[24m<h1>Here is your image!!</h1>[0m
+           38┆ [1m[24m<img src="data:image/jpg;base64,%s">''' % imageB64)[0m
+            ⋮┆----------------------------------------
+       [1m[24mpython.flask.security.audit.app-run-param-config.avoid_app_run_with_bad_host[0m
+          Running flask app with host 0.0.0.0 could expose the server publicly.              
+          Details: https://sg.run/eLby                                                       
+                                                                                             
+           43┆ [1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m
+            ⋮┆----------------------------------------
+       [1m[24mpython.flask.security.audit.debug-enabled.debug-enabled[0m                              
+          Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it
+          will leak sensitive information. Instead, consider using Flask configuration variables or   
+          setting 'debug' using system environment variables.                                         
+          Details: https://sg.run/dKrd                                                                
+                                                                                                      
+           43┆ [1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m
+                                                                        
+  [36m[22m[24m  /home/asha/Pythoncodes/27-cache-poisoning-classic.py [0m
+       [1m[24mpython.django.security.injection.raw-html-format.raw-html-format[0m                     
+          Detected user input flowing into a manually constructed HTML string. You may be accidentally
+          bypassing secure methods of rendering HTML by manually constructing HTML and this could     
+          create a cross-site scripting vulnerability, which could let attackers steal sensitive user 
+          data. To be sure this is safe, check that the HTML is rendered safely. Otherwise, use       
+          templates (`django.shortcuts.render`) which will safely render HTML instead.                
+          Details: https://sg.run/oYj1                                                                
+                                                                                                      
+           23┆ HTMLContent = [1m[24m'''[0m
+           24┆ [1m[24m<div id="cache_info">[0m
+           25┆ [1m[24m  <p> The page was cached at: [%s] </p>[0m
+           26┆ [1m[24m  <p> The user was redirected from: [%s] </p>[0m
+           27┆ [1m[24m</div>[0m
+           28┆ [1m[24m''' %  (str(datetime.datetime.now()), str(request.headers.get("Referer")))[0m
+            ⋮┆----------------------------------------
+       [1m[24mpython.flask.security.injection.raw-html-concat.raw-html-format[0m                      
+          Detected user input flowing into a manually constructed HTML string. You may be accidentally
+          bypassing secure methods of rendering HTML by manually constructing HTML and this could     
+          create a cross-site scripting vulnerability, which could let attackers steal sensitive user 
+          data. To be sure this is safe, check that the HTML is rendered safely. Otherwise, use       
+          templates (`flask.render_template`) which will safely render HTML instead.                  
+          Details: https://sg.run/Pb7e                                                                
+                                                                                                      
+           23┆ HTMLContent = [1m[24m'''[0m
+           24┆ [1m[24m<div id="cache_info">[0m
+           25┆ [1m[24m  <p> The page was cached at: [%s] </p>[0m
+           26┆ [1m[24m  <p> The user was redirected from: [%s] </p>[0m
+           27┆ [1m[24m</div>[0m
+           28┆ [1m[24m''' %  (str(datetime.datetime.now()), str(request.headers.get("Referer")))[0m
+            ⋮┆----------------------------------------
+       [1m[24mpython.flask.security.audit.app-run-param-config.avoid_app_run_with_bad_host[0m
+          Running flask app with host 0.0.0.0 could expose the server publicly.              
+          Details: https://sg.run/eLby                                                       
+                                                                                             
+           33┆ [1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m
+            ⋮┆----------------------------------------
+       [1m[24mpython.flask.security.audit.debug-enabled.debug-enabled[0m                              
+          Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it
+          will leak sensitive information. Instead, consider using Flask configuration variables or   
+          setting 'debug' using system environment variables.                                         
+          Details: https://sg.run/dKrd                                                                
+                                                                                                      
+           33┆ [1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m
+                                                                         
+  [36m[22m[24m  /home/asha/Pythoncodes/32-format-injection-classic.py [0m
+       [1m[24mpython.flask.security.audit.app-run-param-config.avoid_app_run_with_bad_host[0m
+          Running flask app with host 0.0.0.0 could expose the server publicly.              
+          Details: https://sg.run/eLby                                                       
+                                                                                             
+           33┆ [1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m
+            ⋮┆----------------------------------------
+       [1m[24mpython.flask.security.audit.debug-enabled.debug-enabled[0m                              
+          Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it
+          will leak sensitive information. Instead, consider using Flask configuration variables or   
+          setting 'debug' using system environment variables.                                         
+          Details: https://sg.run/dKrd                                                                
+                                                                                                      
+           33┆ [1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m
+                                                          
+  [36m[22m[24m  /home/asha/Pythoncodes/34-DoS-regex.py [0m
+       [1m[24mpython.flask.security.audit.app-run-param-config.avoid_app_run_with_bad_host[0m
+          Running flask app with host 0.0.0.0 could expose the server publicly.              
+          Details: https://sg.run/eLby                                                       
+                                                                                             
+           35┆ [1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m
+            ⋮┆----------------------------------------
+       [1m[24mpython.flask.security.audit.debug-enabled.debug-enabled[0m                              
+          Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it
+          will leak sensitive information. Instead, consider using Flask configuration variables or   
+          setting 'debug' using system environment variables.                                         
+          Details: https://sg.run/dKrd                                                                
+                                                                                                      
+           35┆ [1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m
+                                                                          
+  [36m[22m[24m  /home/asha/Pythoncodes/42-command-injection-classic.py [0m
+       [1m[24mpython.lang.security.dangerous-system-call.dangerous-system-call[0m                
+          Found user-controlled data used in a system call. This could allow a malicious actor to
+          execute commands. Use the 'subprocess' module instead, which is easier to use without  
+          accidentally exposing a command injection vulnerability.                               
+          Details: https://sg.run/k0W7                                                           
+                                                                                                 
+           21┆ return render_template('index.html', result=[1m[24mos.popen(f"curl                                       
+  'http://localhost:1337/{method}'")[0m.read())                                                                         
+            ⋮┆----------------------------------------
+       [1m[24mpython.flask.security.audit.app-run-param-config.avoid_app_run_with_bad_host[0m
+          Running flask app with host 0.0.0.0 could expose the server publicly.              
+          Details: https://sg.run/eLby                                                       
+                                                                                             
+           38┆ [1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m
+            ⋮┆----------------------------------------
+       [1m[24mpython.flask.security.audit.debug-enabled.debug-enabled[0m                              
+          Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it
+          will leak sensitive information. Instead, consider using Flask configuration variables or   
+          setting 'debug' using system environment variables.                                         
+          Details: https://sg.run/dKrd                                                                
+                                                                                                      
+           38┆ [1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m
+                                                          
+  [36m[22m[24m  /home/asha/Pythoncodes/SQLInjection.py [0m
+       [1m[24mpython.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query[0m
+          Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can     
+          result in SQL Injection. In order to execute raw query safely, prepared statement should be
+          used. SQLAlchemy provides TextualSQL to easily used prepared statement with named          
+          parameters. For complex SQL composition, use SQL Expression Language or Schema Definition  
+          Language. In most cases, SQLAlchemy ORM will be a better option.                           
+          Details: https://sg.run/2b1L                                                               
+                                                                                                     
+            7┆ [1m[24mcursor.execute(query)[0m
+                                                          
+  [36m[22m[24m  /home/asha/Pythoncodes/VulDB1/vulpy.py [0m
+       [1m[24mpython.flask.security.audit.hardcoded-config.avoid_hardcoded_config_SECRET_KEY[0m      
+          Hardcoded variable `SECRET_KEY` detected. Use environment variables or config files instead
+          Details: https://sg.run/Ekde                                                               
+                                                                                                     
+           16┆ [1m[24mapp.config['SECRET_KEY'] = 'aaaaaaa'[0m
+            ⋮┆----------------------------------------
+       [1m[24mpython.flask.security.audit.app-run-security-config.avoid_using_app_run_directly[0m  
+          top-level app.run(...) is ignored by flask. Consider putting app.run(...) behind a guard,
+          like inside a function                                                                   
+          Details: https://sg.run/vz5b                                                             
+                                                                                                   
+           55┆ [1m[24mapp.run(debug=True, host='127.0.1.1', port=5000, extra_files='csp.txt')[0m
+            ⋮┆----------------------------------------
+       [1m[24mpython.flask.security.audit.debug-enabled.debug-enabled[0m                              
+          Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it
+          will leak sensitive information. Instead, consider using Flask configuration variables or   
+          setting 'debug' using system environment variables.                                         
+          Details: https://sg.run/dKrd                                                                
+                                                                                                      
+           55┆ [1m[24mapp.run(debug=True, host='127.0.1.1', port=5000, extra_files='csp.txt')[0m
+                                                        
+  [36m[22m[24m  /home/asha/Pythoncodes/WeakCrypto.py [0m
+       [1m[24mpython.lang.security.audit.md5-used-as-password.md5-used-as-password[0m                
+          It looks like MD5 is used as a password hash. MD5 is not considered a secure password hash 
+          because it can be cracked by an attacker in a short amount of time. Use a suitable password
+          hashing function such as scrypt. You can use `hashlib.scrypt`.                             
+          Details: https://sg.run/5DwD                                                               
+                                                                                                     
+            4┆ return [1m[24mhashlib.md5(password.encode()).hexdigest()[0m
+                                                 
+  [36m[22m[24m  /home/asha/Pythoncodes/XSS.py [0m
+       [1m[24mpython.flask.security.audit.render-template-string.render-template-string[0m            
+          Found a template created with string formatting. This is susceptible to server-side template
+          injection and cross-site scripting attacks.                                                 
+          Details: https://sg.run/8yjE                                                                
+                                                                                                      
+            9┆ return [1m[24mrender_template_string(template, name=name)[0m
+            ⋮┆----------------------------------------
+       [1m[24mpython.flask.security.audit.debug-enabled.debug-enabled[0m                              
+          Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it
+          will leak sensitive information. Instead, consider using Flask configuration variables or   
+          setting 'debug' using system environment variables.                                         
+          Details: https://sg.run/dKrd                                                                
+                                                                                                      
+           12┆ [1m[24mapp.run(debug=True)[0m
+                                                      
+  [36m[22m[24m  /home/asha/Pythoncodes/code_inj.py [0m
+       [1m[24mpython.lang.security.audit.insecure-transport.requests.request-session-with-http.request-
+       session-with-http[0m                                                                            
+          Detected a request using 'http://'. This request will be unencrypted. Use 'https://'         
+          instead.                                                                                     
+          Details: https://sg.run/DoBY                                                                 
+                                                                                                       
+           33┆ s.post([1m[24m'http://%s/login'%target[0m,data=d,headers=h)
+            ⋮┆----------------------------------------
+           42┆ s.post([1m[24m'http://%s/editor'%target[0m,data=d,headers=h)
+                                                
+  [36m[22m[24m  /home/asha/Pythoncodes/db.py [0m
+       [1m[24mpython.lang.security.audit.formatted-sql-query.formatted-sql-query[0m
+          Detected possible formatted SQL query. Use parameterized queries instead.
+          Details: https://sg.run/EkWw                                             
+                                                                                   
+           19┆ [1m[24mc.execute("INSERT INTO users (user, password, failures) VALUES ('%s', '%s', '%d')" %(u, p, 0))[0m
+            ⋮┆----------------------------------------
+       [1m[24mpython.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query[0m
+          Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can     
+          result in SQL Injection. In order to execute raw query safely, prepared statement should be
+          used. SQLAlchemy provides TextualSQL to easily used prepared statement with named          
+          parameters. For complex SQL composition, use SQL Expression Language or Schema Definition  
+          Language. In most cases, SQLAlchemy ORM will be a better option.                           
+          Details: https://sg.run/2b1L                                                               
+                                                                                                     
+           19┆ [1m[24mc.execute("INSERT INTO users (user, password, failures) VALUES ('%s', '%s', '%d')" %(u, p, 0))[0m
+                                                                    
+  [36m[22m[24m  /home/asha/Pythoncodes/dynamic-code-injection.py [0m
+       [1m[24mpython.django.security.injection.code.user-eval-format-string.user-eval-format-string[0m
+          Found user data in a call to 'eval'. This is extremely dangerous because it can enable an   
+          attacker to execute remote code. See https://owasp.org/www-community/attacks/Code_Injection 
+          for more information.                                                                       
+          Details: https://sg.run/4x2z                                                                
+                                                                                                      
+            7┆ [1m[24moperation = request.args.get("operation")[0m
+            8┆ [1m[24meval(f"product_{operation}()")[0m # Noncompliant
+            ⋮┆----------------------------------------
+       [1m[24mpython.flask.security.injection.user-eval.eval-injection[0m                    
+          Detected user data flowing into eval. This is code injection and should be avoided.
+          Details: https://sg.run/5QpX                                                       
+                                                                                             
+            8┆ [1m[24meval(f"product_{operation}()")[0m # Noncompliant
+            ⋮┆----------------------------------------
+       [1m[24mpython.lang.security.audit.eval-detected.eval-detected[0m                              
+          Detected the use of eval(). eval() can be dangerous if used to evaluate dynamic content. If
+          this content can be input from outside the program, this may be a code injection           
+          vulnerability. Ensure evaluated content is not definable by external sources.              
+          Details: https://sg.run/ZvrD                                                               
+                                                                                                     
+            8┆ [1m[24meval(f"product_{operation}()")[0m # Noncompliant
+                                                  
+  [36m[22m[24m  /home/asha/Pythoncodes/hash.py [0m
+       [1m[24mpython.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-sha1[0m         
+          Detected SHA1 hash algorithm which is considered insecure. SHA1 is not collision resistant
+          and is therefore not suitable as a cryptographic signature. Use SHA256 or SHA3 instead.   
+          Details: https://sg.run/ydYx                                                              
+                                                                                                    
+  [32m[22m[24m         ▶▶┆ Autofix ▶[0m hashlib.sha256()
+           24┆ h = [1m[24mhashlib.sha1()[0m
+                                                  
+  [36m[22m[24m  /home/asha/Pythoncodes/pyca.py [0m
+       [1m[24mpython.cryptography.security.insecure-cipher-algorithms-blowfish.insecure-cipher-algorithm-
+       blowfish[0m                                                                                       
+          Blowfish is a block cipher developed by Bruce Schneier. It is known to be susceptible to       
+          attacks when using weak keys.  The author has recommended that users of Blowfish move to       
+          newer algorithms such as AES. With the `cryptography` package it is recommended to use         
+          `Fernet` which is a secure implementation of AES in CBC mode with a 128-bit key.               
+          Alternatively, keep using the `Cipher` class from the hazmat primitives but use the AES        
+          algorithm instead.                                                                             
+          Details: https://sg.run/OdzL                                                                   
+                                                                                                         
+  [32m[22m[24m         ▶▶┆ Autofix ▶[0m AES
+           16┆  ... [1m[24mBlowfish[0m(key), mode=None, backend=default_backend()) # Noncompliant: Blowfish use a 64-bit
+  block size makes it vulnerable to birthday attacks ... [0m                                                            
+            [shortened a long line from output, adjust with --max-chars-per-line]
+            ⋮┆----------------------------------------
+       [1m[24mpython.cryptography.security.insecure-cipher-algorithms-arc4.insecure-cipher-algorithm-arc4[0m
+          ARC4 (Alleged RC4) is a stream cipher with serious weaknesses in its initial stream output.       
+          Its use is strongly discouraged. ARC4 does not use mode constructions. Use a strong               
+          symmetric cipher such as EAS instead. With the `cryptography` package it is recommended to        
+          use the `Fernet` which is a secure implementation of AES in CBC mode with a 128-bit key.          
+          Alternatively, keep using the `Cipher` class from the hazmat primitives but use the AES           
+          algorithm instead.                                                                                
+          Details: https://sg.run/xoZL                                                                      
+                                                                                                            
+  [32m[22m[24m         ▶▶┆ Autofix ▶[0m AES
+           17┆  ... [1m[24mARC4[0m(key), mode=None, backend=default_backend()) # Noncompliant: vulnerable to several    
+  attacks (see https://en.wikipedia.org/wiki/RC4#Security ... [0m                                                       
+            [shortened a long line from output, adjust with --max-chars-per-line]
+                                                      
+  [36m[22m[24m  /home/asha/Pythoncodes/pycrypto.py [0m
+       [1m[24mpython.pycryptodome.security.insecure-cipher-algorithm-des.insecure-cipher-algorithm-des[0m
+          Detected DES cipher or Triple DES algorithm which is considered insecure. This algorithm is    
+          not cryptographically secure and can be reversed easily. Use a secure symmetric cipher from    
+          the cryptodome package instead. Use secure stream ciphers such as ChaCha20, XChaCha20 and      
+          Salsa20, or a block cipher such as AES with a block size of 128 bits. When using a block       
+          cipher, use a modern mode of operation that also provides authentication, such as GCM.         
+          Details: https://sg.run/Z5bw                                                                   
+                                                                                                         
+           10┆ des3 = [1m[24mDES.new('ChangeIt')[0m # Noncompliant: DES works with 56-bit keys allow attacks via        
+  exhaustive search                                                                                                     
+            ⋮┆----------------------------------------
+           11┆ tdes3 = [1m[24mDES3.new('ChangeItChangeIt')[0m # Noncompliant: Triple DES is vulnerable to               
+  meet-in-the-middle attack                                                                                             
+            ⋮┆----------------------------------------
+       [1m[24mpython.pycryptodome.security.insecure-cipher-algorithm-blowfish.insecure-cipher-algorithm-
+       blowfish[0m                                                                                      
+          Detected Blowfish cipher algorithm which is considered insecure. This algorithm is not        
+          cryptographically secure and can be reversed easily. Use secure stream ciphers such as        
+          ChaCha20, XChaCha20 and Salsa20, or a block cipher such as AES with a block size of 128       
+          bits. When using a block cipher, use a modern mode of operation that also provides            
+          authentication, such as GCM.                                                                  
+          Details: https://sg.run/dlOE                                                                  
+                                                                                                        
+           12┆ bf2 = [1m[24mBlowfish.new('ChangeItWithYourKey', Blowfish.MODE_CBC, 'ChangeIt')[0m # Noncompliant:       
+  Blowfish use a 64-bit block size makes it                                                                             
+            ⋮┆----------------------------------------
+       [1m[24mpython.pycryptodome.security.insecure-cipher-algorithm-rc2.insecure-cipher-algorithm-rc2[0m
+          Detected RC2 cipher algorithm which is considered insecure. This algorithm is not              
+          cryptographically secure and can be reversed easily. Use secure stream ciphers such as         
+          ChaCha20, XChaCha20 and Salsa20, or a block cipher such as AES with a block size of 128        
+          bits. When using a block cipher, use a modern mode of operation that also provides             
+          authentication, such as GCM.                                                                   
+          Details: https://sg.run/nAbY                                                                   
+                                                                                                         
+           13┆ rc21 = [1m[24mARC2.new('ChangeItWithYourKey', ARC2.MODE_CFB, 'ChangeIt')[0m # Noncompliant: RC2 is       
+  vulnerable to a related-key attack                                                                                    
+            ⋮┆----------------------------------------
+       [1m[24mpython.pycryptodome.security.insecure-cipher-algorithm-rc4.insecure-cipher-algorithm-rc4[0m
+          Detected ARC4 cipher algorithm which is considered insecure. This algorithm is not             
+          cryptographically secure and can be reversed easily. Use secure stream ciphers such as         
+          ChaCha20, XChaCha20 and Salsa20, or a block cipher such as AES with a block size of 128        
+          bits. When using a block cipher, use a modern mode of operation that also provides             
+          authentication, such as GCM.                                                                   
+          Details: https://sg.run/Eo6N                                                                   
+                                                                                                         
+           14┆ rc41 = [1m[24mARC4.new('ChangeItWithYourKey')[0m # Noncompliant: vulnerable to several attacks (see      
+  https://en.wikipedia.org/wiki/RC4#Security)                                                                           
+                                                           
+  [36m[22m[24m  /home/asha/Pythoncodes/pycryptodomex.py [0m
+       [1m[24mpython.pycryptodome.security.insecure-cipher-algorithm-des.insecure-cipher-algorithm-des[0m
+          Detected DES cipher or Triple DES algorithm which is considered insecure. This algorithm is    
+          not cryptographically secure and can be reversed easily. Use a secure symmetric cipher from    
+          the cryptodome package instead. Use secure stream ciphers such as ChaCha20, XChaCha20 and      
+          Salsa20, or a block cipher such as AES with a block size of 128 bits. When using a block       
+          cipher, use a modern mode of operation that also provides authentication, such as GCM.         
+          Details: https://sg.run/Z5bw                                                                   
+                                                                                                         
+           12┆ [1m[24mDES.new(key, DES.MODE_OFB)[0m # Noncompliant: DES works with 56-bit keys allow attacks via        
+  exhaustive search                                                                                                     
+            ⋮┆----------------------------------------
+           15┆ cipher = [1m[24mDES3.new(key, DES3.MODE_CFB)[0m # Noncompliant: Triple DES is vulnerable to              
+  meet-in-the-middle attack                                                                                             
+            ⋮┆----------------------------------------
+       [1m[24mpython.pycryptodome.security.insecure-cipher-algorithm-rc2.insecure-cipher-algorithm-rc2[0m
+          Detected RC2 cipher algorithm which is considered insecure. This algorithm is not              
+          cryptographically secure and can be reversed easily. Use secure stream ciphers such as         
+          ChaCha20, XChaCha20 and Salsa20, or a block cipher such as AES with a block size of 128        
+          bits. When using a block cipher, use a modern mode of operation that also provides             
+          authentication, such as GCM.                                                                   
+          Details: https://sg.run/nAbY                                                                   
+                                                                                                         
+           18┆ cipher = [1m[24mARC2.new(key, ARC2.MODE_CFB)[0m # Noncompliant: RC2 is vulnerable to a related-key attack
+            ⋮┆----------------------------------------
+       [1m[24mpython.pycryptodome.security.insecure-cipher-algorithm-rc4.insecure-cipher-algorithm-rc4[0m
+          Detected ARC4 cipher algorithm which is considered insecure. This algorithm is not             
+          cryptographically secure and can be reversed easily. Use secure stream ciphers such as         
+          ChaCha20, XChaCha20 and Salsa20, or a block cipher such as AES with a block size of 128        
+          bits. When using a block cipher, use a modern mode of operation that also provides             
+          authentication, such as GCM.                                                                   
+          Details: https://sg.run/Eo6N                                                                   
+                                                                                                         
+           21┆ cipher = [1m[24mARC4.new(key)[0m # Noncompliant: vulnerable to several attacks (see                      
+  https://en.wikipedia.org/wiki/RC4#Security)                                                                           
+            ⋮┆----------------------------------------
+       [1m[24mpython.pycryptodome.security.insecure-cipher-algorithm-blowfish.insecure-cipher-algorithm-
+       blowfish[0m                                                                                      
+          Detected Blowfish cipher algorithm which is considered insecure. This algorithm is not        
+          cryptographically secure and can be reversed easily. Use secure stream ciphers such as        
+          ChaCha20, XChaCha20 and Salsa20, or a block cipher such as AES with a block size of 128       
+          bits. When using a block cipher, use a modern mode of operation that also provides            
+          authentication, such as GCM.                                                                  
+          Details: https://sg.run/dlOE                                                                  
+                                                                                                        
+           24┆ cipher = [1m[24mBlowfish.new(key, Blowfish.MODE_CBC)[0m # Noncompliant: Blowfish use a 64-bit block size 
+  makes it vulnerable to birthday attacks                                                                               
+                                                  
+  [36m[22m[24m  /home/asha/Pythoncodes/sqli.py [0m
+       [1m[24mpython.lang.security.audit.formatted-sql-query.formatted-sql-query[0m
+          Detected possible formatted SQL query. Use parameterized queries instead.
+          Details: https://sg.run/EkWw                                             
+                                                                                   
+           37┆ [1m[24mcursor.execute(sql)[0m
+            ⋮┆----------------------------------------
+       [1m[24mpython.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query[0m
+          Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can     
+          result in SQL Injection. In order to execute raw query safely, prepared statement should be
+          used. SQLAlchemy provides TextualSQL to easily used prepared statement with named          
+          parameters. For complex SQL composition, use SQL Expression Language or Schema Definition  
+          Language. In most cases, SQLAlchemy ORM will be a better option.                           
+          Details: https://sg.run/2b1L                                                               
+                                                                                                     
+           37┆ [1m[24mcursor.execute(sql)[0m
+

@@ -1,0 +1,62 @@
+3 vulnerabilities found:
+Vulnerability 1:
+File: /home/asha/Pythoncodes/2-ssrf-regex-bypass.py
+ > User input at line 33, source "request.args.get(":
+	 ~call_2 = ret_request.args.get('image')
+Reassigned in:
+	File: /home/asha/Pythoncodes/2-ssrf-regex-bypass.py
+	 > Line 33: temp_1_url = ~call_2
+	File: /home/asha/Pythoncodes/2-ssrf-regex-bypass.py
+	 > Line 11: url = temp_1_url
+	File: /home/asha/Pythoncodes/2-ssrf-regex-bypass.py
+	 > Line 26: ~call_7 = ret_requests.get(url)
+	File: /home/asha/Pythoncodes/2-ssrf-regex-bypass.py
+	 > Line 26: res = ~call_7
+	File: /home/asha/Pythoncodes/2-ssrf-regex-bypass.py
+	 > Line 28: ret_RequestImage = res.content
+	File: /home/asha/Pythoncodes/2-ssrf-regex-bypass.py
+	 > Line 33: ~call_1 = ret_RequestImage
+	File: /home/asha/Pythoncodes/2-ssrf-regex-bypass.py
+	 > Line 33: imageURL = ~call_1
+	File: /home/asha/Pythoncodes/2-ssrf-regex-bypass.py
+	 > Line 35: ~call_8 = ret_base64.b64encode(imageURL)
+	File: /home/asha/Pythoncodes/2-ssrf-regex-bypass.py
+	 > Line 35: __chain_tmp_1 = ~call_8
+	File: /home/asha/Pythoncodes/2-ssrf-regex-bypass.py
+	 > Line 35: ~call_9 = ret___chain_tmp_1.decode('utf-8')
+	File: /home/asha/Pythoncodes/2-ssrf-regex-bypass.py
+	 > Line 35: imageB64 = ~call_9
+	File: /home/asha/Pythoncodes/2-ssrf-regex-bypass.py
+	 > Line 36: image = '
+    <h1>Here is your image!!</h1>
+    <img src="data:image/jpg;base64,%s">' % imageB64
+File: /home/asha/Pythoncodes/2-ssrf-regex-bypass.py
+ > reaches line 40, sink "render_template(":
+	~call_10 = ret_render_template('index.html', result=image)
+This vulnerability is unknown due to:  Label: ~call_7 = ret_requests.get(url)
+
+Vulnerability 2:
+File: /home/asha/Pythoncodes/32-format-injection-classic.py
+ > User input at line 15, source "request.args.get(":
+	 ~call_1 = ret_request.args.get('id')
+Reassigned in:
+	File: /home/asha/Pythoncodes/32-format-injection-classic.py
+	 > Line 15: id = ~call_1
+	File: /home/asha/Pythoncodes/32-format-injection-classic.py
+	 > Line 26: ~call_5 = ret_str(data[id])
+File: /home/asha/Pythoncodes/32-format-injection-classic.py
+ > reaches line 26, sink "render_template(":
+	~call_4 = ret_render_template('index.html', result=~call_5)
+This vulnerability is unknown due to:  Label: ~call_5 = ret_str(data[id])
+
+Vulnerability 3:
+File: /home/asha/Pythoncodes/34-DoS-regex.py
+ > User input at line 14, source "request.args.get(":
+	 ~call_1 = ret_request.args.get('search')
+Reassigned in:
+	File: /home/asha/Pythoncodes/34-DoS-regex.py
+	 > Line 14: search = ~call_1
+File: /home/asha/Pythoncodes/34-DoS-regex.py
+ > reaches line 30, sink "render_template(":
+	~call_5 = ret_render_template('index.html', result=f'No item found for {html.escape(search)}!')
+

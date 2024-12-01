@@ -1,7 +1,28 @@
 Severity,Title,File,Line,Code,Details,CWE ID
-,,cowcontroller.java,11,"@[1m[24mRequestMapping[0m(value = ""/cowsay"")",Detected a method annotated with 'RequestMapping' that does not specify the HTTP method.,N/A
-,,cowsay.java,11,"[1m[24mprocessBuilder.command(""bash"", ""-c"", cmd)[0m;",A formatted or concatenated string was detected as input to a ProcessBuilder call. This is,N/A
-,,linkscontroller.java,19,"@[1m[24mRequestMapping[0m(value = ""/links-v2"", produces = ""application/json"")",Detected a method annotated with 'RequestMapping' that does not specify the HTTP method.,N/A
-,,postgres.java,67,"MessageDigest md = MessageDigest.getInstance([1m[24m""MD5""[0m);",Detected MD5 hash algorithm which is considered insecure. MD5 is not collision resistant and,N/A
-,,unsafequeryservlet.java,46,"[1m[24mresponse.getWriter().println(""Secret: "" + secret)[0m;",Detected a request with potential user-input going into a OutputStream or Writer object.,N/A
-,,user.java,49,ResultSet rs = [1m[24mstmt.executeQuery(query)[0m;,Detected a formatted string in a SQL statement. This could lead to SQL injection if,N/A
+,,13-fileupload_codeinjection.py,41,"[1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m",Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it,N/A
+,,17-deserialization-classic.py,56,"[1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m",Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it,N/A
+,,2-ssrf-regex-bypass.py,43,"[1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m",Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it,N/A
+,,27-cache-poisoning-classic.py,33,"[1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m",Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it,N/A
+,,32-format-injection-classic.py,33,"[1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m",Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it,N/A
+,,34-dos-regex.py,35,"[1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m",Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it,N/A
+,,42-command-injection-classic.py,38,"[1m[24mapp.run(host='0.0.0.0', port=1337, debug=True)[0m",Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it,N/A
+,,sqlinjection.py,7,[1m[24mcursor.execute(query)[0m,Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can,N/A
+,,vulpy.py,55,"[1m[24mapp.run(debug=True, host='127.0.1.1', port=5000, extra_files='csp.txt')[0m",Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it,N/A
+,,weakcrypto.py,4,return [1m[24mhashlib.md5(password.encode()).hexdigest()[0m,,N/A
+,,xss.py,12,[1m[24mapp.run(debug=True)[0m,Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it,N/A
+,,code_inj.py,42,"s.post([1m[24m'http://%s/editor'%target[0m,data=d,headers=h)",Detected a request using 'http://'. This request will be unencrypted. Use 'https://',N/A
+,,db.py,19,"[1m[24mc.execute(""INSERT INTO users (user, password, failures) VALUES ('%s', '%s', '%d')"" %(u, p, 0))[0m",Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can,N/A
+,,dynamic-code-injection.py,8,"[1m[24meval(f""product_{operation}()"")[0m # Noncompliant",Detected the use of eval(). eval() can be dangerous if used to evaluate dynamic content. If,N/A
+,,hash.py,24,h = [1m[24mhashlib.sha1()[0m,Detected SHA1 hash algorithm which is considered insecure. SHA1 is not collision resistant,N/A
+,,pyca.py,17,"... [1m[24mARC4[0m(key), mode=None, backend=default_backend()) # Noncompliant: vulnerable to several","Alternatively, keep using the `Cipher` class from the hazmat primitives but use the AES",N/A
+,,pycrypto.py,0,,,N/A
+,,[1m[24mpython.py,11,tdes3 = [1m[24mDES3.new('ChangeItChangeIt')[0m # Noncompliant: Triple DES is vulnerable to,Detected DES cipher or Triple DES algorithm which is considered insecure. This algorithm is,N/A
+,,[1m[24mpython.py,12,"bf2 = [1m[24mBlowfish.new('ChangeItWithYourKey', Blowfish.MODE_CBC, 'ChangeIt')[0m # Noncompliant:",Detected Blowfish cipher algorithm which is considered insecure. This algorithm is not,N/A
+,,[1m[24mpython.py,13,"rc21 = [1m[24mARC2.new('ChangeItWithYourKey', ARC2.MODE_CFB, 'ChangeIt')[0m # Noncompliant: RC2 is",Detected RC2 cipher algorithm which is considered insecure. This algorithm is not,N/A
+,,[1m[24mpython.py,14,rc41 = [1m[24mARC4.new('ChangeItWithYourKey')[0m # Noncompliant: vulnerable to several attacks (see,Detected ARC4 cipher algorithm which is considered insecure. This algorithm is not,N/A
+,,pycryptodomex.py,0,,,N/A
+,,[1m[24mpython.py,15,"cipher = [1m[24mDES3.new(key, DES3.MODE_CFB)[0m # Noncompliant: Triple DES is vulnerable to",Detected DES cipher or Triple DES algorithm which is considered insecure. This algorithm is,N/A
+,,[1m[24mpython.py,18,"cipher = [1m[24mARC2.new(key, ARC2.MODE_CFB)[0m # Noncompliant: RC2 is vulnerable to a related-key attack",Detected RC2 cipher algorithm which is considered insecure. This algorithm is not,N/A
+,,[1m[24mpython.py,21,cipher = [1m[24mARC4.new(key)[0m # Noncompliant: vulnerable to several attacks (see,Detected ARC4 cipher algorithm which is considered insecure. This algorithm is not,N/A
+,,[1m[24mpython.py,24,"cipher = [1m[24mBlowfish.new(key, Blowfish.MODE_CBC)[0m # Noncompliant: Blowfish use a 64-bit block size",Detected Blowfish cipher algorithm which is considered insecure. This algorithm is not,N/A
+,,sqli.py,37,[1m[24mcursor.execute(sql)[0m,Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can,N/A

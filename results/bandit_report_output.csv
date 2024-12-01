@@ -1,0 +1,134 @@
+Severity,Title,File,Line,Code,Details,CWE ID
+HIGH,"[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",13-fileupload_codeinjection.py,41,"40	if __name__ == '__main__':
+41	    app.run(host='0.0.0.0', port=1337, debug=True)","[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",N/A
+MEDIUM,[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,13-fileupload_codeinjection.py,41,"40	if __name__ == '__main__':
+41	    app.run(host='0.0.0.0', port=1337, debug=True)",[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,N/A
+LOW,[B403:blacklist] Consider possible security implications associated with pickle module.,17-deserialization-classic.py,5,"4	import base64 as b64
+5	import pickle
+6",[B403:blacklist] Consider possible security implications associated with pickle module.,N/A
+MEDIUM,"[B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",17-deserialization-classic.py,41,"40	            data = b64.b64decode(bytes(dataCookie, 'UTF-8'))
+41	            data = pickle.loads(data)
+42	            return User_RedirectTo(data)","[B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",N/A
+HIGH,"[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",17-deserialization-classic.py,56,"55	if __name__ == '__main__':
+56	    app.run(host='0.0.0.0', port=1337, debug=True)","[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",N/A
+MEDIUM,[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,17-deserialization-classic.py,56,"55	if __name__ == '__main__':
+56	    app.run(host='0.0.0.0', port=1337, debug=True)",[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,N/A
+MEDIUM,[B113:request_without_timeout] Call to requests without timeout,2-ssrf-regex-bypass.py,26,"25
+26	    res = requests.get(url)
+27",[B113:request_without_timeout] Call to requests without timeout,N/A
+HIGH,"[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",2-ssrf-regex-bypass.py,43,"42	if __name__ == '__main__':
+43	    app.run(host='0.0.0.0', port=1337, debug=True)","[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",N/A
+MEDIUM,[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,2-ssrf-regex-bypass.py,43,"42	if __name__ == '__main__':
+43	    app.run(host='0.0.0.0', port=1337, debug=True)",[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,N/A
+HIGH,"[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",27-cache-poisoning-classic.py,33,"32	if __name__ == '__main__':
+33	    app.run(host='0.0.0.0', port=1337, debug=True)","[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",N/A
+MEDIUM,[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,27-cache-poisoning-classic.py,33,"32	if __name__ == '__main__':
+33	    app.run(host='0.0.0.0', port=1337, debug=True)",[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,N/A
+HIGH,"[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",32-format-injection-classic.py,33,"32	if __name__ == '__main__':
+33	    app.run(host='0.0.0.0', port=1337, debug=True)","[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",N/A
+MEDIUM,[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,32-format-injection-classic.py,33,"32	if __name__ == '__main__':
+33	    app.run(host='0.0.0.0', port=1337, debug=True)",[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,N/A
+HIGH,"[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",34-dos-regex.py,35,"34	if __name__=='__main__':
+35	    app.run(host='0.0.0.0', port=1337, debug=True)
+36","[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",N/A
+MEDIUM,[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,34-dos-regex.py,35,"34	if __name__=='__main__':
+35	    app.run(host='0.0.0.0', port=1337, debug=True)
+36",[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,N/A
+HIGH,"[B605:start_process_with_a_shell] Starting a process with a shell, possible injection detected, security issue.",42-command-injection-classic.py,21,"20
+21	        return render_template('index.html', result=os.popen(f""curl 'http://localhost:1337/{method}'"").read())
+22","[B605:start_process_with_a_shell] Starting a process with a shell, possible injection detected, security issue.",N/A
+LOW,"[B110:try_except_pass] Try, Except, Pass detected.",42-command-injection-classic.py,32,"31	            return ""The health of the system is quite good!""
+32	    except:
+33	        pass
+34	    return ""Unauthorized""","[B110:try_except_pass] Try, Except, Pass detected.",N/A
+HIGH,"[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",42-command-injection-classic.py,38,"37	if __name__ == '__main__':
+38	    app.run(host='0.0.0.0', port=1337, debug=True)","[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",N/A
+MEDIUM,[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,42-command-injection-classic.py,38,"37	if __name__ == '__main__':
+38	    app.run(host='0.0.0.0', port=1337, debug=True)",[B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.,N/A
+HIGH,"[B605:start_process_with_a_shell] Starting a process with a shell, possible injection detected, security issue.",commandinjection.py,4,"3	def vulnerable_command_execution(command):
+4	   os.system(""ping "" + command)
+5","[B605:start_process_with_a_shell] Starting a process with a shell, possible injection detected, security issue.",N/A
+MEDIUM,[B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.,sqlinjection.py,6,"5	   cursor = conn.cursor()
+6	   query = ""SELECT * FROM users WHERE username = '"" + username + ""'""
+7	   cursor.execute(query)",[B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.,N/A
+MEDIUM,[B113:request_without_timeout] Call to requests without timeout,dataexposure.py,6,"5	    url = ""https://api.example.com/data?key="" + api_key
+6	    response = requests.post(url, json=data)
+7	    return response.status_code",[B113:request_without_timeout] Call to requests without timeout,N/A
+LOW,[B105:hardcoded_password_string] Possible hardcoded password: 'aaaaaaa',vulpy.py,16,"15	app = Flask('vulpy')
+16	app.config['SECRET_KEY'] = 'aaaaaaa'
+17",[B105:hardcoded_password_string] Possible hardcoded password: 'aaaaaaa',N/A
+HIGH,"[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",vulpy.py,55,"54
+55	app.run(debug=True, host='127.0.1.1', port=5000, extra_files='csp.txt')","[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",N/A
+HIGH,[B324:hashlib] Use of weak MD5 hash for security. Consider usedforsecurity=False,weakcrypto.py,4,"3	def hash_password(password):
+4	   return hashlib.md5(password.encode()).hexdigest()
+5",[B324:hashlib] Use of weak MD5 hash for security. Consider usedforsecurity=False,N/A
+HIGH,"[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",xss.py,12,"11	if __name__ == '__main__':
+12	   app.run(debug=True)","[B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",N/A
+LOW,[B404:blacklist] Consider possible security implications associated with the subprocess module.,code_inj.py,9,"8	import sys
+9	import subprocess
+10	import urllib.parse",[B404:blacklist] Consider possible security implications associated with the subprocess module.,N/A
+LOW,[B607:start_process_with_partial_path] Starting a process with a partial executable path,code_inj.py,37,"36	print(""[+] Opening listener..."")
+37	subprocess.Popen([""nc"",""-nvlp"",lport])
+38",[B607:start_process_with_partial_path] Starting a process with a partial executable path,N/A
+LOW,[B603:subprocess_without_shell_equals_true] subprocess call - check for execution of untrusted input.,code_inj.py,37,"36	print(""[+] Opening listener..."")
+37	subprocess.Popen([""nc"",""-nvlp"",lport])
+38",[B603:subprocess_without_shell_equals_true] subprocess call - check for execution of untrusted input.,N/A
+MEDIUM,[B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.,db.py,19,"18	    for u,p in users:
+19	        c.execute(""INSERT INTO users (user, password, failures) VALUES ('%s', '%s', '%d')"" %(u, p, 0))
+20",[B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.,N/A
+MEDIUM,[B307:blacklist] Use of possibly insecure function - consider using safer ast.literal_eval.,dynamic-code-injection.py,8,"7	    operation = request.args.get(""operation"")
+8	    eval(f""product_{operation}()"") # Noncompliant
+9	    return ""OK""",[B307:blacklist] Use of possibly insecure function - consider using safer ast.literal_eval.,N/A
+HIGH,[B324:hashlib] Use of weak MD5 hash for security. Consider usedforsecurity=False,hash.py,19,"18	def do_hashlib_md5(user_input):
+19	    h = hashlib.md5()
+20	    return _hash(h, user_input)",[B324:hashlib] Use of weak MD5 hash for security. Consider usedforsecurity=False,N/A
+HIGH,[B324:hashlib] Use of weak SHA1 hash for security. Consider usedforsecurity=False,hash.py,24,"23	def do_hashlib_sha1(user_input):
+24	    h = hashlib.sha1()
+25	    return _hash(h, user_input)",[B324:hashlib] Use of weak SHA1 hash for security. Consider usedforsecurity=False,N/A
+HIGH,[B324:hashlib] Use of weak SHA1 hash for security. Consider usedforsecurity=False,hash.py,29,"28	def do_hashlib_new(user_input):
+29	    h = hashlib.new(""SHA1"")
+30	    return _hash(h, user_input)",[B324:hashlib] Use of weak SHA1 hash for security. Consider usedforsecurity=False,N/A
+HIGH,"[B605:start_process_with_a_shell] Starting a process with a shell, possible injection detected, security issue.",os-command-injection.py,8,"7	    cmd = ""ping -c 1 %s"" % request.args.get(""host"", ""www.google.com"")
+8	    status = os.system(cmd) # Noncompliant
+9	    return str(status == 0)","[B605:start_process_with_a_shell] Starting a process with a shell, possible injection detected, security issue.",N/A
+HIGH,[B304:blacklist] Use of insecure cipher cryptography.hazmat.primitives.ciphers.algorithms.Blowfish. Replace with a known secure cipher such as AES.,pyca.py,16,"15	tdes4 = Cipher(algorithms.TripleDES(key), mode=None, backend=default_backend()) # Noncompliant: Triple DES is vulnerable to meet-in-the-middle attack
+16	bf3 = Cipher(algorithms.Blowfish(key), mode=None, backend=default_backend()) # Noncompliant: Blowfish use a 64-bit block size makes it vulnerable to birthday attacks
+17	rc42 = Cipher(algorithms.ARC4(key), mode=None, backend=default_backend()) # Noncompliant: vulnerable to several attacks (see https://en.wikipedia.org/wiki/RC4#Security",[B304:blacklist] Use of insecure cipher cryptography.hazmat.primitives.ciphers.algorithms.Blowfish. Replace with a known secure cipher such as AES.,N/A
+HIGH,[B304:blacklist] Use of insecure cipher cryptography.hazmat.primitives.ciphers.algorithms.ARC4. Replace with a known secure cipher such as AES.,pyca.py,17,"16	bf3 = Cipher(algorithms.Blowfish(key), mode=None, backend=default_backend()) # Noncompliant: Blowfish use a 64-bit block size makes it vulnerable to birthday attacks
+17	rc42 = Cipher(algorithms.ARC4(key), mode=None, backend=default_backend()) # Noncompliant: vulnerable to several attacks (see https://en.wikipedia.org/wiki/RC4#Security
+18",[B304:blacklist] Use of insecure cipher cryptography.hazmat.primitives.ciphers.algorithms.ARC4. Replace with a known secure cipher such as AES.,N/A
+HIGH,[B413:blacklist] The pyCrypto library and its module * are no longer actively maintained and have been deprecated. Consider using pyca/cryptography library.,pycrypto.py,8,"7
+8	from Crypto.Cipher import *
+9",[B413:blacklist] The pyCrypto library and its module * are no longer actively maintained and have been deprecated. Consider using pyca/cryptography library.,N/A
+HIGH,[B304:blacklist] Use of insecure cipher Cryptodome.Cipher.DES.new. Replace with a known secure cipher such as AES.,pycryptodomex.py,12,"11	key = b'-8B key-'
+12	DES.new(key, DES.MODE_OFB) # Noncompliant: DES works with 56-bit keys allow attacks via exhaustive search
+13",[B304:blacklist] Use of insecure cipher Cryptodome.Cipher.DES.new. Replace with a known secure cipher such as AES.,N/A
+HIGH,[B304:blacklist] Use of insecure cipher Cryptodome.Cipher.ARC2.new. Replace with a known secure cipher such as AES.,pycryptodomex.py,18,"17	key = b'Sixteen byte key'
+18	cipher = ARC2.new(key, ARC2.MODE_CFB) # Noncompliant: RC2 is vulnerable to a related-key attack
+19",[B304:blacklist] Use of insecure cipher Cryptodome.Cipher.ARC2.new. Replace with a known secure cipher such as AES.,N/A
+HIGH,[B304:blacklist] Use of insecure cipher Cryptodome.Cipher.ARC4.new. Replace with a known secure cipher such as AES.,pycryptodomex.py,21,"20	key = b'Very long and confidential key'
+21	cipher = ARC4.new(key) # Noncompliant: vulnerable to several attacks (see https://en.wikipedia.org/wiki/RC4#Security)
+22",[B304:blacklist] Use of insecure cipher Cryptodome.Cipher.ARC4.new. Replace with a known secure cipher such as AES.,N/A
+HIGH,[B304:blacklist] Use of insecure cipher Cryptodome.Cipher.Blowfish.new. Replace with a known secure cipher such as AES.,pycryptodomex.py,24,"23	key = b'An arbitrarily long key'
+24	cipher = Blowfish.new(key, Blowfish.MODE_CBC) # Noncompliant: Blowfish use a 64-bit block size makes it vulnerable to birthday attacks
+25",[B304:blacklist] Use of insecure cipher Cryptodome.Cipher.Blowfish.new. Replace with a known secure cipher such as AES.,N/A
+LOW,[B410:blacklist] Using etree to parse untrusted XML data is known to be vulnerable to XML attacks. Replace etree with the equivalent defusedxml package.,xxe.py,1,"1	from lxml import etree
+2	from xml.dom import pulldom
+3	from xml import sax",[B410:blacklist] Using etree to parse untrusted XML data is known to be vulnerable to XML attacks. Replace etree with the equivalent defusedxml package.,N/A
+LOW,is called.,xxe.py,2,"1	from lxml import etree
+2	from xml.dom import pulldom
+3	from xml import sax",is called.,N/A
+LOW,is called.,xxe.py,3,"2	from xml.dom import pulldom
+3	from xml import sax
+4	from xml.sax.handler import ContentHandler",is called.,N/A
+LOW,is called.,xxe.py,4,"3	from xml import sax
+4	from xml.sax.handler import ContentHandler
+5",is called.,N/A
+MEDIUM,[B320:blacklist] Using lxml.etree.fromstring to parse untrusted XML data is known to be vulnerable to XML attacks. Replace lxml.etree.fromstring with its defusedxml equivalent function.,xxe.py,8,"7	def do_lxml_etree_fromstring(user_input):
+8	    return etree.fromstring(user_input)
+9",[B320:blacklist] Using lxml.etree.fromstring to parse untrusted XML data is known to be vulnerable to XML attacks. Replace lxml.etree.fromstring with its defusedxml equivalent function.,N/A
+MEDIUM,is called,xxe.py,12,"11	def do_xml_dom_pulldom_parsestring(user_input):
+12	    return pulldom.parseString(user_input)
+13",is called,N/A
+MEDIUM,is called,xxe.py,16,"15	def do_xml_sax_parsestring(user_input):
+16	    return sax.parseString(user_input, ContentHandler())",is called,N/A
