@@ -1,0 +1,497 @@
+Run started:2024-10-22 09:08:10.306287
+
+Test results:
+>> Issue: [B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.
+   Severity: High   Confidence: Medium
+   CWE: CWE-94 (https://cwe.mitre.org/data/definitions/94.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b201_flask_debug_true.html
+   Location: /home/asha/Pythoncodes/13-FileUpload_CodeInjection.py:41:4
+40	if __name__ == '__main__':
+41	    app.run(host='0.0.0.0', port=1337, debug=True)
+
+--------------------------------------------------
+>> Issue: [B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-605 (https://cwe.mitre.org/data/definitions/605.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b104_hardcoded_bind_all_interfaces.html
+   Location: /home/asha/Pythoncodes/13-FileUpload_CodeInjection.py:41:17
+40	if __name__ == '__main__':
+41	    app.run(host='0.0.0.0', port=1337, debug=True)
+
+--------------------------------------------------
+>> Issue: [B403:blacklist] Consider possible security implications associated with pickle module.
+   Severity: Low   Confidence: High
+   CWE: CWE-502 (https://cwe.mitre.org/data/definitions/502.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b403-import-pickle
+   Location: /home/asha/Pythoncodes/17-deserialization-classic.py:5:0
+4	import base64 as b64
+5	import pickle
+6	
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   CWE: CWE-502 (https://cwe.mitre.org/data/definitions/502.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b301-pickle
+   Location: /home/asha/Pythoncodes/17-deserialization-classic.py:41:19
+40	            data = b64.b64decode(bytes(dataCookie, 'UTF-8'))
+41	            data = pickle.loads(data)
+42	            return User_RedirectTo(data)
+
+--------------------------------------------------
+>> Issue: [B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.
+   Severity: High   Confidence: Medium
+   CWE: CWE-94 (https://cwe.mitre.org/data/definitions/94.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b201_flask_debug_true.html
+   Location: /home/asha/Pythoncodes/17-deserialization-classic.py:56:4
+55	if __name__ == '__main__':
+56	    app.run(host='0.0.0.0', port=1337, debug=True)
+
+--------------------------------------------------
+>> Issue: [B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-605 (https://cwe.mitre.org/data/definitions/605.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b104_hardcoded_bind_all_interfaces.html
+   Location: /home/asha/Pythoncodes/17-deserialization-classic.py:56:17
+55	if __name__ == '__main__':
+56	    app.run(host='0.0.0.0', port=1337, debug=True)
+
+--------------------------------------------------
+>> Issue: [B113:request_without_timeout] Call to requests without timeout
+   Severity: Medium   Confidence: Low
+   CWE: CWE-400 (https://cwe.mitre.org/data/definitions/400.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b113_request_without_timeout.html
+   Location: /home/asha/Pythoncodes/2-ssrf-regex-bypass.py:26:10
+25	        
+26	    res = requests.get(url)
+27	
+
+--------------------------------------------------
+>> Issue: [B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.
+   Severity: High   Confidence: Medium
+   CWE: CWE-94 (https://cwe.mitre.org/data/definitions/94.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b201_flask_debug_true.html
+   Location: /home/asha/Pythoncodes/2-ssrf-regex-bypass.py:43:4
+42	if __name__ == '__main__':
+43	    app.run(host='0.0.0.0', port=1337, debug=True)
+
+--------------------------------------------------
+>> Issue: [B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-605 (https://cwe.mitre.org/data/definitions/605.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b104_hardcoded_bind_all_interfaces.html
+   Location: /home/asha/Pythoncodes/2-ssrf-regex-bypass.py:43:17
+42	if __name__ == '__main__':
+43	    app.run(host='0.0.0.0', port=1337, debug=True)
+
+--------------------------------------------------
+>> Issue: [B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.
+   Severity: High   Confidence: Medium
+   CWE: CWE-94 (https://cwe.mitre.org/data/definitions/94.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b201_flask_debug_true.html
+   Location: /home/asha/Pythoncodes/27-cache-poisoning-classic.py:33:4
+32	if __name__ == '__main__':
+33	    app.run(host='0.0.0.0', port=1337, debug=True)
+
+--------------------------------------------------
+>> Issue: [B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-605 (https://cwe.mitre.org/data/definitions/605.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b104_hardcoded_bind_all_interfaces.html
+   Location: /home/asha/Pythoncodes/27-cache-poisoning-classic.py:33:17
+32	if __name__ == '__main__':
+33	    app.run(host='0.0.0.0', port=1337, debug=True)
+
+--------------------------------------------------
+>> Issue: [B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.
+   Severity: High   Confidence: Medium
+   CWE: CWE-94 (https://cwe.mitre.org/data/definitions/94.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b201_flask_debug_true.html
+   Location: /home/asha/Pythoncodes/32-format-injection-classic.py:33:4
+32	if __name__ == '__main__':
+33	    app.run(host='0.0.0.0', port=1337, debug=True)
+
+--------------------------------------------------
+>> Issue: [B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-605 (https://cwe.mitre.org/data/definitions/605.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b104_hardcoded_bind_all_interfaces.html
+   Location: /home/asha/Pythoncodes/32-format-injection-classic.py:33:17
+32	if __name__ == '__main__':
+33	    app.run(host='0.0.0.0', port=1337, debug=True)
+
+--------------------------------------------------
+>> Issue: [B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.
+   Severity: High   Confidence: Medium
+   CWE: CWE-94 (https://cwe.mitre.org/data/definitions/94.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b201_flask_debug_true.html
+   Location: /home/asha/Pythoncodes/34-DoS-regex.py:35:4
+34	if __name__=='__main__':
+35	    app.run(host='0.0.0.0', port=1337, debug=True)
+36	
+
+--------------------------------------------------
+>> Issue: [B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-605 (https://cwe.mitre.org/data/definitions/605.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b104_hardcoded_bind_all_interfaces.html
+   Location: /home/asha/Pythoncodes/34-DoS-regex.py:35:17
+34	if __name__=='__main__':
+35	    app.run(host='0.0.0.0', port=1337, debug=True)
+36	
+
+--------------------------------------------------
+>> Issue: [B605:start_process_with_a_shell] Starting a process with a shell, possible injection detected, security issue.
+   Severity: High   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b605_start_process_with_a_shell.html
+   Location: /home/asha/Pythoncodes/42-command-injection-classic.py:21:52
+20	        
+21	        return render_template('index.html', result=os.popen(f"curl 'http://localhost:1337/{method}'").read())
+22	    
+
+--------------------------------------------------
+>> Issue: [B110:try_except_pass] Try, Except, Pass detected.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b110_try_except_pass.html
+   Location: /home/asha/Pythoncodes/42-command-injection-classic.py:32:4
+31	            return "The health of the system is quite good!"
+32	    except:
+33	        pass
+34	    return "Unauthorized"        
+
+--------------------------------------------------
+>> Issue: [B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.
+   Severity: High   Confidence: Medium
+   CWE: CWE-94 (https://cwe.mitre.org/data/definitions/94.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b201_flask_debug_true.html
+   Location: /home/asha/Pythoncodes/42-command-injection-classic.py:38:4
+37	if __name__ == '__main__':
+38	    app.run(host='0.0.0.0', port=1337, debug=True)
+
+--------------------------------------------------
+>> Issue: [B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-605 (https://cwe.mitre.org/data/definitions/605.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b104_hardcoded_bind_all_interfaces.html
+   Location: /home/asha/Pythoncodes/42-command-injection-classic.py:38:17
+37	if __name__ == '__main__':
+38	    app.run(host='0.0.0.0', port=1337, debug=True)
+
+--------------------------------------------------
+>> Issue: [B605:start_process_with_a_shell] Starting a process with a shell, possible injection detected, security issue.
+   Severity: High   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b605_start_process_with_a_shell.html
+   Location: /home/asha/Pythoncodes/CommandInjection.py:4:3
+3	def vulnerable_command_execution(command):
+4	   os.system("ping " + command)
+5	 
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Low
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b608_hardcoded_sql_expressions.html
+   Location: /home/asha/Pythoncodes/SQLInjection.py:6:11
+5	   cursor = conn.cursor()
+6	   query = "SELECT * FROM users WHERE username = '" + username + "'"
+7	   cursor.execute(query)
+
+--------------------------------------------------
+>> Issue: [B113:request_without_timeout] Call to requests without timeout
+   Severity: Medium   Confidence: Low
+   CWE: CWE-400 (https://cwe.mitre.org/data/definitions/400.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b113_request_without_timeout.html
+   Location: /home/asha/Pythoncodes/VulDB1/DataExposure.py:6:15
+5	    url = "https://api.example.com/data?key=" + api_key
+6	    response = requests.post(url, json=data)
+7	    return response.status_code
+
+--------------------------------------------------
+>> Issue: [B105:hardcoded_password_string] Possible hardcoded password: 'aaaaaaa'
+   Severity: Low   Confidence: Medium
+   CWE: CWE-259 (https://cwe.mitre.org/data/definitions/259.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b105_hardcoded_password_string.html
+   Location: /home/asha/Pythoncodes/VulDB1/vulpy.py:16:11
+15	app = Flask('vulpy')
+16	app.config['SECRET_KEY'] = 'aaaaaaa'
+17	
+
+--------------------------------------------------
+>> Issue: [B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.
+   Severity: High   Confidence: Medium
+   CWE: CWE-94 (https://cwe.mitre.org/data/definitions/94.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b201_flask_debug_true.html
+   Location: /home/asha/Pythoncodes/VulDB1/vulpy.py:55:0
+54	
+55	app.run(debug=True, host='127.0.1.1', port=5000, extra_files='csp.txt')
+
+--------------------------------------------------
+>> Issue: [B324:hashlib] Use of weak MD5 hash for security. Consider usedforsecurity=False
+   Severity: High   Confidence: High
+   CWE: CWE-327 (https://cwe.mitre.org/data/definitions/327.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b324_hashlib.html
+   Location: /home/asha/Pythoncodes/WeakCrypto.py:4:10
+3	def hash_password(password):
+4	   return hashlib.md5(password.encode()).hexdigest()
+5	 
+
+--------------------------------------------------
+>> Issue: [B201:flask_debug_true] A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.
+   Severity: High   Confidence: Medium
+   CWE: CWE-94 (https://cwe.mitre.org/data/definitions/94.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b201_flask_debug_true.html
+   Location: /home/asha/Pythoncodes/XSS.py:12:3
+11	if __name__ == '__main__':
+12	   app.run(debug=True)
+
+--------------------------------------------------
+>> Issue: [B404:blacklist] Consider possible security implications associated with the subprocess module.
+   Severity: Low   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b404-import-subprocess
+   Location: /home/asha/Pythoncodes/code_inj.py:9:0
+8	import sys
+9	import subprocess
+10	import urllib.parse
+
+--------------------------------------------------
+>> Issue: [B607:start_process_with_partial_path] Starting a process with a partial executable path
+   Severity: Low   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b607_start_process_with_partial_path.html
+   Location: /home/asha/Pythoncodes/code_inj.py:37:0
+36	print("[+] Opening listener...")
+37	subprocess.Popen(["nc","-nvlp",lport])
+38	
+
+--------------------------------------------------
+>> Issue: [B603:subprocess_without_shell_equals_true] subprocess call - check for execution of untrusted input.
+   Severity: Low   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b603_subprocess_without_shell_equals_true.html
+   Location: /home/asha/Pythoncodes/code_inj.py:37:0
+36	print("[+] Opening listener...")
+37	subprocess.Popen(["nc","-nvlp",lport])
+38	
+
+--------------------------------------------------
+>> Issue: [B608:hardcoded_sql_expressions] Possible SQL injection vector through string-based query construction.
+   Severity: Medium   Confidence: Medium
+   CWE: CWE-89 (https://cwe.mitre.org/data/definitions/89.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b608_hardcoded_sql_expressions.html
+   Location: /home/asha/Pythoncodes/db.py:19:18
+18	    for u,p in users:
+19	        c.execute("INSERT INTO users (user, password, failures) VALUES ('%s', '%s', '%d')" %(u, p, 0))
+20	
+
+--------------------------------------------------
+>> Issue: [B307:blacklist] Use of possibly insecure function - consider using safer ast.literal_eval.
+   Severity: Medium   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b307-eval
+   Location: /home/asha/Pythoncodes/dynamic-code-injection.py:8:4
+7	    operation = request.args.get("operation")
+8	    eval(f"product_{operation}()") # Noncompliant
+9	    return "OK"
+
+--------------------------------------------------
+>> Issue: [B324:hashlib] Use of weak MD5 hash for security. Consider usedforsecurity=False
+   Severity: High   Confidence: High
+   CWE: CWE-327 (https://cwe.mitre.org/data/definitions/327.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b324_hashlib.html
+   Location: /home/asha/Pythoncodes/hash.py:19:8
+18	def do_hashlib_md5(user_input):
+19	    h = hashlib.md5()
+20	    return _hash(h, user_input)
+
+--------------------------------------------------
+>> Issue: [B324:hashlib] Use of weak SHA1 hash for security. Consider usedforsecurity=False
+   Severity: High   Confidence: High
+   CWE: CWE-327 (https://cwe.mitre.org/data/definitions/327.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b324_hashlib.html
+   Location: /home/asha/Pythoncodes/hash.py:24:8
+23	def do_hashlib_sha1(user_input):
+24	    h = hashlib.sha1()
+25	    return _hash(h, user_input)
+
+--------------------------------------------------
+>> Issue: [B324:hashlib] Use of weak SHA1 hash for security. Consider usedforsecurity=False
+   Severity: High   Confidence: High
+   CWE: CWE-327 (https://cwe.mitre.org/data/definitions/327.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b324_hashlib.html
+   Location: /home/asha/Pythoncodes/hash.py:29:8
+28	def do_hashlib_new(user_input):
+29	    h = hashlib.new("SHA1")
+30	    return _hash(h, user_input)
+
+--------------------------------------------------
+>> Issue: [B605:start_process_with_a_shell] Starting a process with a shell, possible injection detected, security issue.
+   Severity: High   Confidence: High
+   CWE: CWE-78 (https://cwe.mitre.org/data/definitions/78.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/plugins/b605_start_process_with_a_shell.html
+   Location: /home/asha/Pythoncodes/os-command-injection.py:8:13
+7	    cmd = "ping -c 1 %s" % request.args.get("host", "www.google.com")
+8	    status = os.system(cmd) # Noncompliant
+9	    return str(status == 0)
+
+--------------------------------------------------
+>> Issue: [B304:blacklist] Use of insecure cipher cryptography.hazmat.primitives.ciphers.algorithms.Blowfish. Replace with a known secure cipher such as AES.
+   Severity: High   Confidence: High
+   CWE: CWE-327 (https://cwe.mitre.org/data/definitions/327.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b304-b305-ciphers-and-modes
+   Location: /home/asha/Pythoncodes/pyca.py:16:13
+15	tdes4 = Cipher(algorithms.TripleDES(key), mode=None, backend=default_backend()) # Noncompliant: Triple DES is vulnerable to meet-in-the-middle attack
+16	bf3 = Cipher(algorithms.Blowfish(key), mode=None, backend=default_backend()) # Noncompliant: Blowfish use a 64-bit block size makes it vulnerable to birthday attacks
+17	rc42 = Cipher(algorithms.ARC4(key), mode=None, backend=default_backend()) # Noncompliant: vulnerable to several attacks (see https://en.wikipedia.org/wiki/RC4#Security
+
+--------------------------------------------------
+>> Issue: [B304:blacklist] Use of insecure cipher cryptography.hazmat.primitives.ciphers.algorithms.ARC4. Replace with a known secure cipher such as AES.
+   Severity: High   Confidence: High
+   CWE: CWE-327 (https://cwe.mitre.org/data/definitions/327.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b304-b305-ciphers-and-modes
+   Location: /home/asha/Pythoncodes/pyca.py:17:14
+16	bf3 = Cipher(algorithms.Blowfish(key), mode=None, backend=default_backend()) # Noncompliant: Blowfish use a 64-bit block size makes it vulnerable to birthday attacks
+17	rc42 = Cipher(algorithms.ARC4(key), mode=None, backend=default_backend()) # Noncompliant: vulnerable to several attacks (see https://en.wikipedia.org/wiki/RC4#Security
+18	
+
+--------------------------------------------------
+>> Issue: [B413:blacklist] The pyCrypto library and its module * are no longer actively maintained and have been deprecated. Consider using pyca/cryptography library.
+   Severity: High   Confidence: High
+   CWE: CWE-327 (https://cwe.mitre.org/data/definitions/327.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b413-import-pycrypto
+   Location: /home/asha/Pythoncodes/pycrypto.py:8:0
+7	
+8	from Crypto.Cipher import *
+9	
+
+--------------------------------------------------
+>> Issue: [B304:blacklist] Use of insecure cipher Cryptodome.Cipher.DES.new. Replace with a known secure cipher such as AES.
+   Severity: High   Confidence: High
+   CWE: CWE-327 (https://cwe.mitre.org/data/definitions/327.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b304-b305-ciphers-and-modes
+   Location: /home/asha/Pythoncodes/pycryptodomex.py:12:0
+11	key = b'-8B key-'
+12	DES.new(key, DES.MODE_OFB) # Noncompliant: DES works with 56-bit keys allow attacks via exhaustive search
+13	
+
+--------------------------------------------------
+>> Issue: [B304:blacklist] Use of insecure cipher Cryptodome.Cipher.ARC2.new. Replace with a known secure cipher such as AES.
+   Severity: High   Confidence: High
+   CWE: CWE-327 (https://cwe.mitre.org/data/definitions/327.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b304-b305-ciphers-and-modes
+   Location: /home/asha/Pythoncodes/pycryptodomex.py:18:9
+17	key = b'Sixteen byte key'
+18	cipher = ARC2.new(key, ARC2.MODE_CFB) # Noncompliant: RC2 is vulnerable to a related-key attack
+19	
+
+--------------------------------------------------
+>> Issue: [B304:blacklist] Use of insecure cipher Cryptodome.Cipher.ARC4.new. Replace with a known secure cipher such as AES.
+   Severity: High   Confidence: High
+   CWE: CWE-327 (https://cwe.mitre.org/data/definitions/327.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b304-b305-ciphers-and-modes
+   Location: /home/asha/Pythoncodes/pycryptodomex.py:21:9
+20	key = b'Very long and confidential key'
+21	cipher = ARC4.new(key) # Noncompliant: vulnerable to several attacks (see https://en.wikipedia.org/wiki/RC4#Security)
+22	
+
+--------------------------------------------------
+>> Issue: [B304:blacklist] Use of insecure cipher Cryptodome.Cipher.Blowfish.new. Replace with a known secure cipher such as AES.
+   Severity: High   Confidence: High
+   CWE: CWE-327 (https://cwe.mitre.org/data/definitions/327.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b304-b305-ciphers-and-modes
+   Location: /home/asha/Pythoncodes/pycryptodomex.py:24:9
+23	key = b'An arbitrarily long key'
+24	cipher = Blowfish.new(key, Blowfish.MODE_CBC) # Noncompliant: Blowfish use a 64-bit block size makes it vulnerable to birthday attacks
+25	
+
+--------------------------------------------------
+>> Issue: [B410:blacklist] Using etree to parse untrusted XML data is known to be vulnerable to XML attacks. Replace etree with the equivalent defusedxml package.
+   Severity: Low   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b410-import-lxml
+   Location: /home/asha/Pythoncodes/xxe.py:1:0
+1	from lxml import etree
+2	from xml.dom import pulldom
+3	from xml import sax
+
+--------------------------------------------------
+>> Issue: [B409:blacklist] Using pulldom to parse untrusted XML data is known to be vulnerable to XML attacks. Replace pulldom with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.
+   Severity: Low   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b409-import-xml-pulldom
+   Location: /home/asha/Pythoncodes/xxe.py:2:0
+1	from lxml import etree
+2	from xml.dom import pulldom
+3	from xml import sax
+
+--------------------------------------------------
+>> Issue: [B406:blacklist] Using sax to parse untrusted XML data is known to be vulnerable to XML attacks. Replace sax with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.
+   Severity: Low   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b406-import-xml-sax
+   Location: /home/asha/Pythoncodes/xxe.py:3:0
+2	from xml.dom import pulldom
+3	from xml import sax
+4	from xml.sax.handler import ContentHandler
+
+--------------------------------------------------
+>> Issue: [B406:blacklist] Using ContentHandler to parse untrusted XML data is known to be vulnerable to XML attacks. Replace ContentHandler with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.
+   Severity: Low   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_imports.html#b406-import-xml-sax
+   Location: /home/asha/Pythoncodes/xxe.py:4:0
+3	from xml import sax
+4	from xml.sax.handler import ContentHandler
+5	
+
+--------------------------------------------------
+>> Issue: [B320:blacklist] Using lxml.etree.fromstring to parse untrusted XML data is known to be vulnerable to XML attacks. Replace lxml.etree.fromstring with its defusedxml equivalent function.
+   Severity: Medium   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b313-b320-xml-bad-etree
+   Location: /home/asha/Pythoncodes/xxe.py:8:11
+7	def do_lxml_etree_fromstring(user_input):
+8	    return etree.fromstring(user_input)
+9	
+
+--------------------------------------------------
+>> Issue: [B319:blacklist] Using xml.dom.pulldom.parseString to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.dom.pulldom.parseString with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called
+   Severity: Medium   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b313-b320-xml-bad-pulldom
+   Location: /home/asha/Pythoncodes/xxe.py:12:11
+11	def do_xml_dom_pulldom_parsestring(user_input):
+12	    return pulldom.parseString(user_input)
+13	
+
+--------------------------------------------------
+>> Issue: [B317:blacklist] Using xml.sax.parseString to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.sax.parseString with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called
+   Severity: Medium   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.7.10/blacklists/blacklist_calls.html#b313-b320-xml-bad-sax
+   Location: /home/asha/Pythoncodes/xxe.py:16:11
+15	def do_xml_sax_parsestring(user_input):
+16	    return sax.parseString(user_input, ContentHandler())
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 585
+	Total lines skipped (#nosec): 0
+	Total potential issues skipped due to specifically being disabled (e.g., #nosec BXXX): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0
+		Low: 10
+		Medium: 16
+		High: 23
+	Total issues (by confidence):
+		Undefined: 0
+		Low: 3
+		Medium: 18
+		High: 28
+Files skipped (0):

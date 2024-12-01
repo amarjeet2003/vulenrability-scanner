@@ -54,7 +54,8 @@ def find_common_entries(sources):
             f'Line_{primary_source_name}': row['Line'], 
             f'Code_{primary_source_name}': row['Code'],
             f'Title_{primary_source_name}': row['Title'],
-            f'Details_{primary_source_name}': row['Details']
+            f'Details_{primary_source_name}': row['Details'],
+            f'CWE ID_{primary_source_name}': row['CWE ID']
         }
 
         is_common = False
@@ -64,12 +65,13 @@ def find_common_entries(sources):
             if file_name in source_lookups[other_source_name]:
                 for other_row in source_lookups[other_source_name][file_name]:
                     # Check if the details are similar
-                    if is_similar(row['Details'], other_row['Details']) or is_similar(row['Title'], other_row['Title']):
+                    if is_similar(row['Details'], other_row['Details']) or is_similar(row['Title'], other_row['Title']) or is_similar(row['Code'], other_row['Code']):
                         matched_entry[f'Severity_{other_source_name}'] = other_row['Severity']
                         matched_entry[f'Line_{other_source_name}'] = other_row['Line']
                         matched_entry[f'Code_{other_source_name}'] = other_row['Code']
                         matched_entry[f'Title_{other_source_name}'] = other_row['Title']
                         matched_entry[f'Details_{other_source_name}'] = other_row['Details']
+                        matched_entry[f'CWE ID_{other_source_name}'] = other_row['CWE ID']
                         is_common = True
                         break
             else:
@@ -78,6 +80,7 @@ def find_common_entries(sources):
                 matched_entry[f'Code_{other_source_name}'] = None
                 matched_entry[f'Title_{other_source_name}'] = None
                 matched_entry[f'Details_{other_source_name}'] = None
+                matched_entry[f'CWE ID_{other_source_name}'] = None
 
         if is_common:
             common_entries.append(matched_entry)
@@ -94,11 +97,25 @@ def find_unique_entries(sources, common_entries):
         for _, row in df.iterrows():
             file_name = row['File']
             is_common = False
-            # Check if the entry is common
+
+            # Check if the entry is common by comparing with common_entries
             for _, common_row in common_entries.iterrows():
-                if (file_name == common_row['File']) and is_similar(row['Details'], common_row[f'Details_{source_name}']):
-                    is_common = True
-                    break
+                if file_name == common_row['File']:
+                    # Check if the Details columns exist for the source in common_entries
+                    common_details_column = f'Details_{source_name}'
+                    if common_details_column in common_row:
+                        # Handle NaN/empty values in Details before checking similarity
+                        if pd.notna(row['Details']) and pd.notna(common_row[common_details_column]):
+                            if is_similar(row['Details'], common_row[common_details_column]):
+                                is_common = True
+                                break
+                        else:
+                            # Handle missing or NaN Details, consider these entries as common
+                            if pd.isna(row['Details']) and pd.isna(common_row[common_details_column]):
+                                is_common = True
+                                break
+
+            # If not a common entry, add it as unique to the source
             if not is_common:
                 row['Source'] = source_name
                 unique_entries.append(row)

@@ -1,0 +1,256 @@
+
+
+Security Report
+
+=====================================
+
+Rules: 
+https://docs.bearer.com/reference/rules [v0.46.0]
+
+Language  Default Rules  Custom Rules  Files  
+Java      79             0             10     
+
+
+CRITICAL: Unsanitized external input in SQL query [CWE-89]
+https://docs.bearer.com/reference/rules/java_lang_sqli
+To ignore this finding, run: bearer ignore add 593bcc2fa5fb23992be7c22ba3604622_0
+
+File: /home/asha/vulnado/User.java:49
+
+ 49       ResultSet rs = stmt.executeQuery(query);
+
+MEDIUM: Observable Timing Discrepancy [CWE-208]
+https://docs.bearer.com/reference/rules/java_lang_observable_timing
+To ignore this finding, run: bearer ignore add c018c6018a764d7f7b861260137dab3e_0
+
+File: /home/asha/vulnado/LoginController.java:21
+
+ 21     if (Postgres.md5(input.password).equals(user.hashedPassword)) {
+
+LOW: Leakage of sensitive information in exception message [CWE-209]
+https://docs.bearer.com/reference/rules/java_lang_information_leakage
+To ignore this finding, run: bearer ignore add 1bbb760fdeaf42c6a817250db4666e6d_0
+
+File: /home/asha/vulnado/Comment.java:55
+
+ 55       e.printStackTrace();
+
+LOW: Leakage of sensitive information in exception message [CWE-209]
+https://docs.bearer.com/reference/rules/java_lang_information_leakage
+To ignore this finding, run: bearer ignore add 1bbb760fdeaf42c6a817250db4666e6d_1
+
+File: /home/asha/vulnado/Comment.java:70
+
+ 70       e.printStackTrace();
+
+LOW: Leakage of sensitive information in exception message [CWE-209]
+https://docs.bearer.com/reference/rules/java_lang_information_leakage
+To ignore this finding, run: bearer ignore add 621224d6f5c5c338464c48a390c6f899_0
+
+File: /home/asha/vulnado/Cowsay.java:24
+
+ 24       e.printStackTrace();
+
+LOW: Leakage of sensitive information in exception message [CWE-209]
+https://docs.bearer.com/reference/rules/java_lang_information_leakage
+To ignore this finding, run: bearer ignore add 72ad02585979941be935ec59d37b4944_0
+
+File: /home/asha/vulnado/Postgres.java:25
+
+ 25             e.printStackTrace();
+
+LOW: Leakage of sensitive information in exception message [CWE-209]
+https://docs.bearer.com/reference/rules/java_lang_information_leakage
+To ignore this finding, run: bearer ignore add 72ad02585979941be935ec59d37b4944_1
+
+File: /home/asha/vulnado/Postgres.java:100
+
+ 100          e.printStackTrace();
+
+LOW: Leakage of sensitive information in exception message [CWE-209]
+https://docs.bearer.com/reference/rules/java_lang_information_leakage
+To ignore this finding, run: bearer ignore add 72ad02585979941be935ec59d37b4944_2
+
+File: /home/asha/vulnado/Postgres.java:114
+
+ 114             e.printStackTrace();
+
+LOW: Leakage of sensitive information in exception message [CWE-209]
+https://docs.bearer.com/reference/rules/java_lang_information_leakage
+To ignore this finding, run: bearer ignore add 8c512ae114a077e20acdb30562b08f8c_0
+
+File: /home/asha/vulnado/User.java:34
+
+ 34       e.printStackTrace();
+
+LOW: Leakage of sensitive information in exception message [CWE-209]
+https://docs.bearer.com/reference/rules/java_lang_information_leakage
+To ignore this finding, run: bearer ignore add 8c512ae114a077e20acdb30562b08f8c_1
+
+File: /home/asha/vulnado/User.java:58
+
+ 58       e.printStackTrace();
+=====================================
+
+79 checks, 10 findings
+
+CRITICAL: 1 (CWE-89)
+HIGH: 0
+MEDIUM: 1 (CWE-208)
+LOW: 8 (CWE-209)
+WARNING: 0
+
+Need help or want to discuss the output? Join the Community https://discord.gg/eaHZBJUXRF
+
+
+
+Security Report
+
+=====================================
+
+Rules: 
+https://docs.bearer.com/reference/rules [v0.46.0]
+
+Language  Default Rules  Custom Rules  Files  
+Java      79             0             11     
+
+
+CRITICAL: Usage of hard-coded database password [CWE-259]
+https://docs.bearer.com/reference/rules/java_lang_hardcoded_database_password
+To ignore this finding, run: bearer ignore add b0768c604b95ae2123bb9d8b9bc17894_0
+
+File: /home/asha/vulnado/UnsafeQueryServlet.java:29
+
+ 29             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+
+CRITICAL: Unsanitized external input in SQL query [CWE-89]
+https://docs.bearer.com/reference/rules/java_lang_sqli
+To ignore this finding, run: bearer ignore add 878d7935260ff7479472fab41f8bb8fd_0
+
+File: /home/asha/vulnado/UnsafeQueryServlet.java:41
+
+ 41             result = statement.executeQuery(query);
+
+CRITICAL: Unsanitized external input in SQL query [CWE-89]
+https://docs.bearer.com/reference/rules/java_lang_sqli
+To ignore this finding, run: bearer ignore add 593bcc2fa5fb23992be7c22ba3604622_0
+
+File: /home/asha/vulnado/User.java:49
+
+ 49       ResultSet rs = stmt.executeQuery(query);
+
+MEDIUM: Observable Timing Discrepancy [CWE-208]
+https://docs.bearer.com/reference/rules/java_lang_observable_timing
+To ignore this finding, run: bearer ignore add c018c6018a764d7f7b861260137dab3e_0
+
+File: /home/asha/vulnado/LoginController.java:21
+
+ 21     if (Postgres.md5(input.password).equals(user.hashedPassword)) {
+
+LOW: Leakage of sensitive information in exception message [CWE-209]
+https://docs.bearer.com/reference/rules/java_lang_information_leakage
+To ignore this finding, run: bearer ignore add 1bbb760fdeaf42c6a817250db4666e6d_0
+
+File: /home/asha/vulnado/Comment.java:55
+
+ 55       e.printStackTrace();
+
+LOW: Leakage of sensitive information in exception message [CWE-209]
+https://docs.bearer.com/reference/rules/java_lang_information_leakage
+To ignore this finding, run: bearer ignore add 1bbb760fdeaf42c6a817250db4666e6d_1
+
+File: /home/asha/vulnado/Comment.java:70
+
+ 70       e.printStackTrace();
+
+LOW: Leakage of sensitive information in exception message [CWE-209]
+https://docs.bearer.com/reference/rules/java_lang_information_leakage
+To ignore this finding, run: bearer ignore add 621224d6f5c5c338464c48a390c6f899_0
+
+File: /home/asha/vulnado/Cowsay.java:24
+
+ 24       e.printStackTrace();
+
+LOW: Leakage of sensitive information in exception message [CWE-209]
+https://docs.bearer.com/reference/rules/java_lang_information_leakage
+To ignore this finding, run: bearer ignore add 72ad02585979941be935ec59d37b4944_0
+
+File: /home/asha/vulnado/Postgres.java:25
+
+ 25             e.printStackTrace();
+
+LOW: Leakage of sensitive information in exception message [CWE-209]
+https://docs.bearer.com/reference/rules/java_lang_information_leakage
+To ignore this finding, run: bearer ignore add 72ad02585979941be935ec59d37b4944_1
+
+File: /home/asha/vulnado/Postgres.java:100
+
+ 100          e.printStackTrace();
+
+LOW: Leakage of sensitive information in exception message [CWE-209]
+https://docs.bearer.com/reference/rules/java_lang_information_leakage
+To ignore this finding, run: bearer ignore add 72ad02585979941be935ec59d37b4944_2
+
+File: /home/asha/vulnado/Postgres.java:114
+
+ 114             e.printStackTrace();
+
+LOW: Leakage of sensitive information in exception message [CWE-209]
+https://docs.bearer.com/reference/rules/java_lang_information_leakage
+To ignore this finding, run: bearer ignore add bbe0f99edce0bf16ac7c98207d872893_0
+
+File: /home/asha/vulnado/UnsafeQueryServlet.java:49
+
+ 49             e.printStackTrace();
+
+LOW: Leakage of sensitive information in exception message [CWE-209]
+https://docs.bearer.com/reference/rules/java_lang_information_leakage
+To ignore this finding, run: bearer ignore add bbe0f99edce0bf16ac7c98207d872893_1
+
+File: /home/asha/vulnado/UnsafeQueryServlet.java:52
+
+ 52             try { if (result != null) result.close(); } catch (Exception e) { e.printStackTrace(); }
+
+LOW: Leakage of sensitive information in exception message [CWE-209]
+https://docs.bearer.com/reference/rules/java_lang_information_leakage
+To ignore this finding, run: bearer ignore add bbe0f99edce0bf16ac7c98207d872893_2
+
+File: /home/asha/vulnado/UnsafeQueryServlet.java:53
+
+ 53             try { if (statement != null) statement.close(); } catch (Exception e) { e.printStackTrace(); }
+
+LOW: Leakage of sensitive information in exception message [CWE-209]
+https://docs.bearer.com/reference/rules/java_lang_information_leakage
+To ignore this finding, run: bearer ignore add bbe0f99edce0bf16ac7c98207d872893_3
+
+File: /home/asha/vulnado/UnsafeQueryServlet.java:54
+
+ 54             try { if (connection != null) connection.close(); } catch (Exception e) { e.printStackTrace(); }
+
+LOW: Leakage of sensitive information in exception message [CWE-209]
+https://docs.bearer.com/reference/rules/java_lang_information_leakage
+To ignore this finding, run: bearer ignore add 8c512ae114a077e20acdb30562b08f8c_0
+
+File: /home/asha/vulnado/User.java:34
+
+ 34       e.printStackTrace();
+
+LOW: Leakage of sensitive information in exception message [CWE-209]
+https://docs.bearer.com/reference/rules/java_lang_information_leakage
+To ignore this finding, run: bearer ignore add 8c512ae114a077e20acdb30562b08f8c_1
+
+File: /home/asha/vulnado/User.java:58
+
+ 58       e.printStackTrace();
+=====================================
+
+79 checks, 16 findings
+
+CRITICAL: 3 (CWE-259, CWE-89)
+HIGH: 0
+MEDIUM: 1 (CWE-208)
+LOW: 12 (CWE-209)
+WARNING: 0
+
+Need help or want to discuss the output? Join the Community https://discord.gg/eaHZBJUXRF
+

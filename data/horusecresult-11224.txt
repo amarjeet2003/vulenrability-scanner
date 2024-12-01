@@ -1,0 +1,62 @@
+time="2024-10-17T18:40:34+05:30" level=warning msg="{HORUSEC_CLI} When starting the analysis WE SKIP A TOTAL OF 1 FILES that are not considered to be analyzed. To see more details use flag --log-level=debug"
+
+time="2024-10-17T18:40:34+05:30" level=warning msg="Horusec will return a timeout after 600 seconds. This time can be customized in the cli settings."
+
+time="2024-10-17T18:40:34+05:30" level=warning msg="{HORUSEC_CLI} PLEASE DON'T REMOVE \".horusec\" FOLDER BEFORE THE ANALYSIS FINISH! Don’t worry, we’ll remove it after the analysis ends automatically! Project sent to folder in location: [D:\\Tools\\Pythoncodes\\.horusec\\940814f9-4546-4965-9227-5f9859326b8f]"
+
+⣾ Scanning code ...                    
+
+==================================================================================
+
+HORUSEC ENDED THE ANALYSIS WITH STATUS OF "success" AND WITH THE FOLLOWING RESULTS:
+
+==================================================================================
+
+Analysis StartedAt: 2024-10-17 18:40:34
+Analysis FinishedAt: 2024-10-17 18:40:34
+
+==================================================================================
+
+Language: Leaks
+Severity: CRITICAL
+Line: 4
+Column: 4
+SecurityTool: HorusecEngine
+Confidence: MEDIUM
+File: D:\Tools\Pythoncodes\VulDB1\DataExposure.py
+Code: api_key = "1234567890abcdef"  # Hardcoded API key
+RuleID: HS-LEAKS-25
+Type: Vulnerability
+ReferenceHash: 80775964665904dbc62d2234237c48b01bf79dd5fc747e418b9bf16acc11b760
+Details: (1/1) * Possible vulnerability detected: Potential Hard-coded credential
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory.
+
+==================================================================================
+
+Language: Leaks
+Severity: CRITICAL
+Line: 16
+Column: 12
+SecurityTool: HorusecEngine
+Confidence: MEDIUM
+File: D:\Tools\Pythoncodes\VulDB1\vulpy.py
+Code: app.config['SECRET_KEY'] = 'aaaaaaa'
+RuleID: HS-LEAKS-25
+Type: Vulnerability
+ReferenceHash: 18885b333a96b58fbfb61fa717f91ec4744058e939dca34d80ad34addac098be
+Details: (1/1) * Possible vulnerability detected: Potential Hard-coded credential
+The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory.
+
+==================================================================================
+
+In this analysis, a total of 2 possible vulnerabilities were found and we classified them into:
+Total of Vulnerability CRITICAL is: 2
+
+==================================================================================
+
+
+time="2024-10-17T18:40:34+05:30" level=warning msg="{HORUSEC_CLI} No authorization token was found, your code it is not going to be sent to horusec. Please enter a token with the -a flag to configure and save your analysis"
+
+time="2024-10-17T18:40:34+05:30" level=warning msg="{HORUSEC_CLI} 2 VULNERABILITIES WERE FOUND IN YOUR CODE SENT TO HORUSEC, TO SEE MORE DETAILS USE THE LOG LEVEL AS DEBUG AND TRY AGAIN"
+
+time="2024-10-17T18:40:34+05:30" level=warning msg="{HORUSEC_CLI} Horusec not show info vulnerabilities in this analysis, to see info vulnerabilities add option \"--information-severity=true\". For more details use (horusec start --help) command."

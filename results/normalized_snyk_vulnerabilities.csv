@@ -1,6 +1,37 @@
 Severity,Title,File,Line,Code,Details,CWE ID
-MEDIUM,Cleartext Transmission of Sensitive Information,ldapinjection.java,60,,Reading from an unencrypted socket is insecure - a man-in-the-middle attacker can tamper the messages. Consider using SSL sockets.,319
-MEDIUM,LDAP Injection,ldapinjection.java,129,,"Unsanitized input from data from a remote resource flows into search, where it is used as an LDAP query. This may result in an LDAP Injection vulnerability.",N/A
-MEDIUM,Use of a Broken or Risky Cryptographic Algorithm,embeddedmaliciouscode.java,37,,The ECB mode used in javax.crypto.Cipher.getInstance does not provide integrity. Consided using Galois/Counter Mode.,327
-MEDIUM,Use of a Broken or Risky Cryptographic Algorithm,embeddedmaliciouscode.java,37,,"Default AES/ECB algorithm (AES) used in javax.crypto.Cipher.getInstance may be insecure, because equal messages get encrypted to equal data. Consider using Galois/Counter Mode (algorithm AES/GCM/NoPadding).",327
-HIGH,Hardcoded Secret,embeddedmaliciouscode.java,39,,Hardcoded value string is used as a cipher key. Generate the value with a cryptographically strong random number generator such as java.security.SecureRandom instead.,N/A
+,,dataexposure.py,4,,Do not hardcode credentials in code. Found hardcoded credential used in here.,N/A
+,,skey.py,16,,sha1 used in hashlib.new is insecure. Consider changing it to a secure hashing algorithm.,N/A
+,,hash.py,15,,hashlib.md5 is insecure. Consider changing it to a secure hashing algorithm.,N/A
+,,weakcrypto.py,4,,hashlib.md5 is insecure. Consider changing it to a secure hashing algorithm.,N/A
+,,17-deserialization-classic.py,51,,Cookie's Secure flag is set to False by default. Set it to true to protect the cookie from man-in-the-middle attacks.,N/A
+,,17-deserialization-classic.py,51,,Cookie's HttpOnly flag is set to False by default. Set it to true to protect the cookie from possible malicious code on client side.,N/A
+,,commandinjection.py,4,,"Unsanitized input from user input flows into os.system, where it is used as a shell command. This may result in a Command Injection vulnerability.",N/A
+,,sqlinjection.py,7,,"Unsanitized input from user input flows into execute, where it is used in an SQL query. This may result in an SQL Injection vulnerability.",N/A
+,,42-command-injection-classic.py,38,,Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.,N/A
+,,13-fileupload_codeinjection.py,41,,Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.,N/A
+,,vulpy.py,55,,Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.,N/A
+,,34-dos-regex.py,35,,Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.,N/A
+,,17-deserialization-classic.py,56,,Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.,N/A
+,,32-format-injection-classic.py,33,,Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.,N/A
+,,2-ssrf-regex-bypass.py,43,,Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.,N/A
+,,xss.py,12,,Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.,N/A
+,,27-cache-poisoning-classic.py,33,,Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.,N/A
+,,xxe.py,12,,xml.dom.pulldom.parseString is considered insecure. Use an analog from the defusedxml package.,N/A
+,,xxe.py,16,,xml.sax.parseString is considered insecure. Use an analog from the defusedxml package.,N/A
+,,code_inj.py,33,,"Unsanitized input from a command line argument flows into post, where it is used as an URL to perform a request. This may result in a Server Side Request Forgery vulnerability.",N/A
+,,code_inj.py,42,,"Unsanitized input from a command line argument flows into post, where it is used as an URL to perform a request. This may result in a Server Side Request Forgery vulnerability.",N/A
+,,2-ssrf-regex-bypass.py,26,,"Unsanitized input from an HTTP parameter flows into requests.get, where it is used as an URL to perform a request. This may result in a Server Side Request Forgery vulnerability.",N/A
+,,42-command-injection-classic.py,21,,"Unsanitized input from a web form flows into os.popen, where it is used as a shell command. This may result in a Command Injection vulnerability.",N/A
+,,13-fileupload_codeinjection.py,21,,"Unsanitized input from an HTTP parameter flows into the return value of sharedFiles, where it is used to render an HTML page returned to the user. This may result in a Cross-Site Scripting attack (XSS).",N/A
+,,vulpy.py,16,,Avoid hardcoding values that are meant to be secret. Found a hardcoded string used in here.,N/A
+,,dataexposure.py,4,,Avoid hardcoding values that are meant to be secret. Found a hardcoded string used in here.,N/A
+,,dynamic-code-injection.py,8,,"Unsanitized input from an HTTP parameter flows into eval, where it is executed as Python code. This may result in a Code Injection vulnerability.",N/A
+,,17-deserialization-classic.py,41,,"Unsanitized input from cookies flows into pickle.loads, where it is used to deserialize an object. This may result in an Unsafe Deserialization vulnerability.",N/A
+,,pyca.py,15,,The triple DES cipher is insecure. Consider using AES instead.,N/A
+,,pycrypto.py,11,,The triple DES cipher is insecure. Consider using AES instead.,N/A
+,,pyca.py,16,,The Blowfish cipher is insecure. Consider using AES instead.,N/A
+,,pycrypto.py,12,,The Blowfish cipher is insecure. Consider using AES instead.,N/A
+,,pyca.py,17,,The ARC4 cipher is insecure. Consider using AES instead.,N/A
+,,pycrypto.py,14,,The ARC4 cipher is insecure. Consider using AES instead.,N/A
+,,pycrypto.py,10,,The DES cipher is insecure. Consider using AES instead.,N/A
+,,13-fileupload_codeinjection.py,31,,"Unsanitized input from the HTTP request body flows into save, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write arbitrary files.",N/A

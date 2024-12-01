@@ -1,0 +1,4 @@
+Severity,Title,File,Line,Code,Details,CWE ID
+,Vulnerability 1:,2-ssrf-regex-bypass.py,2,,,N/A
+,Vulnerability 2:,32-format-injection-classic.py,38,,,N/A
+,Vulnerability 3:,34-dos-regex.py,52,,,N/A
