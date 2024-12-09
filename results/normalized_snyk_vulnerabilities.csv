@@ -1,6 +1,16 @@
 Severity,Title,File,Line,Code,Details,CWE ID
-MEDIUM,Cleartext Transmission of Sensitive Information,ldapinjection.java,60,,Reading from an unencrypted socket is insecure - a man-in-the-middle attacker can tamper the messages. Consider using SSL sockets.,319
-MEDIUM,LDAP Injection,ldapinjection.java,129,,"Unsanitized input from data from a remote resource flows into search, where it is used as an LDAP query. This may result in an LDAP Injection vulnerability.",N/A
-MEDIUM,Use of a Broken or Risky Cryptographic Algorithm,embeddedmaliciouscode.java,37,,The ECB mode used in javax.crypto.Cipher.getInstance does not provide integrity. Consided using Galois/Counter Mode.,327
-MEDIUM,Use of a Broken or Risky Cryptographic Algorithm,embeddedmaliciouscode.java,37,,"Default AES/ECB algorithm (AES) used in javax.crypto.Cipher.getInstance may be insecure, because equal messages get encrypted to equal data. Consider using Galois/Counter Mode (algorithm AES/GCM/NoPadding).",327
-HIGH,Hardcoded Secret,embeddedmaliciouscode.java,39,,Hardcoded value string is used as a cipher key. Generate the value with a cryptographically strong random number generator such as java.security.SecureRandom instead.,N/A
+LOW,Use of Password Hash With Insufficient Computational Effort,postgres.java,67,,The MD5 hash (used in java.security.MessageDigest.getInstance) is insecure. Consider changing it to a secure hash algorithm,CWE-916
+MEDIUM,Origin Validation Error,logincontroller.java,17,,"CORS policy ""*"" might be too permissive. This allows malicious code on other domains to communicate with the application, which is a security risk","CWE-346, CWE-942"
+MEDIUM,Origin Validation Error,commentscontroller.java,16,,"CORS policy ""*"" might be too permissive. This allows malicious code on other domains to communicate with the application, which is a security risk","CWE-346, CWE-942"
+MEDIUM,Origin Validation Error,commentscontroller.java,23,,"CORS policy ""*"" might be too permissive. This allows malicious code on other domains to communicate with the application, which is a security risk","CWE-346, CWE-942"
+MEDIUM,Origin Validation Error,commentscontroller.java,29,,"CORS policy ""*"" might be too permissive. This allows malicious code on other domains to communicate with the application, which is a security risk","CWE-346, CWE-942"
+MEDIUM,Use of Hardcoded Credentials,postgres.java,46,,Do not hardcode passwords in code. Found hardcoded password used in here.,"CWE-259, CWE-798"
+MEDIUM,Use of Hardcoded Credentials,postgres.java,47,,Do not hardcode passwords in code. Found hardcoded password used in here.,"CWE-259, CWE-798"
+MEDIUM,Use of Hardcoded Credentials,postgres.java,48,,Do not hardcode passwords in code. Found hardcoded password used in here.,"CWE-259, CWE-798"
+MEDIUM,Use of Hardcoded Credentials,postgres.java,49,,Do not hardcode passwords in code. Found hardcoded password used in here.,"CWE-259, CWE-798"
+MEDIUM,Use of Hardcoded Credentials,postgres.java,50,,Do not hardcode passwords in code. Found hardcoded password used in here.,"CWE-259, CWE-798"
+HIGH,Cross-site Scripting (XSS),cowcontroller.java,13,,"Unsanitized input from an HTTP parameter flows into here, where it is used to render an HTML page returned to the user. This may result in a Cross-Site Scripting attack (XSS).",CWE-79
+HIGH,Server-Side Request Forgery (SSRF),linkscontroller.java,17,,"Unsanitized input from an HTTP parameter flows into org.jsoup.Jsoup.connect, where it is used as an URL to perform a request. This may result in a Server-Side Request Forgery vulnerability.",CWE-918
+HIGH,Server-Side Request Forgery (SSRF),linkscontroller.java,21,,"Unsanitized input from an HTTP parameter flows into org.jsoup.Jsoup.connect, where it is used as an URL to perform a request. This may result in a Server-Side Request Forgery vulnerability.",CWE-918
+HIGH,Command Injection,cowcontroller.java,13,,"Unsanitized input from an HTTP parameter flows into command, where it is used as a shell command. This may result in a Command Injection vulnerability.",CWE-78
+HIGH,SQL Injection,logincontroller.java,20,,"Unsanitized input from an HTTP parameter flows into executeQuery, where it is used in an SQL query. This may result in an SQL Injection vulnerability.",CWE-89

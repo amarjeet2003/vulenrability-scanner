@@ -136,6 +136,82 @@ def parse_snyk_report(report_path):
                 vulnerability = {}
 
     return vulnerabilities
+
+def parse_semgrep_report(report_path):
+    vulnerabilities = []
+    vulnerability = {}
+
+    with open(report_path, 'r', encoding='utf-8') as file:
+        for line in file:
+            line = line.strip()
+
+            # Check for file path
+            file_match = re.match(r'^\s*(.*\.(java|py|js|rb|go))', line)
+            if file_match:
+                # Save previous vulnerability if one exists
+                if vulnerability:
+                    vulnerabilities.append(vulnerability)
+                    vulnerability = {}
+                    
+                vulnerability['file'] = file_match.group(1).split('/')[-1]
+
+            # Check for vulnerability type
+            # type_match = re.match(r'^\s*(\w+\.\w+\.\w+.*)', line)
+            # if type_match:
+            #     vulnerability['title'] = type_match.group(1)
+
+            # Check for details
+            if line.startswith('Detected') or line.startswith('A'):
+                vulnerability['details'] = line
+
+            # Check for line number and code snippet
+            code_match = re.match(r'^\s*(\d+)\s*┆\s*(.*)', line)
+            if code_match:
+                vulnerability['line'] = code_match.group(1)
+                vulnerability['code'] = code_match.group(2)
+
+    # Append the last vulnerability
+    if vulnerability:
+        vulnerabilities.append(vulnerability)
+
+    return vulnerabilities
+
+
+def parse_bearer_report(report_path):
+    vulnerabilities = []
+    vulnerability = {}
+
+    with open(report_path, 'r', encoding='utf-8') as file:
+        for line in file:
+            line = line.strip()
+
+            # Check for severity level (e.g., CRITICAL, MEDIUM, LOW)
+            severity_match = re.match(r'^(CRITICAL|HIGH|MEDIUM|LOW):\s*(.*)\s*\[CWE-\d+\]', line)
+            if severity_match:
+                if vulnerability:
+                    vulnerabilities.append(vulnerability)
+                    vulnerability = {}
+
+                vulnerability['severity'] = severity_match.group(1)
+                vulnerability['title'] = severity_match.group(2)
+
+            # Extract file path and line number (e.g., File: /path/to/file.java:49)
+            file_match = re.match(r'^File:\s*(.*):(\d+)', line)
+            if file_match:
+                vulnerability['file'] = file_match.group(1).split("/")[-1]  # Extract just the filename
+                vulnerability['line'] = file_match.group(2)
+
+            # Extract the code that follows the line number
+            code_match = re.match(r'^(\d+)\s*(.*)', line)
+            if code_match and 'line' in vulnerability and code_match.group(1) == vulnerability['line']:
+                vulnerability['code'] = code_match.group(2)
+
+        if vulnerability:
+            vulnerabilities.append(vulnerability)  # Append the last vulnerability if it exists
+    print("Bearer Report:", vulnerabilities)
+    return vulnerabilities
+
+
 # Function to normalize the vulnerability data
 def normalize_vulnerability(vuln):
     return {
@@ -154,8 +230,8 @@ def map_cwe_ids(excel_path):
     sheet = wb.active
 
     for row in sheet.iter_rows(min_row=2, values_only=True):
-        cwe_id, name, description = row
-        cwe_map[name.strip().lower()] = cwe_id  # Store as lowercase for easier matching
+        rule_name, cwe_id = row
+        cwe_map[rule_name.strip().lower()] = cwe_id  # Store as lowercase for easier matching
 
     return cwe_map
 

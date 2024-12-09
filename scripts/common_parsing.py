@@ -54,7 +54,8 @@ def find_common_entries(sources):
             f'Line_{primary_source_name}': row['Line'], 
             f'Code_{primary_source_name}': row['Code'],
             f'Title_{primary_source_name}': row['Title'],
-            f'Details_{primary_source_name}': row['Details']
+            f'Details_{primary_source_name}': row['Details'],
+            f'CWE ID_{primary_source_name}': row['CWE ID']
         }
 
         is_common = False
@@ -64,12 +65,13 @@ def find_common_entries(sources):
             if file_name in source_lookups[other_source_name]:
                 for other_row in source_lookups[other_source_name][file_name]:
                     # Check if the details are similar
-                    if is_similar(row['Details'], other_row['Details']) or is_similar(row['Title'], other_row['Title']):
+                    if is_similar(row['Details'], other_row['Details']) or is_similar(row['Title'], other_row['Title']) or is_similar(row['Code'], other_row['Code']):
                         matched_entry[f'Severity_{other_source_name}'] = other_row['Severity']
                         matched_entry[f'Line_{other_source_name}'] = other_row['Line']
                         matched_entry[f'Code_{other_source_name}'] = other_row['Code']
                         matched_entry[f'Title_{other_source_name}'] = other_row['Title']
                         matched_entry[f'Details_{other_source_name}'] = other_row['Details']
+                        matched_entry[f'CWE ID_{other_source_name}'] = other_row['CWE ID']
                         is_common = True
                         break
             else:
@@ -78,6 +80,7 @@ def find_common_entries(sources):
                 matched_entry[f'Code_{other_source_name}'] = None
                 matched_entry[f'Title_{other_source_name}'] = None
                 matched_entry[f'Details_{other_source_name}'] = None
+                matched_entry[f'CWE ID_{other_source_name}'] = None
 
         if is_common:
             common_entries.append(matched_entry)

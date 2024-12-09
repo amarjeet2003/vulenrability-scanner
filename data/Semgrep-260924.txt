@@ -1,0 +1,105 @@
+                    
+                    
+┌──────────────────┐
+│ 11 Code Findings │
+└──────────────────┘
+                                                         
+  [36m[22m[24m  /home/asha/vulnado/CowController.java [0m
+       [1m[24mjava.spring.security.unrestricted-request-mapping.unrestricted-request-mapping[0m       
+          Detected a method annotated with 'RequestMapping' that does not specify the HTTP method.    
+          CSRF protections are not enabled for GET, HEAD, TRACE, or OPTIONS, and by default all HTTP  
+          methods are allowed when the HTTP method is not explicitly specified. This means that a     
+          method that performs state changes could be vulnerable to CSRF attacks. To mitigate, add the
+          'method' field and specify the HTTP method (such as 'RequestMethod.POST').                  
+          Details: https://sg.run/2xlq                                                                
+                                                                                                      
+           11┆ @[1m[24mRequestMapping[0m(value = "/cowsay")
+                                                  
+  [36m[22m[24m  /home/asha/vulnado/Cowsay.java [0m
+       [1m[24mjava.lang.security.audit.command-injection-process-builder.command-injection-process-builder[0m
+          A formatted or concatenated string was detected as input to a ProcessBuilder call. This is         
+          dangerous if a variable is controlled by user input and could result in a command injection.       
+          Ensure your variables are not controlled by users or sufficiently sanitized.                       
+          Details: https://sg.run/gJJe                                                                       
+                                                                                                             
+           11┆ [1m[24mprocessBuilder.command("bash", "-c", cmd)[0m;
+                                                           
+  [36m[22m[24m  /home/asha/vulnado/LinksController.java [0m
+       [1m[24mjava.spring.security.unrestricted-request-mapping.unrestricted-request-mapping[0m       
+          Detected a method annotated with 'RequestMapping' that does not specify the HTTP method.    
+          CSRF protections are not enabled for GET, HEAD, TRACE, or OPTIONS, and by default all HTTP  
+          methods are allowed when the HTTP method is not explicitly specified. This means that a     
+          method that performs state changes could be vulnerable to CSRF attacks. To mitigate, add the
+          'method' field and specify the HTTP method (such as 'RequestMethod.POST').                  
+          Details: https://sg.run/2xlq                                                                
+                                                                                                      
+           15┆ @[1m[24mRequestMapping[0m(value = "/links", produces = "application/json")
+            ⋮┆----------------------------------------
+           19┆ @[1m[24mRequestMapping[0m(value = "/links-v2", produces = "application/json")
+                                                    
+  [36m[22m[24m  /home/asha/vulnado/Postgres.java [0m
+       [1m[24mjava.lang.security.audit.crypto.use-of-md5.use-of-md5[0m                                
+          Detected MD5 hash algorithm which is considered insecure. MD5 is not collision resistant and
+          is therefore not suitable as a cryptographic signature. Use HMAC instead.                   
+          Details: https://sg.run/ryJn                                                                
+                                                                                                      
+  [32m[22m[24m         ▶▶┆ Autofix ▶[0m "SHA-512"
+           67┆ MessageDigest md = MessageDigest.getInstance([1m[24m"MD5"[0m);
+                                                              
+  [36m[22m[24m  /home/asha/vulnado/UnsafeQueryServlet.java [0m
+       [1m[24mjava.lang.security.audit.sqli.tainted-sql-from-http-request.tainted-sql-from-http-request[0m
+          Detected input from a HTTPServletRequest going into a SQL sink or statement. This could lead    
+          to SQL injection if variables in the SQL statement are not properly sanitized. Use              
+          parameterized SQL queries or properly sanitize user input instead.                              
+          Details: https://sg.run/Lg56                                                                    
+                                                                                                          
+           21┆ [1m[24mStatement statement = null;[0m
+           22┆ [1m[24mResultSet result = null;[0m
+           23┆ [1m[24m[0m
+           24┆ [1m[24mtry {[0m
+           25┆ [1m[24m    // Get username from parameters[0m
+           26┆ [1m[24m    String username = request.getParameter("username");[0m
+           27┆ [1m[24m[0m
+           28┆ [1m[24m    // Establish database connection[0m
+           29┆ [1m[24m    connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);[0m
+           30┆ [1m[24m[0m
+             [hid 25 additional lines, adjust with --max-lines-per-finding] 
+           41┆ [1m[24mresult = statement.executeQuery(query);[0m
+            ⋮┆----------------------------------------
+       [1m[24mjava.lang.security.audit.sqli.jdbc-sqli.jdbc-sqli[0m                            
+          Detected a formatted string in a SQL statement. This could lead to SQL injection if 
+          variables in the SQL statement are not properly sanitized. Use a prepared statements
+          (java.sql.PreparedStatement) instead. You can obtain a PreparedStatement using      
+          'connection.prepareStatement'.                                                      
+          Details: https://sg.run/AvkL                                                        
+                                                                                              
+           41┆ result = [1m[24mstatement.executeQuery(query)[0m;
+            ⋮┆----------------------------------------
+       [1m[24mjava.lang.security.audit.xss.no-direct-response-writer.no-direct-response-writer[0m   
+          Detected a request with potential user-input going into a OutputStream or Writer object.  
+          This bypasses any view or template environments, including HTML escaping, which may expose
+          this application to cross-site scripting (XSS) vulnerabilities. Consider using a view     
+          technology such as JavaServer Faces (JSFs) which automatically escapes HTML views.        
+          Details: https://sg.run/KlRL                                                              
+                                                                                                    
+           46┆ [1m[24mresponse.getWriter().println("Secret: " + secret)[0m;
+                                                
+  [36m[22m[24m  /home/asha/vulnado/User.java [0m
+       [1m[24mjava.lang.security.audit.formatted-sql-string.formatted-sql-string[0m           
+          Detected a formatted string in a SQL statement. This could lead to SQL injection if 
+          variables in the SQL statement are not properly sanitized. Use a prepared statements
+          (java.sql.PreparedStatement) instead. You can obtain a PreparedStatement using      
+          'connection.prepareStatement'.                                                      
+          Details: https://sg.run/OPXp                                                        
+                                                                                              
+           49┆ ResultSet rs = [1m[24mstmt.executeQuery(query)[0m;
+            ⋮┆----------------------------------------
+       [1m[24mjava.lang.security.audit.sqli.jdbc-sqli.jdbc-sqli[0m                            
+          Detected a formatted string in a SQL statement. This could lead to SQL injection if 
+          variables in the SQL statement are not properly sanitized. Use a prepared statements
+          (java.sql.PreparedStatement) instead. You can obtain a PreparedStatement using      
+          'connection.prepareStatement'.                                                      
+          Details: https://sg.run/AvkL                                                        
+                                                                                              
+           49┆ ResultSet rs = [1m[24mstmt.executeQuery(query)[0m;
+
